@@ -16,7 +16,6 @@
 @property (nonatomic, strong) IBOutlet UITextField *birthdayTextField;
 @property (nonatomic, strong) IBOutlet UITextField *nameTextField;
 @property (nonatomic, strong) ChatDatePicker *datePicker;
-@property (nonatomic, strong) ChatAPI *loader;
 
 @end
 
@@ -27,11 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.loader = [[ChatAPI alloc]init];
 }
 
 - (IBAction)registrateUserAction:(id)sender {
-    [self.loader registrateUserWithNameString:self.nameTextField.text emailString:self.emailTextField.text date:unixTimeBirthday passwordString:self.passwordTextField.text];
+    [[ChatAPI sharedInstance] registrateUserWithNameString:self.nameTextField.text emailString:self.emailTextField.text date:unixTimeBirthday passwordString:self.passwordTextField.text];
 }
 
 - (void)loadDatePicker {

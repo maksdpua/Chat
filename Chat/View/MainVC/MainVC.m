@@ -8,6 +8,9 @@
 
 #import "MainVC.h"
 #import "ChatAPI.h"
+#import "UserInfoVC.h"
+
+
 @interface MainVC()
 
 @property (nonatomic, strong)IBOutlet UITextField *emailTextField;
@@ -22,7 +25,13 @@
 }
 
 - (IBAction)loginAction:(id)sender {
-    [[ChatAPI sharedInstance] loginUserWithEmailString:self.emailTextField.text passwordString:self.passwordTextField.text];
+    [[ChatAPI sharedInstance] loginUserWithEmailString:self.emailTextField.text passwordString:self.passwordTextField.text compliction:^{
+        UserInfoVC *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserInfoVC"];
+        [self.navigationController pushViewController:userInfoVC animated:YES];
+    } failure:^(NSString *errorText) {
+        
+        NSLog(@"%@", errorText);
+    }];
 }
 
 @end

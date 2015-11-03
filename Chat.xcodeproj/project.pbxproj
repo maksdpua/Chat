@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */; };
 		2D4322BA1BE8BEC200E9B2EE /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */; };
+		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
 		2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC114D81BE42C3B00EC5854 /* ChatValidator.m */; };
 		2DCA1DD21BE7DE3000E74877 /* ChatAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA1DD11BE7DE3000E74877 /* ChatAPI.m */; };
 		2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77181BCA62CE00C5F8E6 /* main.m */; };
 		2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */; };
 		2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */; };
-		2DEC77221BCA62CE00C5F8E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEC77201BCA62CE00C5F8E6 /* Main.storyboard */; };
 		2DEC77241BCA62CE00C5F8E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */; };
 		2DEC77271BCA62CE00C5F8E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEC77251BCA62CE00C5F8E6 /* LaunchScreen.storyboard */; };
 		2DEC77321BCA62CE00C5F8E6 /* ChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77311BCA62CE00C5F8E6 /* ChatTests.m */; };
@@ -50,6 +50,7 @@
 		2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatDataSource.m; path = DataSource/ChatDataSource.m; sourceTree = "<group>"; };
 		2D4322B81BE8BEC200E9B2EE /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoVC.h; path = View/UserInfoVC/UserInfoVC.h; sourceTree = "<group>"; };
 		2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoVC.m; path = View/UserInfoVC/UserInfoVC.m; sourceTree = "<group>"; };
+		2D4322BC1BE8FD7D00E9B2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DC114D71BE42C3B00EC5854 /* ChatValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatValidator.h; path = Validator/ChatValidator.h; sourceTree = "<group>"; };
 		2DC114D81BE42C3B00EC5854 /* ChatValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatValidator.m; path = Validator/ChatValidator.m; sourceTree = "<group>"; };
 		2DCA1DCE1BE7DCA300E74877 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -62,7 +63,6 @@
 		2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2DEC771D1BCA62CE00C5F8E6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		2DEC77211BCA62CE00C5F8E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DEC77261BCA62CE00C5F8E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DEC77281BCA62CE00C5F8E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -232,8 +232,8 @@
 				2D1B4CB71BCAA33900B68666 /* DataSource */,
 				2DEC771A1BCA62CE00C5F8E6 /* AppDelegate.h */,
 				2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */,
-				2DEC77201BCA62CE00C5F8E6 /* Main.storyboard */,
 				2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */,
+				2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */,
 				2DEC77251BCA62CE00C5F8E6 /* LaunchScreen.storyboard */,
 				2DEC77281BCA62CE00C5F8E6 /* Info.plist */,
 				2DEC77171BCA62CE00C5F8E6 /* Supporting Files */,
@@ -435,8 +435,8 @@
 			files = (
 				2DEC77271BCA62CE00C5F8E6 /* LaunchScreen.storyboard in Resources */,
 				2DEC77241BCA62CE00C5F8E6 /* Assets.xcassets in Resources */,
-				2DEC77221BCA62CE00C5F8E6 /* Main.storyboard in Resources */,
 				FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */,
+				2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,10 +541,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2DEC77201BCA62CE00C5F8E6 /* Main.storyboard */ = {
+		2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2DEC77211BCA62CE00C5F8E6 /* Base */,
+				2D4322BC1BE8FD7D00E9B2EE /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
