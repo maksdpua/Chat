@@ -9,6 +9,7 @@ target 'Chat' do
 
 pod 'AFNetworking'
 pod 'SocketRocket'
+pod 'MBProgressHUD'
 
 end
 

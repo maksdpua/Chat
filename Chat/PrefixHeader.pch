@@ -1,0 +1,16 @@
+//
+//  PrefixHeader.pch
+//  Chat
+//
+//  Created by Maks on 11/2/15.
+//  Copyright © 2015 Maks. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "ChatDatePicker.h"
+#import "ChatValidator.h"
+#import "MessageObject.h"
+
+#endif /* PrefixHeader_pch */

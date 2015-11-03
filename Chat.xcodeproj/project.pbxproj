@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */; };
+		2D4322BA1BE8BEC200E9B2EE /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */; };
+		2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC114D81BE42C3B00EC5854 /* ChatValidator.m */; };
+		2DCA1DD21BE7DE3000E74877 /* ChatAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA1DD11BE7DE3000E74877 /* ChatAPI.m */; };
 		2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77181BCA62CE00C5F8E6 /* main.m */; };
 		2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */; };
 		2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */; };
@@ -16,6 +20,12 @@
 		2DEC77321BCA62CE00C5F8E6 /* ChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77311BCA62CE00C5F8E6 /* ChatTests.m */; };
 		2DEC773D1BCA62CE00C5F8E6 /* ChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC773C1BCA62CE00C5F8E6 /* ChatUITests.m */; };
 		C2E61DB4C2BC5FE3B5355E1F /* libPods-Chat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF417B3C194F775D34C8C98F /* libPods-Chat.a */; };
+		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
+		FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C241BDB5F3A0035B38B /* ChatCell.m */; };
+		FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C281BDB6A0D0035B38B /* MessageObject.m */; };
+		FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */; };
+		FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCECFA8F1BE4B1E000B7B714 /* MainVC.m */; };
+		FCECFA941BE4B82800B7B714 /* ChatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FCECFA931BE4B82800B7B714 /* ChatDatePicker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +46,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D1B4CB81BCAA37300B68666 /* ChatDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatDataSource.h; path = DataSource/ChatDataSource.h; sourceTree = "<group>"; };
+		2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatDataSource.m; path = DataSource/ChatDataSource.m; sourceTree = "<group>"; };
+		2D4322B81BE8BEC200E9B2EE /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoVC.h; path = View/UserInfoVC/UserInfoVC.h; sourceTree = "<group>"; };
+		2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoVC.m; path = View/UserInfoVC/UserInfoVC.m; sourceTree = "<group>"; };
+		2DC114D71BE42C3B00EC5854 /* ChatValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatValidator.h; path = Validator/ChatValidator.h; sourceTree = "<group>"; };
+		2DC114D81BE42C3B00EC5854 /* ChatValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatValidator.m; path = Validator/ChatValidator.m; sourceTree = "<group>"; };
+		2DCA1DCE1BE7DCA300E74877 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		2DCA1DCF1BE7DD0D00E74877 /* ConstantsOfAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsOfAPI.h; sourceTree = "<group>"; };
+		2DCA1DD01BE7DE3000E74877 /* ChatAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatAPI.h; path = ChatLoader/ChatAPI/ChatAPI.h; sourceTree = "<group>"; };
+		2DCA1DD11BE7DE3000E74877 /* ChatAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatAPI.m; path = ChatLoader/ChatAPI/ChatAPI.m; sourceTree = "<group>"; };
 		2DEC77141BCA62CE00C5F8E6 /* Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DEC77181BCA62CE00C5F8E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DEC771A1BCA62CE00C5F8E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,6 +75,18 @@
 		BF417B3C194F775D34C8C98F /* libPods-Chat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33CFF9CF90FC6430B7B5534 /* Pods-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
+		FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationVC.h; path = Chat/View/RegistrationVC/RegistrationVC.h; sourceTree = "<group>"; };
+		FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationVC.m; path = Chat/View/RegistrationVC/RegistrationVC.m; sourceTree = "<group>"; };
+		FCB53C231BDB5F3A0035B38B /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		FCB53C241BDB5F3A0035B38B /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		FCB53C271BDB6A0D0035B38B /* MessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageObject.h; sourceTree = "<group>"; };
+		FCB53C281BDB6A0D0035B38B /* MessageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageObject.m; sourceTree = "<group>"; };
+		FCB53C2A1BDB70730035B38B /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatDatePicker.xib; sourceTree = "<group>"; };
+		FCECFA8E1BE4B1E000B7B714 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainVC.h; path = View/MainVC/MainVC.h; sourceTree = "<group>"; };
+		FCECFA8F1BE4B1E000B7B714 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainVC.m; path = View/MainVC/MainVC.m; sourceTree = "<group>"; };
+		FCECFA921BE4B82800B7B714 /* ChatDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatDatePicker.h; path = Chat/View/RegistationDatePicker/ChatDatePicker.h; sourceTree = "<group>"; };
+		FCECFA931BE4B82800B7B714 /* ChatDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatDatePicker.m; path = Chat/View/RegistationDatePicker/ChatDatePicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +115,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D1B4CB71BCAA33900B68666 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				2D1B4CB81BCAA37300B68666 /* ChatDataSource.h */,
+				2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */,
+			);
+			name = DataSource;
+			sourceTree = "<group>";
+		};
+		2D1B4CBB1BCAA69400B68666 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FCB53C231BDB5F3A0035B38B /* ChatCell.h */,
+				FCB53C241BDB5F3A0035B38B /* ChatCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		2D4322B71BE8BE7D00E9B2EE /* UserInfoVC */ = {
+			isa = PBXGroup;
+			children = (
+				2D4322B81BE8BEC200E9B2EE /* UserInfoVC.h */,
+				2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */,
+			);
+			name = UserInfoVC;
+			sourceTree = "<group>";
+		};
 		2D7A94FF1BCA6CF0001BC204 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2D4322B71BE8BE7D00E9B2EE /* UserInfoVC */,
+				FCECFA8D1BE4B1C300B7B714 /* MainVC */,
+				FCA1E0D41BE4AAFE00D6F934 /* RegistrationVC */,
 				2D7A95001BCA6CFC001BC204 /* VC */,
 			);
 			name = ViewController;
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		2D7A95001BCA6CFC001BC204 /* VC */ = {
@@ -98,6 +161,42 @@
 				2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */,
 			);
 			name = VC;
+			sourceTree = "<group>";
+		};
+		2DC114D61BE42C1800EC5854 /* Validator */ = {
+			isa = PBXGroup;
+			children = (
+				2DC114D71BE42C3B00EC5854 /* ChatValidator.h */,
+				2DC114D81BE42C3B00EC5854 /* ChatValidator.m */,
+			);
+			name = Validator;
+			sourceTree = "<group>";
+		};
+		2DC114DB1BE42E1100EC5854 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCECFA911BE4B7F000B7B714 /* ChatDatePicker */,
+				2D7A94FF1BCA6CF0001BC204 /* ViewController */,
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2DC114DD1BE42F9000EC5854 /* ChatLoader */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA1DCC1BE7DC2C00E74877 /* ChatAPI */,
+			);
+			name = ChatLoader;
+			sourceTree = "<group>";
+		};
+		2DCA1DCC1BE7DC2C00E74877 /* ChatAPI */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA1DD01BE7DE3000E74877 /* ChatAPI.h */,
+				2DCA1DD11BE7DE3000E74877 /* ChatAPI.m */,
+			);
+			name = ChatAPI;
 			sourceTree = "<group>";
 		};
 		2DEC770B1BCA62CE00C5F8E6 = {
@@ -125,7 +224,12 @@
 		2DEC77161BCA62CE00C5F8E6 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				2D7A94FF1BCA6CF0001BC204 /* ViewController */,
+				2DC114DD1BE42F9000EC5854 /* ChatLoader */,
+				2DC114DB1BE42E1100EC5854 /* View */,
+				2DC114D61BE42C1800EC5854 /* Validator */,
+				FCB53C261BDB69DA0035B38B /* MessageObject */,
+				2D1B4CBB1BCAA69400B68666 /* Cells */,
+				2D1B4CB71BCAA33900B68666 /* DataSource */,
 				2DEC771A1BCA62CE00C5F8E6 /* AppDelegate.h */,
 				2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */,
 				2DEC77201BCA62CE00C5F8E6 /* Main.storyboard */,
@@ -141,6 +245,9 @@
 			isa = PBXGroup;
 			children = (
 				2DEC77181BCA62CE00C5F8E6 /* main.m */,
+				FCB53C2A1BDB70730035B38B /* Constants.h */,
+				2DCA1DCE1BE7DCA300E74877 /* PrefixHeader.pch */,
+				2DCA1DCF1BE7DD0D00E74877 /* ConstantsOfAPI.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,6 +287,44 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FCA1E0D41BE4AAFE00D6F934 /* RegistrationVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */,
+				FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */,
+			);
+			name = RegistrationVC;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FCB53C261BDB69DA0035B38B /* MessageObject */ = {
+			isa = PBXGroup;
+			children = (
+				FCB53C271BDB6A0D0035B38B /* MessageObject.h */,
+				FCB53C281BDB6A0D0035B38B /* MessageObject.m */,
+			);
+			name = MessageObject;
+			sourceTree = "<group>";
+		};
+		FCECFA8D1BE4B1C300B7B714 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCECFA8E1BE4B1E000B7B714 /* MainVC.h */,
+				FCECFA8F1BE4B1E000B7B714 /* MainVC.m */,
+			);
+			name = MainVC;
+			sourceTree = "<group>";
+		};
+		FCECFA911BE4B7F000B7B714 /* ChatDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				FCECFA921BE4B82800B7B714 /* ChatDatePicker.h */,
+				FCECFA931BE4B82800B7B714 /* ChatDatePicker.m */,
+				FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */,
+			);
+			name = ChatDatePicker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,7 +336,6 @@
 				2DEC77101BCA62CE00C5F8E6 /* Sources */,
 				2DEC77111BCA62CE00C5F8E6 /* Frameworks */,
 				2DEC77121BCA62CE00C5F8E6 /* Resources */,
-				16B5E44837D3B2E44C96407B /* Embed Pods Frameworks */,
 				F96F61B5416B851096872476 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -292,6 +436,7 @@
 				2DEC77271BCA62CE00C5F8E6 /* LaunchScreen.storyboard in Resources */,
 				2DEC77241BCA62CE00C5F8E6 /* Assets.xcassets in Resources */,
 				2DEC77221BCA62CE00C5F8E6 /* Main.storyboard in Resources */,
+				FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,21 +457,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16B5E44837D3B2E44C96407B /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chat/Pods-Chat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		89A4E53D2B667363E99DE9DC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -364,9 +494,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */,
+				FCECFA941BE4B82800B7B714 /* ChatDatePicker.m in Sources */,
+				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */,
+				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,
+				2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */,
+				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
+				2D4322BA1BE8BEC200E9B2EE /* UserInfoVC.m in Sources */,
 				2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */,
+				2DCA1DD21BE7DE3000E74877 /* ChatAPI.m in Sources */,
+				2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +645,7 @@
 			baseConfigurationReference = D33CFF9CF90FC6430B7B5534 /* Pods-Chat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PROJECT)/PrefixHeader.pch";
 				INFOPLIST_FILE = Chat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Step.Chat;
@@ -518,6 +658,7 @@
 			baseConfigurationReference = E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = "$(PROJECT)/PrefixHeader.pch";
 				INFOPLIST_FILE = Chat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Step.Chat;

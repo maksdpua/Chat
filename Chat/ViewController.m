@@ -8,27 +8,24 @@
 
 #import "ViewController.h"
 #import <SRWebSocket.h>
-
-static NSString *urlChat = @"ws://91.239.234.74:5241";
-
-static NSString *user_id = @"6";
-static NSString *recipient_id = @"7";
-static NSString *name = @"Maks";
-static NSString *lastName = @"Shvec";
-static NSString *messageText = @"message_text";
+#import "ChatCell.h"
+#import "Constants.h"
+#import "MessageObject.h"
+#import "ChatDataSource.h"
 
 static int constantForConstraint = 8;
 
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDelegate, SRWebSocketDelegate, UITextFieldDelegate>
+@interface ViewController ()<UITableViewDelegate, UITableViewDelegate, UITextFieldDelegate,DataSourceDelegate>
 {
     SRWebSocket *socketChat;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
-@property (nonatomic, strong) NSMutableArray *arrayOfMessages;
+//@property (nonatomic, strong) NSMutableArray *arrayOfMessages;
 @property IBOutlet NSLayoutConstraint *textFieldConstraint;
+@property (nonatomic, strong) ChatDataSource *dataSource;
 
 @end
 
@@ -36,10 +33,11 @@ static int constantForConstraint = 8;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.arrayOfMessages = [[NSMutableArray alloc]init];
-    socketChat = [[SRWebSocket alloc]initWithURL:[NSURL URLWithString:urlChat]];
-    socketChat.delegate = self;
-    [socketChat open];
+    self.dataSource = [[ChatDataSource alloc]initWithDelegate:self];
+//    self.arrayOfMessages = [[NSMutableArray alloc]init];
+//    socketChat = [[SRWebSocket alloc]initWithURL:[NSURL URLWithString:urlChat]];
+//    socketChat.delegate = self;
+//    [socketChat open];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardWillShow:)
@@ -71,16 +69,33 @@ static int constantForConstraint = 8;
 #pragma mark - SRWebSocket Delegate Methods
 
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    
-    if (json) {
-        NSLog(@"%@", json);
-        
-        [self.arrayOfMessages addObject:[json valueForKey:messageText]];
-        [self.tableView reloadData];
-    }
+//- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
+//    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+//    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//    
+//    if (json) {
+//        NSLog(@"%@", json);
+//        MessageObject *object = [[MessageObject alloc]init];
+//        object.userID = [json valueForKey:kUserID];
+//        object.recipientID = [json valueForKey:kRecipient_id];
+//        object.name = [json valueForKey:kName];
+//        object.lastName = [json valueForKey:kLastName];
+//        object.messageText = [json valueForKey:kMessageText];
+//        [self.arrayOfMessages addObject:object];
+//        [self.tableView reloadData];
+//        
+//        
+//        
+//        
+//        //анимированное появление новых ячеек
+////        NSInteger index = self.arrayOfMessages.count - 1;
+////        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+////        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    }
+//}
+
+- (void)dataWasChanged {
+    [self.tableView reloadData];
 }
 
 #pragma mark - Keyboard notifications Methods
@@ -112,21 +127,29 @@ static int constantForConstraint = 8;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.arrayOfMessages count];
+    return [self.dataSource countOfModels];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:CellIdentifier];
-    }
-    cell.textLabel.text = [self.arrayOfMessages objectAtIndex:indexPath.row];
+    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MessageObject *message = [self.dataSource modelAtIndex:indexPath.row];
+    cell.labelCell.text = message.messageText ;
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    [cell loadWithFrame:tableView.frame];
+    return [cell heightForRowFromMessageObject:[self.dataSource modelAtIndex:indexPath.row]].height+16+1;
+    
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    [cell loadWithFrame:tableView.frame];
+    [cell loadWithMessageObject:[self.dataSource modelAtIndex:indexPath.row]];
+    
 }
 
 
