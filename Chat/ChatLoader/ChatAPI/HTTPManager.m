@@ -6,11 +6,12 @@
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
-#import "ChatAPI.h"
+#import "HTTPManager.h"
 #import "AFNetworking.h"
 #import "ConstantsOfAPI.h"
+#import "MBProgressHUD.h"
 
-@interface ChatAPI()
+@interface HTTPManager()
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *managerRequest;
 @property (nonatomic, strong) NSNumber *user_id;
@@ -18,13 +19,13 @@
 
 @end
 
-@implementation ChatAPI
+@implementation HTTPManager
 
 + (id)sharedInstance {
-    static ChatAPI *sharedInstance;
+    static HTTPManager *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedInstance = [[ChatAPI alloc] init];
+        sharedInstance = [[HTTPManager alloc] init];
 
     });
     
@@ -66,29 +67,39 @@
                       }];
 }
 
-- (void)loadUserInfo {
+- (void)loadUserInfoCompliction:(void (^)(NSDictionary *dictionary))compliction failure:(void (^)(NSString *errorText))failure  {
     [self.managerRequest.requestSerializer setValue:[self.user_id stringValue] forHTTPHeaderField:@"userid"];
     [self.managerRequest.requestSerializer setValue:self.user_session_hash forHTTPHeaderField:@"usersessionhash"];
     
     [self.managerRequest GET :[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               NSLog(@"%@", [responseObject valueForKey:@"user_info"]);
+              compliction([responseObject valueForKey:@"user_info"]);
           }
           failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
               if (operation.responseData) {
                   NSError *jsonError = nil;
                   NSDictionary *json = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&jsonError];
                   NSLog(@"%@",json);
+                  failure([NSString stringWithFormat:@"%@", [json valueForKey:@"errors"]]);
               }
               
-          }];
+          }];    
 }
 
 - (void)loginUserWithEmailString:(NSString *)email passwordString:(NSString *)password compliction:(void (^)())compliction failure:(void (^)(NSString *errorText))failure {
+    
     NSString *user_token = kToken;
     NSDictionary *params = @{@"user_email" : email,
                              @"user_password" : password,
                              @"user_token" : user_token};
+    
+    if (![[NSUserDefaults standardUserDefaults]stringForKey:@"user_email"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:email forKey:@"user_email"];
+    }
+    if (![[NSUserDefaults standardUserDefaults]stringForKey:@"user_password"]) {
+        [[NSUserDefaults standardUserDefaults] setObject:password forKey:@"user_password"];
+    }
     
     [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kLogin] parameters:params
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -107,5 +118,23 @@
                               failure([NSString stringWithFormat:@"%@", [json valueForKey:@"errors"]]);
                           }
                       }];
+}
+
+- (BOOL)isNetworkReachable {
+    
+    if ([AFNetworkReachabilityManager sharedManager].reachable) {
+        
+        if ([AFNetworkReachabilityManager sharedManager].isReachableViaWiFi)
+            NSLog(@"Network reachable via WWAN");
+        else
+            NSLog(@"Network reachable via Wifi");
+        
+        return YES;
+    }
+    else {
+        
+        NSLog(@"Network is not reachable");
+        return NO;
+    }
 }
 @end
