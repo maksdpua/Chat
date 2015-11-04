@@ -12,5 +12,8 @@
 #import "ChatDatePicker.h"
 #import "ChatValidator.h"
 #import "MessageObject.h"
+#import "AFNetworking.h"
+#import "UIKit+AFNetworking.h"
+#import "AlertFactory.h"
 
 #endif /* PrefixHeader_pch */

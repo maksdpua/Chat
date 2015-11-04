@@ -7,7 +7,7 @@
 //
 
 #import "RegistrationVC.h"
-#import "ChatAPI.h"
+#import "HTTPManager.h"
 
 @interface RegistrationVC()<ChatDatePickerDelegate, UITextFieldDelegate>
 
@@ -29,7 +29,8 @@
 }
 
 - (IBAction)registrateUserAction:(id)sender {
-    [[ChatAPI sharedInstance] registrateUserWithNameString:self.nameTextField.text emailString:self.emailTextField.text date:unixTimeBirthday passwordString:self.passwordTextField.text];
+    [[HTTPManager sharedInstance] registrateUserWithNameString:self.nameTextField.text emailString:self.emailTextField.text date:unixTimeBirthday passwordString:self.passwordTextField.text];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)loadDatePicker {
@@ -58,5 +59,13 @@
     self.birthdayTextField.text = stringFromDate;
 }
 
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSSet *allTouches = [event allTouches];
+    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
+    if ([touch.view class]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
 
 @end

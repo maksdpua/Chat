@@ -7,8 +7,18 @@
 //
 
 #import "UserProfileEditVC.h"
+#import "HTTPManager.h"
 
 @interface UserProfileEditVC ()
+
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
+@property (nonatomic, weak) IBOutlet UITextField *userNameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *lastNameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *hometownTextField;
+@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+@property (nonatomic, weak) IBOutlet UITextField *birthdayTextField;
+@property (nonatomic, weak) IBOutlet UITextField *familyStatusTextField;
+@property (nonatomic, weak) IBOutlet UISwitch *genderSwitch;
 
 @end
 
@@ -16,22 +26,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self parseData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+- (void)parseData {
+    [[HTTPManager sharedInstance]loadUserInfoCompliction:^(NSDictionary *dictionary){
+        self.userNameTextField.text = [dictionary valueForKey:@"username"];
+        self.emailTextField.text = [dictionary valueForKey:@"email"];
+        self.birthdayTextField.text = [dictionary valueForKey:@"birthday"];
+    }
+    failure:^(NSString *errorText){
+        NSLog(@"%@", errorText);
+        }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

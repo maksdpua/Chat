@@ -23,7 +23,6 @@ static int constantForConstraint = 8;
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
-//@property (nonatomic, strong) NSMutableArray *arrayOfMessages;
 @property IBOutlet NSLayoutConstraint *textFieldConstraint;
 @property (nonatomic, strong) ChatDataSource *dataSource;
 

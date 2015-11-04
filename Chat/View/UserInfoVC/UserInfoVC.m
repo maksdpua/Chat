@@ -7,9 +7,15 @@
 //
 
 #import "UserInfoVC.h"
-#import "ChatAPI.h"
+#import "HTTPManager.h"
+#import "MBProgressHUD.h"
+#import "UserProfileEditVC.h"
 
 @interface UserInfoVC ()
+
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *emailLabel;
+@property (nonatomic, weak) IBOutlet UILabel *birthdayLabel;
 
 @end
 
@@ -17,14 +23,42 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[ChatAPI sharedInstance]loadUserInfo];
+    [[HTTPManager sharedInstance]loadUserInfoCompliction:^(NSDictionary *dictionary){
+        self.nameLabel.text = [dictionary valueForKey:@"username"];
+        self.emailLabel.text = [dictionary valueForKey:@"email"];
+        self.birthdayLabel.text = [dictionary valueForKey:@"birthday"];
+    }
+    failure:^(NSString *errorText){
+        NSLog(@"%@", errorText);
+    }];
+
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSSet *allTouches = [event allTouches];
+    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
+    if ([touch.view class]) {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 
+- (IBAction)pushToEditVC:(id)sender {
+    if ([[HTTPManager sharedInstance] isNetworkReachable]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+        UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
+        
+        [self.navigationController pushViewController:userProfileEditVC animated:YES];
+
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    } else {
+        UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
+    }
+
+}
 
 
 @end

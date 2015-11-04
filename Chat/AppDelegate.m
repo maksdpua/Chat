@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "ChatAPI.h"
+#import "HTTPManager.h"
+#import "AFNetworking.h"
+#import "UIKit+AFNetworking.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [ChatAPI sharedInstance];
+    [HTTPManager sharedInstance];
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     return YES;
 }
 

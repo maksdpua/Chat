@@ -15,6 +15,8 @@ static  NSString *const kLogin = @"login";
 static  NSString *const kToken = @"<684576d7 aca6f450 ed04a006 9bcfdb87 300b1e7d eb3d9be0 c6c30153 65bac418>";
 static  NSString *const kUserProfile = @"user/profile";
 
+static  NSString *const kUserIDForJC = @"userid";
+
 
 
 #endif /* ConstantsOfAPI_h */

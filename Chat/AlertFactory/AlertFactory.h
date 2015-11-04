@@ -10,4 +10,6 @@
 
 @interface AlertFactory : UIAlertView
 
++ (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message;
+
 @end
