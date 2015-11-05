@@ -10,4 +10,8 @@
 
 @implementation UIImage (Placeholder)
 
++ (UIImage *)placeholderImage {
+    return [UIImage imageNamed:@"noPic"];
+}
+
 @end

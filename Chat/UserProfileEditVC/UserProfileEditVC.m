@@ -9,29 +9,38 @@
 #import "UserProfileEditVC.h"
 #import "HTTPManager.h"
 
-@interface UserProfileEditVC ()
+@interface UserProfileEditVC ()<ChatDatePickerDelegate, FamilyStatusPickerDelegate, UITextFieldDelegate>
+
+@property (nonatomic, strong) ChatDatePicker *datePicker;
+@property (nonatomic, strong) FamilyStatusPicker *familyStatusPicker;
 
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
 @property (nonatomic, weak) IBOutlet UITextField *userNameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *lastNameTextField;
+@property (nonatomic, weak) IBOutlet UITextField *phoneTextField;
 @property (nonatomic, weak) IBOutlet UITextField *hometownTextField;
 @property (nonatomic, weak) IBOutlet UITextField *emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField *birthdayTextField;
-@property (nonatomic, weak) IBOutlet UITextField *familyStatusTextField;
+@property (nonatomic, weak) IBOutlet UIButton *familyStatusButton;
 @property (nonatomic, weak) IBOutlet UISwitch *genderSwitch;
+
 
 @end
 
-@implementation UserProfileEditVC
+@implementation UserProfileEditVC {
+    NSInteger unixTimeBirthday;
+    NSNumber *selectedFamilyStatusID;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self parseDataWithHTTPManager];
+    [self parseDataFromHTTPManager];
 }
 
 
-- (void)parseDataWithHTTPManager {
+- (void)parseDataFromHTTPManager {
     [[HTTPManager sharedInstance]loadUserInfoCompliction:^(NSDictionary *dictionary){
+        
         self.userNameTextField.text = [dictionary valueForKey:@"username"];
         self.emailTextField.text = [dictionary valueForKey:@"email"];
         self.birthdayTextField.text = [dictionary valueForKey:@"birthday"];
@@ -45,19 +54,78 @@
     if ([[HTTPManager sharedInstance] isNetworkReachable]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        NSDictionary *userProfile = @{@"username" : self.userNameTextField.text,
-                                 @"lastname" : self.lastNameTextField.text};
+        NSString *user_birthdayString = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
+        
+        NSDictionary *userProfile = @{@"user_name" : self.userNameTextField.text,
+                                 @"user_lastname" : self.lastNameTextField.text,
+                                      @"user_phone" : self.phoneTextField.text,
+                                      @"user_gender" : self.genderSwitch,
+                                      @"user_birthday" : user_birthdayString,
+                                      @"familystatus" : selectedFamilyStatusID.stringValue,
+                                      @"user_avatar" : [UIImage placeholderImage]};
+        
         [[HTTPManager sharedInstance]editUserProfileWithDictionary:userProfile];
-//        UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
-//        
-//        [self.navigationController pushViewController:userProfileEditVC animated:YES];
-        
-        
+
         [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        //        UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
+        //
+        //        [self.navigationController pushViewController:userProfileEditVC animated:YES];
     } else {
         UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
         [self.navigationController presentViewController:alert animated:YES completion:nil];
     }
 
+}
+
+- (void)loadDatePicker {
+    self.datePicker = [[ChatDatePicker alloc]initOnView:self.view];
+    self.datePicker.delegate = self;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if ([textField isEqual:self.birthdayTextField]) {
+        [self.view endEditing:YES];
+        [self loadDatePicker];
+        return NO;
+    } else {
+        [self.datePicker hideDatePicker];
+        return YES;
+    }
+}
+
+- (IBAction)selectFamilyStatusButton:(id)sender {
+    self.familyStatusPicker = [[FamilyStatusPicker alloc]initOnView:self.view];
+    self.familyStatusPicker.delegate = self;
+}
+
+- (void)dateSelected:(NSDate *)date {
+    unixTimeBirthday = [date timeIntervalSince1970];
+    
+    NSDateFormatter* dateFormatter = [NSDateFormatter new];
+    
+    [dateFormatter setDateFormat:@"yyyy.MM.dd"];
+    NSString *stringFromDate = [dateFormatter stringFromDate:date];
+    self.birthdayTextField.text = stringFromDate;
+}
+
+- (void)familyStatusSelectedID:(NSNumber *)familyStatusID {
+    selectedFamilyStatusID = familyStatusID;
+}
+
+- (void)familyStatusSelectedInString:(NSString *)familyStatusString {
+    
+    self.familyStatusButton.titleLabel.text = familyStatusString;
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [[self view] endEditing:YES];
 }
 @end

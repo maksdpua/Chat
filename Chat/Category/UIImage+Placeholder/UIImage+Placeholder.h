@@ -10,4 +10,6 @@
 
 @interface UIImage (Placeholder)
 
++ (UIImage *)placeholderImage;
+
 @end

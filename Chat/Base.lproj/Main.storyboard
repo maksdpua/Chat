@@ -74,12 +74,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Family status" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J6q-Do-8b1">
-                                <rect key="frame" x="13" y="263" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QRC-Po-07t">
                                 <rect key="frame" x="13" y="301" width="287" height="30"/>
                                 <animations/>
@@ -104,6 +98,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-u4-qQV">
+                                <rect key="frame" x="13" y="263" width="287" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.99466474500000002" blue="0.74407433619999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Family Status"/>
+                                <connections>
+                                    <action selector="selectFamilyStatusButton:" destination="gsH-b7-vE5" eventType="touchUpInside" id="FxW-0I-0mj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,6 +116,7 @@
                         <outlet property="avatarImage" destination="9kL-cZ-sEn" id="E6g-ny-rzM"/>
                         <outlet property="birthdayTextField" destination="4Ua-CJ-TED" id="0ei-p0-ZI2"/>
                         <outlet property="emailTextField" destination="vpY-Ob-0sg" id="pvy-vY-k6b"/>
+                        <outlet property="familyStatusButton" destination="dKc-u4-qQV" id="0aN-dg-AIE"/>
                         <outlet property="genderSwitch" destination="3Td-PJ-C2S" id="Jur-dt-BL0"/>
                         <outlet property="hometownTextField" destination="80e-aQ-0a6" id="QIA-6i-Fjc"/>
                         <outlet property="lastNameTextField" destination="i0f-o9-2qR" id="azv-lt-wOa"/>

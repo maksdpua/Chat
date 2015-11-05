@@ -10,11 +10,13 @@
 #define PrefixHeader_pch
 
 #import "ChatDatePicker.h"
+#import "FamilyStatusPicker.h"
 #import "ChatValidator.h"
 #import "MessageObject.h"
 #import "AFNetworking.h"
 #import "UIKit+AFNetworking.h"
 #import "AlertFactory.h"
 #import "MBProgressHUD.h"
+#import "UIImage+Placeholder.h"
 
 #endif /* PrefixHeader_pch */
