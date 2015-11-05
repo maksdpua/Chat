@@ -25,6 +25,9 @@
         self.statuses = @[@"Single", @"In a relationship", @"Engaged", @"Married", @"In love", @"It's complicated", @"Activelly searching"];
         self.alpha = 0;
         
+        self.statusString = [self.statuses objectAtIndex:0];
+        self.statusID = [NSNumber numberWithInteger:8];
+        
         [view addSubview:self];
         [self showWithDuration:0.25 withAlpha:1];
     }
@@ -59,6 +62,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
+    
     self.statusString = [self.statuses objectAtIndex:row];
     
     if (row == -1) {
@@ -91,10 +95,6 @@
             NSLog(@"Wrong row");
             break;
     }
-}
-
-- (void)selectedRowInComponent:(NSInteger)component {
-    
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
