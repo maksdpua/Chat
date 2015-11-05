@@ -120,6 +120,10 @@
                       }];
 }
 
+- (void)editUserProfileWithDictionary:(NSDictionary *)dictionary  {
+    
+}
+
 - (BOOL)isNetworkReachable {
     
     if ([AFNetworkReachabilityManager sharedManager].reachable) {

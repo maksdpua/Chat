@@ -13,6 +13,7 @@
 		2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC21BEA93810014B34F /* AlertFactory.m */; };
 		2DB72FC71BEAB4F20014B34F /* UserProfileEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC61BEAB4F20014B34F /* UserProfileEditVC.m */; };
 		2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC114D81BE42C3B00EC5854 /* ChatValidator.m */; };
+		2DC1468A1BEB7015002188F7 /* UIImage+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC146891BEB7015002188F7 /* UIImage+Placeholder.m */; };
 		2DCA1DD21BE7DE3000E74877 /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA1DD11BE7DE3000E74877 /* HTTPManager.m */; };
 		2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77181BCA62CE00C5F8E6 /* main.m */; };
 		2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */; };
@@ -59,6 +60,8 @@
 		2DB72FC61BEAB4F20014B34F /* UserProfileEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileEditVC.m; path = Chat/UserProfileEditVC/UserProfileEditVC.m; sourceTree = "<group>"; };
 		2DC114D71BE42C3B00EC5854 /* ChatValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatValidator.h; path = Validator/ChatValidator.h; sourceTree = "<group>"; };
 		2DC114D81BE42C3B00EC5854 /* ChatValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatValidator.m; path = Validator/ChatValidator.m; sourceTree = "<group>"; };
+		2DC146881BEB7015002188F7 /* UIImage+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Placeholder.h"; path = "Category/UIImage+Placeholder/UIImage+Placeholder.h"; sourceTree = "<group>"; };
+		2DC146891BEB7015002188F7 /* UIImage+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Placeholder.m"; path = "Category/UIImage+Placeholder/UIImage+Placeholder.m"; sourceTree = "<group>"; };
 		2DCA1DCE1BE7DCA300E74877 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		2DCA1DCF1BE7DD0D00E74877 /* ConstantsOfAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConstantsOfAPI.h; sourceTree = "<group>"; };
 		2DCA1DD01BE7DE3000E74877 /* HTTPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPManager.h; path = ChatLoader/ChatAPI/HTTPManager.h; sourceTree = "<group>"; };
@@ -215,6 +218,23 @@
 			name = ChatLoader;
 			sourceTree = "<group>";
 		};
+		2DC146861BEB6FC4002188F7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				2DC146871BEB6FD1002188F7 /* UIImage+Placeholder */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		2DC146871BEB6FD1002188F7 /* UIImage+Placeholder */ = {
+			isa = PBXGroup;
+			children = (
+				2DC146881BEB7015002188F7 /* UIImage+Placeholder.h */,
+				2DC146891BEB7015002188F7 /* UIImage+Placeholder.m */,
+			);
+			name = "UIImage+Placeholder";
+			sourceTree = "<group>";
+		};
 		2DCA1DCC1BE7DC2C00E74877 /* HTTPManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +269,7 @@
 		2DEC77161BCA62CE00C5F8E6 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				2DC146861BEB6FC4002188F7 /* Category */,
 				2DB72FC01BEA93180014B34F /* AlertFactory */,
 				2DC114DD1BE42F9000EC5854 /* ChatLoader */,
 				2DC114DB1BE42E1100EC5854 /* View */,
@@ -533,6 +554,7 @@
 				2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */,
 				2DCA1DD21BE7DE3000E74877 /* HTTPManager.m in Sources */,
 				2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */,
+				2DC1468A1BEB7015002188F7 /* UIImage+Placeholder.m in Sources */,
 				2DB72FC71BEAB4F20014B34F /* UserProfileEditVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

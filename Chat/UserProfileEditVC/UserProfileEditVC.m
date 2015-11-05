@@ -26,11 +26,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self parseData];
+    [self parseDataWithHTTPManager];
 }
 
 
-- (void)parseData {
+- (void)parseDataWithHTTPManager {
     [[HTTPManager sharedInstance]loadUserInfoCompliction:^(NSDictionary *dictionary){
         self.userNameTextField.text = [dictionary valueForKey:@"username"];
         self.emailTextField.text = [dictionary valueForKey:@"email"];
@@ -39,5 +39,25 @@
     failure:^(NSString *errorText){
         NSLog(@"%@", errorText);
         }];
+}
+
+- (IBAction)saveChangesInUserProfile:(id)sender {
+    if ([[HTTPManager sharedInstance] isNetworkReachable]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        NSDictionary *userProfile = @{@"username" : self.userNameTextField.text,
+                                 @"lastname" : self.lastNameTextField.text};
+        [[HTTPManager sharedInstance]editUserProfileWithDictionary:userProfile];
+//        UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
+//        
+//        [self.navigationController pushViewController:userProfileEditVC animated:YES];
+        
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    } else {
+        UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
+    }
+
 }
 @end

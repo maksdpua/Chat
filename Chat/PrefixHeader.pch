@@ -15,5 +15,6 @@
 #import "AFNetworking.h"
 #import "UIKit+AFNetworking.h"
 #import "AlertFactory.h"
+#import "MBProgressHUD.h"
 
 #endif /* PrefixHeader_pch */

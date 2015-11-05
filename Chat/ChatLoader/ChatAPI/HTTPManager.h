@@ -19,6 +19,8 @@
 
 - (void)loadUserInfoCompliction:(void (^)(NSDictionary *dictionary))compliction failure:(void (^)(NSString *errorText))failure;
 
+- (void)editUserProfileWithDictionary:(NSDictionary *)dictionary;
+
 - (BOOL)isNetworkReachable;
 
 @end
