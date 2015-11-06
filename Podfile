@@ -10,6 +10,7 @@ target 'Chat' do
 pod 'AFNetworking'
 pod 'SocketRocket'
 pod 'MBProgressHUD'
+pod 'SDWebImage'
 
 end
 

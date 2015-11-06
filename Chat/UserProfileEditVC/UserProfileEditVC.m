@@ -82,9 +82,7 @@
 
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
-        //        UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
-        //
-        //        [self.navigationController pushViewController:userProfileEditVC animated:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     } else {
         UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
         [self.navigationController presentViewController:alert animated:YES completion:nil];
@@ -128,9 +126,7 @@
 }
 
 - (void)familyStatusSelectedInString:(NSString *)familyStatusString {
-    
     self.familyStatusButton.titleLabel.text = familyStatusString;
-    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

@@ -10,12 +10,14 @@
 #import "HTTPManager.h"
 #import "MBProgressHUD.h"
 #import "UserProfileEditVC.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface UserInfoVC ()
 
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *emailLabel;
 @property (nonatomic, weak) IBOutlet UILabel *birthdayLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
 
 @end
 
@@ -23,16 +25,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[HTTPManager sharedInstance]loadUserInfoCompliction:^(NSDictionary *dictionary){
+    [self loadDataInVC];
+}
+
+- (void) loadDataInVC {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    [[HTTPManager sharedInstance]
+                                loadUserInfoCompliction:^(NSDictionary *dictionary){
         self.nameLabel.text = [dictionary valueForKey:@"username"];
         self.emailLabel.text = [dictionary valueForKey:@"email"];
         self.birthdayLabel.text = [dictionary valueForKey:@"birthday"];
+        
+        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:[dictionary valueForKey:@"avatar"]]] placeholderImage:[UIImage placeholderImage]];
     }
-    failure:^(NSString *errorText){
-        NSLog(@"%@", errorText);
-    }];
-
-    
+                                                 failure:^(NSString *errorText){
+    NSLog(@"%@", errorText);
+                                                 }];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -58,6 +68,18 @@
         [self.navigationController presentViewController:alert animated:YES completion:nil];
     }
 
+}
+
+- (NSString *)checkForImageAvatarPath:(NSString *)path {
+    if ([path hasPrefix:@"http://dev."]) {
+        return path;
+    } else {
+        NSRange range = [path rangeOfString:@"http://"];
+        if (range.location != NSNotFound) {
+            path = [NSString stringWithFormat:@"http://dev.%@", [path substringFromIndex:range.length]];
+        }
+        return path;
+    }
 }
 
 

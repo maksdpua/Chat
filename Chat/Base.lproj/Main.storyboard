@@ -326,6 +326,7 @@
                     <navigationItem key="navigationItem" id="ViE-yv-nXA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="avatarImage" destination="XsR-1w-Xs3" id="cA8-xS-Zyh"/>
                         <outlet property="birthdayLabel" destination="0Uu-8A-2Xl" id="0PN-Si-to1"/>
                         <outlet property="emailLabel" destination="Xh5-Wo-Z88" id="9bp-LC-4FE"/>
                         <outlet property="nameLabel" destination="NtH-tu-LvQ" id="0Xf-x5-pTc"/>
