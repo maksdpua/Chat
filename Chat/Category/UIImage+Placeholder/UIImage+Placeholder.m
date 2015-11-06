@@ -11,7 +11,7 @@
 @implementation UIImage (Placeholder)
 
 + (UIImage *)placeholderImage {
-    return [UIImage imageNamed:@"noPic"];
+    return [UIImage imageNamed:@"noUser"];
 }
 
 @end

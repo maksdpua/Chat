@@ -121,7 +121,36 @@
 }
 
 - (void)editUserProfileWithDictionary:(NSDictionary *)dictionary  {
+    NSData *imageData = UIImageJPEGRepresentation([UIImage placeholderImage], 0.5);
+
+     
+     [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (imageData) {
+            [formData appendPartWithFileData:imageData name:@"user_avatar" fileName:@"noUser.jpeg" mimeType:@"image/jpeg"];
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject){
+        NSError *error;
+        NSDictionary* json = [NSJSONSerialization
+                              JSONObjectWithData:operation.responseData
+                              options:kNilOptions
+                              error:&error];
+        NSLog(@"Registration JSON:- %@",json);
+    }failure:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"Error: %@", error);
+    }];
     
+//    [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] parameters:dictionary
+//                      success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                          NSLog(@"%@", [responseObject valueForKey:@"user_avatar"]);
+//                      }
+//                      failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+//                          if (operation.responseData) {
+//                              NSError *jsonError = nil;
+//                              NSDictionary *json = [NSJSONSerialization JSONObjectWithData:operation.responseData options:NSJSONReadingMutableContainers error:&jsonError];
+//                              NSLog(@"%@",json);
+//                          }
+//                      }];
+
 }
 
 - (BOOL)isNetworkReachable {

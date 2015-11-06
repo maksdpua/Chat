@@ -15,12 +15,20 @@
 @property (nonatomic, strong) FamilyStatusPicker *familyStatusPicker;
 
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
+
 @property (nonatomic, weak) IBOutlet UITextField *userNameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *lastNameTextField;
 @property (nonatomic, weak) IBOutlet UITextField *phoneTextField;
 @property (nonatomic, weak) IBOutlet UITextField *hometownTextField;
 @property (nonatomic, weak) IBOutlet UITextField *emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField *birthdayTextField;
+@property (nonatomic, weak) IBOutlet UITextField *workPlaceTextField;
+@property (nonatomic, weak) IBOutlet UITextField *workPositionTextField;
+@property (nonatomic, weak) IBOutlet UITextField *aboutMeTextField;
+@property (nonatomic, weak) IBOutlet UITextField *favoriteTextField;
+@property (nonatomic, weak) IBOutlet UITextField *universityTextField;
+@property (nonatomic, weak) IBOutlet UITextField *schoolTextField;
+
 @property (nonatomic, weak) IBOutlet UIButton *familyStatusButton;
 @property (nonatomic, weak) IBOutlet UISwitch *genderSwitch;
 
@@ -53,16 +61,22 @@
 - (IBAction)saveChangesInUserProfile:(id)sender {
     if ([[HTTPManager sharedInstance] isNetworkReachable]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
+        NSNumber *genderIsMale = [NSNumber numberWithBool:self.genderSwitch.on] ;
         NSString *user_birthdayString = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
         
         NSDictionary *userProfile = @{@"user_name" : self.userNameTextField.text,
                                  @"user_lastname" : self.lastNameTextField.text,
                                       @"user_phone" : self.phoneTextField.text,
-                                      @"user_gender" : self.genderSwitch,
+                                      @"user_gender" : genderIsMale.stringValue,
                                       @"user_birthday" : user_birthdayString,
                                       @"familystatus" : selectedFamilyStatusID.stringValue,
-                                      @"user_avatar" : [UIImage placeholderImage]};
+                                      @"user_work_place" : @"workplace",
+                                      @"user_work_position" : @"workposition",
+                                      @"user_about_me" : self.aboutMeTextField.text,
+                                      @"user_favourite" : @"favorite",
+                                      @"user_university" : self.universityTextField.text,
+                                      @"user_school" : self.schoolTextField.text,
+                                      @"user_hometown" : self.hometownTextField.text};
         
         [[HTTPManager sharedInstance]editUserProfileWithDictionary:userProfile];
 
