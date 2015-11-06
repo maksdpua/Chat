@@ -63,7 +63,8 @@
         
         NSNumber *genderIsMale = [NSNumber numberWithBool:self.genderSwitch.on] ;
         NSString *user_birthdayString = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
-        if (self.userNameTextField.text==nil || self.lastNameTextField.text==nil || self.phoneTextField.text==nil || user_birthdayString==nil || selectedFamilyStatusID.stringValue==nil ||  self. self.schoolTextField.text==nil ||  self.hometownTextField.text==nil) {
+        if ([self.userNameTextField.text isEqualToString:@""] || [self.lastNameTextField.text isEqualToString:@""] || [self.phoneTextField.text isEqualToString:@""] || user_birthdayString==nil || selectedFamilyStatusID.stringValue==nil ||  [self. self.schoolTextField.text isEqualToString:@""] ||  [self.hometownTextField.text isEqualToString:@""]) {
+            
             UIAlertController * alert = [AlertFactory showAlertWithTitle:@"Warning" message:@"Please enter all information!"];
             [self.navigationController presentViewController:alert animated:YES completion:nil];
         }
