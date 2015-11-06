@@ -60,29 +60,35 @@
 
 - (IBAction)saveChangesInUserProfile:(id)sender {
     if ([[HTTPManager sharedInstance] isNetworkReachable]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
         NSNumber *genderIsMale = [NSNumber numberWithBool:self.genderSwitch.on] ;
         NSString *user_birthdayString = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
-        
-        NSDictionary *userProfile = @{@"user_name" : self.userNameTextField.text,
-                                 @"user_lastname" : self.lastNameTextField.text,
-                                      @"user_phone" : self.phoneTextField.text,
-                                      @"user_gender" : genderIsMale.stringValue,
-                                      @"user_birthday" : user_birthdayString,
-                                      @"familystatus" : selectedFamilyStatusID.stringValue,
-                                      @"user_work_place" : @"workplace",
-                                      @"user_work_position" : @"workposition",
-                                      @"user_about_me" : self.aboutMeTextField.text,
-                                      @"user_favourite" : @"favorite",
-                                      @"user_university" : self.universityTextField.text,
-                                      @"user_school" : self.schoolTextField.text,
-                                      @"user_hometown" : self.hometownTextField.text};
-        
-        [[HTTPManager sharedInstance]editUserProfileWithDictionary:userProfile];
-
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        if (self.userNameTextField.text==nil || self.lastNameTextField.text==nil || self.phoneTextField.text==nil || user_birthdayString==nil || selectedFamilyStatusID.stringValue==nil ||  self. self.schoolTextField.text==nil ||  self.hometownTextField.text==nil) {
+            UIAlertController * alert = [AlertFactory showAlertWithTitle:@"Warning" message:@"Please enter all information!"];
+            [self.navigationController presentViewController:alert animated:YES completion:nil];
+        }
+        else {
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            NSDictionary *userProfile = @{@"user_name" : self.userNameTextField.text,
+                                          @"user_lastname" : self.lastNameTextField.text,
+                                          @"user_phone" : self.phoneTextField.text,
+                                          @"user_gender" : genderIsMale.stringValue,
+                                          @"user_birthday" : user_birthdayString,
+                                          @"familystatus" : selectedFamilyStatusID.stringValue,
+                                          @"user_work_place" : @"workplace",
+                                          @"user_work_position" : @"workposition",
+                                          @"user_about_me" : self.aboutMeTextField.text,
+                                          @"user_favourite" : @"favorite",
+                                          @"user_university" : self.universityTextField.text,
+                                          @"user_school" : self.schoolTextField.text,
+                                          @"user_hometown" : self.hometownTextField.text};
+            
+            [[HTTPManager sharedInstance]editUserProfileWithDictionary:userProfile];
+            
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
     } else {
         UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
         [self.navigationController presentViewController:alert animated:YES completion:nil];
@@ -126,6 +132,7 @@
 }
 
 - (void)familyStatusSelectedInString:(NSString *)familyStatusString {
+    self.familyStatusButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.familyStatusButton.titleLabel.text = familyStatusString;
 }
 

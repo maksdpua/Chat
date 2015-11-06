@@ -122,11 +122,11 @@
 
 - (void)editUserProfileWithDictionary:(NSDictionary *)dictionary  {
     
-    NSData *imageData = UIImageJPEGRepresentation([UIImage placeholderImage], 0.5);
+    NSData *imageData = UIImageJPEGRepresentation([UIImage testImage], 0.5);
      
      [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         if (imageData) {
-            [formData appendPartWithFileData:imageData name:@"user_avatar" fileName:@"noUser.jpeg" mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:imageData name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject){
         NSError *error;

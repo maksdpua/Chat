@@ -12,4 +12,6 @@
 
 + (UIImage *)placeholderImage;
 
++ (UIImage *)testImage;
+
 @end

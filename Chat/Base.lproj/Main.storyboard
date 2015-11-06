@@ -126,15 +126,6 @@
                                     <outlet property="delegate" destination="gsH-b7-vE5" id="msX-Ng-kGm"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-u4-qQV">
-                                <rect key="frame" x="13" y="263" width="287" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.99466474500000002" blue="0.74407433619999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="                    Family Status                    "/>
-                                <connections>
-                                    <action selector="selectFamilyStatusButton:" destination="gsH-b7-vE5" eventType="touchUpInside" id="FxW-0I-0mj"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSu-Pz-78D">
                                 <rect key="frame" x="137" y="450" width="46" height="30"/>
                                 <animations/>
@@ -144,6 +135,15 @@
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="saveChangesInUserProfile:" destination="gsH-b7-vE5" eventType="touchUpInside" id="hcn-c8-XKJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-u4-qQV">
+                                <rect key="frame" x="13" y="263" width="287" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.99466474500000002" blue="0.74407433619999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Please select your family status"/>
+                                <connections>
+                                    <action selector="selectFamilyStatusButton:" destination="gsH-b7-vE5" eventType="touchUpInside" id="FxW-0I-0mj"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -14,4 +14,8 @@
     return [UIImage imageNamed:@"noUser"];
 }
 
++ (UIImage *)testImage {
+    return [UIImage imageNamed:@"testImage"];
+}
+
 @end

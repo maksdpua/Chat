@@ -10,6 +10,7 @@
 		2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */; };
 		2D4322BA1BE8BEC200E9B2EE /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */; };
 		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
+		2D45CE311BECEEED006B9021 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D45CE301BECEEED006B9021 /* testImage.jpg */; };
 		2D6C82C01BEBD52000304EFA /* noUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82BF1BEBD52000304EFA /* noUser.jpg */; };
 		2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */; };
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
@@ -57,6 +58,7 @@
 		2D4322B81BE8BEC200E9B2EE /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoVC.h; path = View/UserInfoVC/UserInfoVC.h; sourceTree = "<group>"; };
 		2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoVC.m; path = View/UserInfoVC/UserInfoVC.m; sourceTree = "<group>"; };
 		2D4322BC1BE8FD7D00E9B2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2D45CE301BECEEED006B9021 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		2D6C82BF1BEBD52000304EFA /* noUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noUser.jpg; sourceTree = "<group>"; };
 		2D6C82C21BEBEBC000304EFA /* FamilyStatusPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyStatusPicker.h; path = Chat/FamilyStatusPicker/FamilyStatusPicker.h; sourceTree = "<group>"; };
 		2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyStatusPicker.m; path = Chat/FamilyStatusPicker/FamilyStatusPicker.m; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				2DC146881BEB7015002188F7 /* UIImage+Placeholder.h */,
 				2DC146891BEB7015002188F7 /* UIImage+Placeholder.m */,
 				2D6C82BF1BEBD52000304EFA /* noUser.jpg */,
+				2D45CE301BECEEED006B9021 /* testImage.jpg */,
 			);
 			name = "UIImage+Placeholder";
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */,
 				2D6C82C01BEBD52000304EFA /* noUser.jpg in Resources */,
 				2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */,
+				2D45CE311BECEEED006B9021 /* testImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
