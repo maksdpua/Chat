@@ -11,7 +11,7 @@
 @implementation UserProfile
 
 - (NSDictionary *)dictionaryInstructionManager {
-    return @{@"username" : @"userName", @"email" : @"userEmail", @"birthday" : @"userBirthday"};
+    return @{@"username" : @"userName", @"email" : @"userEmail", @"birthday" : @"userBirthday", @"avatar" : @"userAvatar"};
 }
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {

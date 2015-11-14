@@ -13,6 +13,7 @@
 @property (nonatomic, readonly) NSString *userName;
 @property (nonatomic, readonly) NSString *userEmail;
 @property (nonatomic, readonly) NSString *userBirthday;
+@property (nonatomic, readonly) NSString *userAvatar;
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 

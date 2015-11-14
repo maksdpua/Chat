@@ -30,6 +30,7 @@
 		2DEC77321BCA62CE00C5F8E6 /* ChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77311BCA62CE00C5F8E6 /* ChatTests.m */; };
 		2DEC773D1BCA62CE00C5F8E6 /* ChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC773C1BCA62CE00C5F8E6 /* ChatUITests.m */; };
 		C2E61DB4C2BC5FE3B5355E1F /* libPods-Chat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF417B3C194F775D34C8C98F /* libPods-Chat.a */; };
+		FC57E4F81BF7609B00F77A72 /* FoundedUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FC57E4F71BF7609B00F77A72 /* FoundedUser.m */; };
 		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
 		FCA98B101BF71A26000652CE /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA98B0F1BF71A26000652CE /* UserProfile.m */; };
 		FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C241BDB5F3A0035B38B /* ChatCell.m */; };
@@ -107,6 +108,8 @@
 		BF417B3C194F775D34C8C98F /* libPods-Chat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33CFF9CF90FC6430B7B5534 /* Pods-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
+		FC57E4F61BF7609B00F77A72 /* FoundedUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FoundedUser.h; path = Model/FoundedUser/FoundedUser.h; sourceTree = "<group>"; };
+		FC57E4F71BF7609B00F77A72 /* FoundedUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FoundedUser.m; path = Model/FoundedUser/FoundedUser.m; sourceTree = "<group>"; };
 		FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationVC.h; path = Chat/View/RegistrationVC/RegistrationVC.h; sourceTree = "<group>"; };
 		FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationVC.m; path = Chat/View/RegistrationVC/RegistrationVC.m; sourceTree = "<group>"; };
 		FCA98B0E1BF71A26000652CE /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
@@ -416,9 +419,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FC57E4F51BF75FD900F77A72 /* FoundedUser */ = {
+			isa = PBXGroup;
+			children = (
+				FC57E4F61BF7609B00F77A72 /* FoundedUser.h */,
+				FC57E4F71BF7609B00F77A72 /* FoundedUser.m */,
+			);
+			name = FoundedUser;
+			sourceTree = "<group>";
+		};
 		FCA045F41BF746E200A9ECD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FC57E4F51BF75FD900F77A72 /* FoundedUser */,
 				FCA98B0D1BF71A09000652CE /* UserProfile */,
 			);
 			name = Model;
@@ -704,6 +717,7 @@
 				FCBE68861BEE169D00AAA0D6 /* FriendsVC.m in Sources */,
 				2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */,
 				2DCA1DD21BE7DE3000E74877 /* HTTPManager.m in Sources */,
+				FC57E4F81BF7609B00F77A72 /* FoundedUser.m in Sources */,
 				2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */,
 				2DC1468A1BEB7015002188F7 /* UIImage+Placeholder.m in Sources */,
 				2DB72FC71BEAB4F20014B34F /* UserProfileEditVC.m in Sources */,

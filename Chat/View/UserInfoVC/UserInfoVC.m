@@ -7,10 +7,12 @@
 //
 
 #import "UserInfoVC.h"
+#import "UserProfile.h"
 #import "HTTPManager.h"
 #import "APIRequestManager.h"
 #import "MBProgressHUD.h"
 #import "UserProfileEditVC.h"
+#import "ConstantsOfAPI.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @interface UserInfoVC ()
@@ -30,7 +32,16 @@
 }
 
 - (void) loadDataInVC {
-    
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] classMapping:[UserProfile class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        
+        self.nameLabel.text = [responseObject valueForKey:@"userName"];
+        self.emailLabel.text = [responseObject valueForKey:@"userEmail"];
+        self.birthdayLabel.text = [responseObject valueForKey:@"userBirthday"];
+        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:[responseObject valueForKey:@"userAvatar"] ]] placeholderImage:[UIImage placeholderImage]];
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -43,19 +54,7 @@
 }
 
 - (IBAction)pushToEditVC:(id)sender {
-    if ([[HTTPManager sharedInstance] isNetworkReachable]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
-        
-        [self.navigationController pushViewController:userProfileEditVC animated:YES];
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-    } else {
-        UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
-        [self.navigationController presentViewController:alert animated:YES completion:nil];
-    }
-    
 }
 
 - (NSString *)checkForImageAvatarPath:(NSString *)path {

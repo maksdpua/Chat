@@ -23,7 +23,10 @@ static AuthorizeManager *authorization = nil;
         [AuthorizeManager sharedAuthorization];
         authorization = self;
     }
-    
+    if (![[NSUserDefaults standardUserDefaults] stringForKey:userIDKey] && ![[NSUserDefaults standardUserDefaults] stringForKey:sessionHashKey]) {
+        [[NSUserDefaults standardUserDefaults]setObject:[dictionary valueForKey:@"user_id"] forKey:userIDKey];
+        [[NSUserDefaults standardUserDefaults]setObject:[dictionary valueForKey:@"user_session_hash"] forKey:sessionHashKey];
+    }
     return self;
 }
 
@@ -31,8 +34,8 @@ static AuthorizeManager *authorization = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         authorization = [[AuthorizeManager alloc] init];
-        authorization.userID = [[NSUserDefaults standardUserDefaults]stringForKey:@"user_id"];
-        authorization.sessionHash = [[NSUserDefaults standardUserDefaults]stringForKey:@"user_session_hash"];
+        authorization.userID = [[NSUserDefaults standardUserDefaults]stringForKey:userIDKey];
+        authorization.sessionHash = [[NSUserDefaults standardUserDefaults]stringForKey:sessionHashKey];
     });
     return authorization;
 }
