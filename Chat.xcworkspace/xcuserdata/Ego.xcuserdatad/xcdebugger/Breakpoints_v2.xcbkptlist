@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chat/View/RegistationDatePicker/ChatDatePicker.m"
-            timestampString = "467985631.982237"
+            filePath = "Chat/AuthorizeManager.m"
+            timestampString = "469193389.825031"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-okButton:"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "-initClassWithDictionary:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

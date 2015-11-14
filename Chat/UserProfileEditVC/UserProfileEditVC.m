@@ -114,7 +114,7 @@
 }
 
 - (IBAction)selectFamilyStatusButton:(id)sender {
-    self.familyStatusPicker = [[FamilyStatusPicker alloc]initOnView:self.view];
+    self.familyStatusPicker = [[FamilyStatusPicker alloc]initOnView:self.navigationController.view];
     self.familyStatusPicker.delegate = self;
 }
 

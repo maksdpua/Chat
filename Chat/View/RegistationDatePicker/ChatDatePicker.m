@@ -16,6 +16,7 @@
         
         self.alpha = 0;
         
+        self.frame = view.frame;
         [view addSubview:self];
         [self showWithDuration:0.25 withAlpha:1];
     }

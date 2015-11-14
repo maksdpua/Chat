@@ -18,5 +18,8 @@
 #import "AlertFactory.h"
 #import "MBProgressHUD.h"
 #import "UIImage+Placeholder.h"
+#import <APLSlideMenu/APLSlideMenuViewController.h>
+#import <APLSlideMenu/APLSlideMenuSegue.h>
+#import "NSObject+Extension.h"
 
 #endif /* PrefixHeader_pch */

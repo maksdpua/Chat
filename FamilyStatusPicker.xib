@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTa-fl-oOr">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uTa-fl-oOr">
                     <rect key="frame" x="0.0" y="16" width="320" height="464"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnV-31-D8v">
@@ -62,7 +62,7 @@
                         </view>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.55357934397163122" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mnV-31-D8v" secondAttribute="trailing" id="5KB-ZM-NA0"/>
                         <constraint firstItem="mnV-31-D8v" firstAttribute="top" secondItem="uTa-fl-oOr" secondAttribute="top" constant="190" id="9lW-kb-TyX"/>

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlertFactory : UIAlertView
+@interface AlertFactory : UIAlertController
 
 + (UIAlertController*)showAlertWithTitle:(NSString *)title message:(NSString *)message;
 

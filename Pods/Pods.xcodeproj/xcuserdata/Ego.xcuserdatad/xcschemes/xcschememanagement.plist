@@ -9,12 +9,22 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>APLSlideMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-Chat.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,7 +37,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>861F3121419D5EB88438D4A7F4AD2CC9</key>
+		<key>05E81102680E7E8D83120E7C2D78DC19</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1E076287A2A5529E6C395B9CAA3F7C83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5352D432641F0656C90741034E32F31E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7281F4361A677BCD9AA44CD6BECD0E11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -37,12 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B728AD80480FEE18506235B329691259</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CBAF757A33A8A8A73E4809A5584780E5</key>
+		<key>D08F6B2A093FD49509D33B07ACDB5029</key>
 		<dict>
 			<key>primary</key>
 			<true/>

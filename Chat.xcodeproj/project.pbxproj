@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */; };
+		2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D229ED41BF50A5000D8A307 /* APIRequestManager.m */; };
 		2D4322BA1BE8BEC200E9B2EE /* UserInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */; };
 		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
 		2D45CE311BECEEED006B9021 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D45CE301BECEEED006B9021 /* testImage.jpg */; };
 		2D6C82C01BEBD52000304EFA /* noUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82BF1BEBD52000304EFA /* noUser.jpg */; };
 		2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */; };
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
+		2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */; };
+		2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */; };
 		2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC21BEA93810014B34F /* AlertFactory.m */; };
 		2DB72FC71BEAB4F20014B34F /* UserProfileEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC61BEAB4F20014B34F /* UserProfileEditVC.m */; };
 		2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC114D81BE42C3B00EC5854 /* ChatValidator.m */; };
@@ -28,9 +31,14 @@
 		2DEC773D1BCA62CE00C5F8E6 /* ChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC773C1BCA62CE00C5F8E6 /* ChatUITests.m */; };
 		C2E61DB4C2BC5FE3B5355E1F /* libPods-Chat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF417B3C194F775D34C8C98F /* libPods-Chat.a */; };
 		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
+		FCA98B101BF71A26000652CE /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA98B0F1BF71A26000652CE /* UserProfile.m */; };
 		FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C241BDB5F3A0035B38B /* ChatCell.m */; };
 		FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C281BDB6A0D0035B38B /* MessageObject.m */; };
 		FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */; };
+		FCB9EB841BF757CB0025920A /* MainNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB9EB831BF757CB0025920A /* MainNavigation.m */; };
+		FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBE68741BEDE09F00AAA0D6 /* MenuVC.m */; };
+		FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBE68811BEE117100AAA0D6 /* LeftMenuVC.m */; };
+		FCBE68861BEE169D00AAA0D6 /* FriendsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBE68851BEE169D00AAA0D6 /* FriendsVC.m */; };
 		FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCECFA8F1BE4B1E000B7B714 /* MainVC.m */; };
 		FCECFA941BE4B82800B7B714 /* ChatDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = FCECFA931BE4B82800B7B714 /* ChatDatePicker.m */; };
 /* End PBXBuildFile section */
@@ -55,6 +63,8 @@
 /* Begin PBXFileReference section */
 		2D1B4CB81BCAA37300B68666 /* ChatDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatDataSource.h; path = DataSource/ChatDataSource.h; sourceTree = "<group>"; };
 		2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatDataSource.m; path = DataSource/ChatDataSource.m; sourceTree = "<group>"; };
+		2D229ED31BF50A5000D8A307 /* APIRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIRequestManager.h; path = ChatLoader/APIRequestManager/APIRequestManager.h; sourceTree = "<group>"; };
+		2D229ED41BF50A5000D8A307 /* APIRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIRequestManager.m; path = ChatLoader/APIRequestManager/APIRequestManager.m; sourceTree = "<group>"; };
 		2D4322B81BE8BEC200E9B2EE /* UserInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfoVC.h; path = View/UserInfoVC/UserInfoVC.h; sourceTree = "<group>"; };
 		2D4322B91BE8BEC200E9B2EE /* UserInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfoVC.m; path = View/UserInfoVC/UserInfoVC.m; sourceTree = "<group>"; };
 		2D4322BC1BE8FD7D00E9B2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +73,10 @@
 		2D6C82C21BEBEBC000304EFA /* FamilyStatusPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyStatusPicker.h; path = Chat/FamilyStatusPicker/FamilyStatusPicker.h; sourceTree = "<group>"; };
 		2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyStatusPicker.m; path = Chat/FamilyStatusPicker/FamilyStatusPicker.m; sourceTree = "<group>"; };
 		2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FamilyStatusPicker.xib; sourceTree = "<group>"; };
+		2D7CF0871BF68E4300C48015 /* AuthorizeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizeManager.h; sourceTree = "<group>"; };
+		2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeManager.m; sourceTree = "<group>"; };
+		2D7CF08B1BF6967A00C48015 /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Extension.h"; path = "NSObject+Extension/NSObject+Extension.h"; sourceTree = "<group>"; };
+		2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Extension.m"; path = "NSObject+Extension/NSObject+Extension.m"; sourceTree = "<group>"; };
 		2DB72FC11BEA93810014B34F /* AlertFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertFactory.h; path = AlertFactory/AlertFactory.h; sourceTree = "<group>"; };
 		2DB72FC21BEA93810014B34F /* AlertFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertFactory.m; path = AlertFactory/AlertFactory.m; sourceTree = "<group>"; };
 		2DB72FC51BEAB4F20014B34F /* UserProfileEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileEditVC.h; path = Chat/UserProfileEditVC/UserProfileEditVC.h; sourceTree = "<group>"; };
@@ -95,12 +109,22 @@
 		E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
 		FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationVC.h; path = Chat/View/RegistrationVC/RegistrationVC.h; sourceTree = "<group>"; };
 		FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationVC.m; path = Chat/View/RegistrationVC/RegistrationVC.m; sourceTree = "<group>"; };
+		FCA98B0E1BF71A26000652CE /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		FCA98B0F1BF71A26000652CE /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		FCB53C231BDB5F3A0035B38B /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		FCB53C241BDB5F3A0035B38B /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		FCB53C271BDB6A0D0035B38B /* MessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageObject.h; sourceTree = "<group>"; };
 		FCB53C281BDB6A0D0035B38B /* MessageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageObject.m; sourceTree = "<group>"; };
 		FCB53C2A1BDB70730035B38B /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatDatePicker.xib; sourceTree = "<group>"; };
+		FCB9EB821BF757CB0025920A /* MainNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainNavigation.h; path = Chat/View/MainNavigation/MainNavigation.h; sourceTree = "<group>"; };
+		FCB9EB831BF757CB0025920A /* MainNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainNavigation.m; path = Chat/View/MainNavigation/MainNavigation.m; sourceTree = "<group>"; };
+		FCBE68731BEDE09F00AAA0D6 /* MenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuVC.h; path = Chat/View/MenuVC/MenuVC.h; sourceTree = "<group>"; };
+		FCBE68741BEDE09F00AAA0D6 /* MenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MenuVC.m; path = Chat/View/MenuVC/MenuVC.m; sourceTree = "<group>"; };
+		FCBE68801BEE117100AAA0D6 /* LeftMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuVC.h; path = Chat/View/LeftMenuVC/LeftMenuVC.h; sourceTree = "<group>"; };
+		FCBE68811BEE117100AAA0D6 /* LeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuVC.m; path = Chat/View/LeftMenuVC/LeftMenuVC.m; sourceTree = "<group>"; };
+		FCBE68841BEE169D00AAA0D6 /* FriendsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsVC.h; path = Chat/View/FriendsVC/FriendsVC.h; sourceTree = "<group>"; };
+		FCBE68851BEE169D00AAA0D6 /* FriendsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsVC.m; path = Chat/View/FriendsVC/FriendsVC.m; sourceTree = "<group>"; };
 		FCECFA8E1BE4B1E000B7B714 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainVC.h; path = View/MainVC/MainVC.h; sourceTree = "<group>"; };
 		FCECFA8F1BE4B1E000B7B714 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainVC.m; path = View/MainVC/MainVC.m; sourceTree = "<group>"; };
 		FCECFA921BE4B82800B7B714 /* ChatDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatDatePicker.h; path = Chat/View/RegistationDatePicker/ChatDatePicker.h; sourceTree = "<group>"; };
@@ -151,6 +175,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		2D229ED21BF509AB00D8A307 /* APIRequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				2D229ED31BF50A5000D8A307 /* APIRequestManager.h */,
+				2D229ED41BF50A5000D8A307 /* APIRequestManager.m */,
+			);
+			name = APIRequestManager;
+			sourceTree = "<group>";
+		};
 		2D4322B71BE8BE7D00E9B2EE /* UserInfoVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +206,11 @@
 		2D7A94FF1BCA6CF0001BC204 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2DB72FC41BEA9E650014B34F /* UserProfileEditVC */,
+				FCBE687E1BEE112400AAA0D6 /* LeftMenuVC */,
+				FCBE68721BEDDFEA00AAA0D6 /* MenuVC */,
+				FCBE68761BEDF1BB00AAA0D6 /* Navigation */,
+				FCBE68831BEE161D00AAA0D6 /* FriendsVC */,
 				2D4322B71BE8BE7D00E9B2EE /* UserInfoVC */,
 				FCECFA8D1BE4B1C300B7B714 /* MainVC */,
 				FCA1E0D41BE4AAFE00D6F934 /* RegistrationVC */,
@@ -191,6 +229,24 @@
 			name = VC;
 			sourceTree = "<group>";
 		};
+		2D7CF0851BF685AD00C48015 /* AuthorizeManager */ = {
+			isa = PBXGroup;
+			children = (
+				2D7CF0871BF68E4300C48015 /* AuthorizeManager.h */,
+				2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */,
+			);
+			name = AuthorizeManager;
+			sourceTree = "<group>";
+		};
+		2D7CF08A1BF6961200C48015 /* NSObject+Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2D7CF08B1BF6967A00C48015 /* NSObject+Extension.h */,
+				2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */,
+			);
+			name = "NSObject+Extension";
+			sourceTree = "<group>";
+		};
 		2DB72FC01BEA93180014B34F /* AlertFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +263,7 @@
 				2DB72FC61BEAB4F20014B34F /* UserProfileEditVC.m */,
 			);
 			name = UserProfileEditVC;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2DC114D61BE42C1800EC5854 /* Validator */ = {
@@ -222,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				2D6C82C11BEBEB7700304EFA /* FamilyStatusPicker */,
-				2DB72FC41BEA9E650014B34F /* UserProfileEditVC */,
 				FCECFA911BE4B7F000B7B714 /* ChatDatePicker */,
 				2D7A94FF1BCA6CF0001BC204 /* ViewController */,
 			);
@@ -233,6 +289,8 @@
 		2DC114DD1BE42F9000EC5854 /* ChatLoader */ = {
 			isa = PBXGroup;
 			children = (
+				2D7CF0851BF685AD00C48015 /* AuthorizeManager */,
+				2D229ED21BF509AB00D8A307 /* APIRequestManager */,
 				2DCA1DCC1BE7DC2C00E74877 /* HTTPManager */,
 			);
 			name = ChatLoader;
@@ -241,6 +299,7 @@
 		2DC146861BEB6FC4002188F7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				2D7CF08A1BF6961200C48015 /* NSObject+Extension */,
 				2DC146871BEB6FD1002188F7 /* UIImage+Placeholder */,
 			);
 			name = Category;
@@ -291,6 +350,7 @@
 		2DEC77161BCA62CE00C5F8E6 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				FCA045F41BF746E200A9ECD0 /* Model */,
 				2DC146861BEB6FC4002188F7 /* Category */,
 				2DB72FC01BEA93180014B34F /* AlertFactory */,
 				2DC114DD1BE42F9000EC5854 /* ChatLoader */,
@@ -356,6 +416,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FCA045F41BF746E200A9ECD0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCA98B0D1BF71A09000652CE /* UserProfile */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		FCA1E0D41BE4AAFE00D6F934 /* RegistrationVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +434,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		FCA98B0D1BF71A09000652CE /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				FCA98B0E1BF71A26000652CE /* UserProfile.h */,
+				FCA98B0F1BF71A26000652CE /* UserProfile.m */,
+			);
+			name = UserProfile;
+			sourceTree = "<group>";
+		};
 		FCB53C261BDB69DA0035B38B /* MessageObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -373,6 +450,46 @@
 				FCB53C281BDB6A0D0035B38B /* MessageObject.m */,
 			);
 			name = MessageObject;
+			sourceTree = "<group>";
+		};
+		FCBE68721BEDDFEA00AAA0D6 /* MenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE68731BEDE09F00AAA0D6 /* MenuVC.h */,
+				FCBE68741BEDE09F00AAA0D6 /* MenuVC.m */,
+			);
+			name = MenuVC;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FCBE68761BEDF1BB00AAA0D6 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				FCB9EB821BF757CB0025920A /* MainNavigation.h */,
+				FCB9EB831BF757CB0025920A /* MainNavigation.m */,
+			);
+			name = Navigation;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FCBE687E1BEE112400AAA0D6 /* LeftMenuVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE68801BEE117100AAA0D6 /* LeftMenuVC.h */,
+				FCBE68811BEE117100AAA0D6 /* LeftMenuVC.m */,
+			);
+			name = LeftMenuVC;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FCBE68831BEE161D00AAA0D6 /* FriendsVC */ = {
+			isa = PBXGroup;
+			children = (
+				FCBE68841BEE169D00AAA0D6 /* FriendsVC.h */,
+				FCBE68851BEE169D00AAA0D6 /* FriendsVC.m */,
+			);
+			name = FriendsVC;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		FCECFA8D1BE4B1C300B7B714 /* MainVC */ = {
@@ -406,7 +523,6 @@
 				2DEC77111BCA62CE00C5F8E6 /* Frameworks */,
 				2DEC77121BCA62CE00C5F8E6 /* Resources */,
 				F96F61B5416B851096872476 /* Copy Pods Resources */,
-				A53FD6B9828164D371A8D659 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -545,21 +661,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A53FD6B9828164D371A8D659 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chat/Pods-Chat-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F96F61B5416B851096872476 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,15 +685,23 @@
 			files = (
 				FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */,
 				FCECFA941BE4B82800B7B714 /* ChatDatePicker.m in Sources */,
+				2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */,
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,
 				2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */,
 				2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */,
 				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,
+				2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */,
 				2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */,
+				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
+				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
+				FCA98B101BF71A26000652CE /* UserProfile.m in Sources */,
+				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,
 				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
+				FCB9EB841BF757CB0025920A /* MainNavigation.m in Sources */,
 				2D4322BA1BE8BEC200E9B2EE /* UserInfoVC.m in Sources */,
+				FCBE68861BEE169D00AAA0D6 /* FriendsVC.m in Sources */,
 				2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */,
 				2DCA1DD21BE7DE3000E74877 /* HTTPManager.m in Sources */,
 				2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */,

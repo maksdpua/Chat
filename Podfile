@@ -11,6 +11,7 @@ pod 'AFNetworking'
 pod 'SocketRocket'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
+pod 'APLSlideMenu'
 
 end
 

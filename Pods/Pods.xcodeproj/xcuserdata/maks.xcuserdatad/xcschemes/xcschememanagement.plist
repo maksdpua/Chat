@@ -8,26 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>APLSlideMenu.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 		<key>Pods-Chat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>4</integer>
 		</dict>
 		<key>SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -37,12 +52,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1E076287A2A5529E6C395B9CAA3F7C83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3208B4DE3FEE92DD29914E914ABC9EDB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>5352D432641F0656C90741034E32F31E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>903466498A2B2A2A121926F64441D294</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94F7F189F3302603E3064AD0A6552133</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9C615E03271C60A896D24D008B05F792</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B386FC131E8341D3E01E522B0065ADBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

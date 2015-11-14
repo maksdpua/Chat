@@ -11,7 +11,10 @@
 
 @interface HTTPManager : NSObject
 
-+ (id)sharedInstance;
+@property (nonatomic, readonly) NSNumber *user_id;
+@property (nonatomic, readonly) NSString *user_session_hash;
+
++ (instancetype)sharedInstance;
 
 - (void)registrateUserWithNameString:(NSString*)name emailString:(NSString *)email date:(NSInteger)date passwordString:(NSString *)password;
 
@@ -20,6 +23,8 @@
 - (void)loadUserInfoCompliction:(void (^)(NSDictionary *dictionary))compliction failure:(void (^)(NSString *errorText))failure;
 
 - (void)editUserProfileWithDictionary:(NSDictionary *)dictionary;
+
+- (BOOL)isSavedUserIdAndSessionHashReachable;
 
 - (BOOL)isNetworkReachable;
 

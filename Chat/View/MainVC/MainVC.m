@@ -7,16 +7,18 @@
 //
 
 #import "MainVC.h"
-#import "HTTPManager.h"
+#import "AuthorizeManager.h"
+#import "APIRequestManager.h"
 #import "UserInfoVC.h"
 #import "RegistrationVC.h"
-#import "MBProgressHUD.h"
+#import "MenuVC.h"
+#import "ConstantsOfAPI.h"
 
 
 @interface MainVC()
 
-@property (nonatomic, strong)IBOutlet UITextField *emailTextField;
-@property (nonatomic, strong)IBOutlet UITextField *passwordTextField;
+@property (nonatomic, weak) IBOutlet UITextField *emailTextField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordTextField;
 
 @end
 
@@ -24,31 +26,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([[NSUserDefaults standardUserDefaults]stringForKey:@"user_email"]) {
-        self.emailTextField.text = [[NSUserDefaults standardUserDefaults]stringForKey:@"user_email"];
-    }
-    if ([[NSUserDefaults standardUserDefaults]stringForKey:@"user_password"]) {
-        self.passwordTextField.text = [[NSUserDefaults standardUserDefaults]stringForKey:@"user_password"];
-    }
 }
 
 - (IBAction)loginAction:(id)sender {
-    if ([[HTTPManager sharedInstance] isNetworkReachable]) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        ChatValidator *validation = [[ChatValidator alloc]init];
-        if ([validation isValidEmail:self.emailTextField.text]) {
-            NSLog(@"%@",[validation isValidEmail:self.emailTextField.text]);
-        }
-        [[HTTPManager sharedInstance] loginUserWithEmailString:self.emailTextField.text passwordString:self.passwordTextField.text compliction:^{
-            
-            UserInfoVC *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserInfoVC class])];
-            
-            [self.navigationController pushViewController:userInfoVC animated:YES];
-            
-        }failure:^(NSString *errorText) {
-            NSLog(@"%@", errorText);
-        }];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if ([[APIRequestManager sharedInstance] isNetworkReachable]) {
+        
+        [self login];
+        
     } else {
         UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
         [self.navigationController presentViewController:alert animated:YES completion:nil];
@@ -70,6 +54,22 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [[self view] endEditing:YES];
+}
+
+- (void)login {
+    NSString *user_token = kToken;
+    NSDictionary *params = @{@"user_email" : self.emailTextField.text,
+                             @"user_password" : self.passwordTextField.text,
+                             @"user_token" : user_token};
+    
+    [[APIRequestManager sharedInstance] POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogin] parameters:params classMapping:[AuthorizeManager class] requestSerializer:NO showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        MenuVC *menuVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([MenuVC class])];
+        [self.navigationController pushViewController:menuVC animated:YES];
+    }fail:^(AFHTTPRequestOperation *operation, id responseObject){
+        NSLog(@"%@", operation.responseString);
+    }];
+    
 }
 
 @end

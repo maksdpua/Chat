@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQ7-XY-SNP">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eQ7-XY-SNP">
                     <rect key="frame" x="0.0" y="14" width="320" height="466"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gnr-Xk-e5P">
@@ -68,7 +68,7 @@
                         </view>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.55310837765957444" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Gnr-Xk-e5P" secondAttribute="bottom" id="5eM-th-JT2"/>
                         <constraint firstItem="Gnr-Xk-e5P" firstAttribute="leading" secondItem="eQ7-XY-SNP" secondAttribute="leading" id="A5b-67-2cJ"/>

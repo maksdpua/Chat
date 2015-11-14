@@ -8,6 +8,7 @@
 
 #import "UserInfoVC.h"
 #import "HTTPManager.h"
+#import "APIRequestManager.h"
 #import "MBProgressHUD.h"
 #import "UserProfileEditVC.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -29,20 +30,7 @@
 }
 
 - (void) loadDataInVC {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [[HTTPManager sharedInstance]
-                                loadUserInfoCompliction:^(NSDictionary *dictionary){
-        self.nameLabel.text = [dictionary valueForKey:@"username"];
-        self.emailLabel.text = [dictionary valueForKey:@"email"];
-        self.birthdayLabel.text = [dictionary valueForKey:@"birthday"];
-        
-        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:[dictionary valueForKey:@"avatar"]]] placeholderImage:[UIImage placeholderImage]];
-    }
-                                                 failure:^(NSString *errorText){
-    NSLog(@"%@", errorText);
-                                                 }];
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
@@ -57,17 +45,17 @@
 - (IBAction)pushToEditVC:(id)sender {
     if ([[HTTPManager sharedInstance] isNetworkReachable]) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-
+        
         UserProfileEditVC *userProfileEditVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([UserProfileEditVC class])];
         
         [self.navigationController pushViewController:userProfileEditVC animated:YES];
-
+        
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     } else {
         UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
         [self.navigationController presentViewController:alert animated:YES completion:nil];
     }
-
+    
 }
 
 - (NSString *)checkForImageAvatarPath:(NSString *)path {
