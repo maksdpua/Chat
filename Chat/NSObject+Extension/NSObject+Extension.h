@@ -12,4 +12,6 @@
 
 - (instancetype)loadClassWithDictionary:(NSDictionary *)dictionary InstructionDictionary:(NSDictionary *)instruction;
 
+- (void)printDescription;
+
 @end

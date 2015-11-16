@@ -21,5 +21,6 @@
 #import <APLSlideMenu/APLSlideMenuViewController.h>
 #import <APLSlideMenu/APLSlideMenuSegue.h>
 #import "NSObject+Extension.h"
+#import "Constants.h"
 
 #endif /* PrefixHeader_pch */

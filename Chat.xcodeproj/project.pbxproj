@@ -17,6 +17,8 @@
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
 		2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */; };
 		2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */; };
+		2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5D8CE1BF9F0A9008BD41E /* AllFoundedUsers.m */; };
+		2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */; };
 		2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC21BEA93810014B34F /* AlertFactory.m */; };
 		2DB72FC71BEAB4F20014B34F /* UserProfileEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC61BEAB4F20014B34F /* UserProfileEditVC.m */; };
 		2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC114D81BE42C3B00EC5854 /* ChatValidator.m */; };
@@ -78,6 +80,10 @@
 		2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeManager.m; sourceTree = "<group>"; };
 		2D7CF08B1BF6967A00C48015 /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Extension.h"; path = "NSObject+Extension/NSObject+Extension.h"; sourceTree = "<group>"; };
 		2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Extension.m"; path = "NSObject+Extension/NSObject+Extension.m"; sourceTree = "<group>"; };
+		2DB5D8CD1BF9F0A9008BD41E /* AllFoundedUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllFoundedUsers.h; path = Model/FoundedUser/AllFoundedUsers.h; sourceTree = "<group>"; };
+		2DB5D8CE1BF9F0A9008BD41E /* AllFoundedUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllFoundedUsers.m; path = Model/FoundedUser/AllFoundedUsers.m; sourceTree = "<group>"; };
+		2DB5D8D21BFA01D1008BD41E /* SearchFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchFriendCell.h; path = Chat/View/Cell/SearchFriendCell/SearchFriendCell.h; sourceTree = "<group>"; };
+		2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchFriendCell.m; path = Chat/View/Cell/SearchFriendCell/SearchFriendCell.m; sourceTree = "<group>"; };
 		2DB72FC11BEA93810014B34F /* AlertFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertFactory.h; path = AlertFactory/AlertFactory.h; sourceTree = "<group>"; };
 		2DB72FC21BEA93810014B34F /* AlertFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertFactory.m; path = AlertFactory/AlertFactory.m; sourceTree = "<group>"; };
 		2DB72FC51BEAB4F20014B34F /* UserProfileEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileEditVC.h; path = Chat/UserProfileEditVC/UserProfileEditVC.h; sourceTree = "<group>"; };
@@ -250,6 +256,23 @@
 			name = "NSObject+Extension";
 			sourceTree = "<group>";
 		};
+		2DB5D8D01BFA016A008BD41E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5D8D11BFA0170008BD41E /* SearchFriendCell */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		2DB5D8D11BFA0170008BD41E /* SearchFriendCell */ = {
+			isa = PBXGroup;
+			children = (
+				2DB5D8D21BFA01D1008BD41E /* SearchFriendCell.h */,
+				2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */,
+			);
+			name = SearchFriendCell;
+			sourceTree = "<group>";
+		};
 		2DB72FC01BEA93180014B34F /* AlertFactory */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +304,7 @@
 		2DC114DB1BE42E1100EC5854 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2DB5D8D01BFA016A008BD41E /* Cell */,
 				2D6C82C11BEBEB7700304EFA /* FamilyStatusPicker */,
 				FCECFA911BE4B7F000B7B714 /* ChatDatePicker */,
 				2D7A94FF1BCA6CF0001BC204 /* ViewController */,
@@ -424,6 +448,8 @@
 			children = (
 				FC57E4F61BF7609B00F77A72 /* FoundedUser.h */,
 				FC57E4F71BF7609B00F77A72 /* FoundedUser.m */,
+				2DB5D8CD1BF9F0A9008BD41E /* AllFoundedUsers.h */,
+				2DB5D8CE1BF9F0A9008BD41E /* AllFoundedUsers.m */,
 			);
 			name = FoundedUser;
 			sourceTree = "<group>";
@@ -708,6 +734,8 @@
 				2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */,
 				2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */,
 				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
+				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
+				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
 				FCA98B101BF71A26000652CE /* UserProfile.m in Sources */,
 				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,

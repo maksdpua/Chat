@@ -10,6 +10,7 @@
 #define Constants_h
 
 static NSString *urlChat = @"ws://91.239.234.74:5241";
+static  NSString *const kURLServer = @"http://dev.join2city.com.ua/api/";
 
 static NSString *const kUserID = @"user_id";
 static NSString *const kRecipient_id = @"recipinet_id";
@@ -24,6 +25,9 @@ static NSString *const name = @"Maks";
 static NSString *const lastName = @"Shvec";
 
 static NSString *const CellIdentifier = @"customCell";
+
+static NSString *const kSearchFriendCell = @"SearchFriendCell";
+
 
 
 

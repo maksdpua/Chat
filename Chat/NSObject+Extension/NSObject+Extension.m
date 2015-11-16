@@ -25,4 +25,21 @@
     return self;
 }
 
+- (void)printDescription {
+    NSMutableDictionary *propertyValues = [NSMutableDictionary dictionary];
+    unsigned int propertyCount;
+    objc_property_t *properties = class_copyPropertyList([self class], &propertyCount);
+    for (unsigned int i = 0; i < propertyCount; i++) {
+        NSString *propertyName = [NSString stringWithUTF8String:property_getName(properties[i])];
+        id value = [self valueForKey:propertyName];
+        if (value)
+            propertyValues[propertyName] = value;
+        else
+            propertyValues[propertyName] = @"nil";
+    }
+    free(properties);
+    NSLog(@"%@", [NSString stringWithFormat:@"\n%@:\n%@", self.class, propertyValues]);
+}
+
+
 @end

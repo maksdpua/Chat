@@ -52,10 +52,6 @@
     return YES;
 }
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [[self view] endEditing:YES];
-}
-
 - (void)login {
     NSString *user_token = kToken;
     NSDictionary *params = @{@"user_email" : self.emailTextField.text,

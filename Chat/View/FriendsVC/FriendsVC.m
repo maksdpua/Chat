@@ -7,11 +7,16 @@
 //
 
 #import "FriendsVC.h"
+#import "FoundedUser.h"
+#import "AllFoundedUsers.h"
+#import "APIRequestManager.h"
+#import "SearchFriendCell.h"
 
-@interface FriendsVC()
+@interface FriendsVC()<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, weak) IBOutlet UITableView *friendsTableView;
+@property (nonatomic, strong) IBOutlet UITableView *friendsTableView;
+@property (nonatomic, strong) AllFoundedUsers *foundedUsers;
 
 @end
 
@@ -21,8 +26,6 @@
     [super viewDidLoad];
 }
 
-#pragma mark
-
 #pragma mark - UITableVIewDelegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -30,23 +33,31 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.foundedUsers.array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
-    }
-    
-
+    SearchFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:kSearchFriendCell];
+    [cell setupWithModel:[self.foundedUsers.array objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
+#pragma mark - UISearchBarDelegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    NSString *limit = @"10";
+    NSString *searchPath = [NSString stringWithFormat: @"%@users?search=%@&limit=%@&offset=0", kURLServer, [searchText stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]], limit];
+    
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:searchPath classMapping:[AllFoundedUsers class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [responseObject printDescription];
+        self.foundedUsers = (AllFoundedUsers *)responseObject;
+        [self.friendsTableView reloadData];
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"%@", error);
+    }];
+    
+}
 
 @end
