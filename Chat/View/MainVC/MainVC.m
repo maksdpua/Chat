@@ -9,7 +9,7 @@
 #import "MainVC.h"
 #import "AuthorizeManager.h"
 #import "APIRequestManager.h"
-#import "UserInfoVC.h"
+#import "MyInfoVC.h"
 #import "RegistrationVC.h"
 #import "MenuVC.h"
 #import "ConstantsOfAPI.h"

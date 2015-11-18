@@ -7,7 +7,7 @@
 //
 
 #import "AllFoundedUsers.h"
-#import "FoundedUser.h"
+#import "User.h"
 
 @interface AllFoundedUsers()
 
@@ -20,9 +20,7 @@
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
         self.array = [NSMutableArray new];
     for (NSDictionary *user in [dictionary valueForKey:@"users"]) {
-        
-        FoundedUser *foundedUser = [[FoundedUser alloc]initClassWithDictionary:user];
-        
+        User *foundedUser = [[User alloc]initClassWithDictionary:user];
         [self.array addObject:foundedUser];
     }
     return self;

@@ -22,8 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.leftMenuItems = @[@"Profile", @"Friends"];
-    arrayVCid = @[@"UserInfoVC", @"FriendsVC"];
+    self.leftMenuItems = @[@"Profile", @"Search friend",@"Friends"];
+    arrayVCid = @[@"UserInfoVC", @"FriendsVC", @"UserFriendListVC"];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

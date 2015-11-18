@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="114" y="633"/>
         </scene>
-        <!--User Profile EditVC-->
+        <!--My Profile EditVC-->
         <scene sceneID="puP-dw-b5i">
             <objects>
-                <viewController storyboardIdentifier="UserProfileEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gsH-b7-vE5" customClass="UserProfileEditVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gsH-b7-vE5" customClass="MyProfileEditVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="67H-Dh-M9h"/>
                         <viewControllerLayoutGuide type="bottom" id="IdU-r4-IaQ"/>
@@ -329,7 +329,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Avf-fu-I6D">
-                                <rect key="frame" x="0.0" y="28" width="320" height="452"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <searchBar key="tableHeaderView" contentMode="redraw" id="BqW-bx-8zZ">
@@ -338,7 +338,7 @@
                                     <animations/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
-                                        <outlet property="delegate" destination="8w3-gM-hJf" id="dZr-n4-cc7"/>
+                                        <outlet property="delegate" destination="8w3-gM-hJf" id="EkM-pY-6jc"/>
                                     </connections>
                                 </searchBar>
                                 <prototypes>
@@ -357,7 +357,7 @@
                                                     <rect key="frame" x="77" y="8" width="235" height="45"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -382,7 +382,7 @@
                             <constraint firstItem="Avf-fu-I6D" firstAttribute="bottom" secondItem="9hs-Zl-828" secondAttribute="top" id="4RS-Ih-8XS"/>
                             <constraint firstItem="Avf-fu-I6D" firstAttribute="leading" secondItem="xlr-bI-nQI" secondAttribute="leading" id="OWu-MN-Z0k"/>
                             <constraint firstAttribute="trailing" secondItem="Avf-fu-I6D" secondAttribute="trailing" id="RQR-d4-Ena"/>
-                            <constraint firstItem="Avf-fu-I6D" firstAttribute="top" secondItem="sJG-SX-ITe" secondAttribute="bottom" constant="8" symbolic="YES" id="x5E-O4-hTD"/>
+                            <constraint firstItem="Avf-fu-I6D" firstAttribute="top" secondItem="sJG-SX-ITe" secondAttribute="bottom" id="x5E-O4-hTD"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
@@ -394,6 +394,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Roe-Bw-zI1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-70" y="2929"/>
+        </scene>
+        <!--User ProfileVC-->
+        <scene sceneID="Cp9-it-jqV">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hgv-b6-1JO" customClass="UserProfileVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CZe-1k-Z1s"/>
+                        <viewControllerLayoutGuide type="bottom" id="jW0-Fj-6cW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Gi-1n-0Pl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z3p-wO-CEn">
+                                <rect key="frame" x="20" y="28" width="150" height="150"/>
+                                <animations/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHh-sH-R8t">
+                                <rect key="frame" x="20" y="187" width="122" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50W-bc-KLz">
+                                <rect key="frame" x="178" y="28" width="122" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Add to friends"/>
+                                <connections>
+                                    <action selector="addToFriendAction:" destination="hgv-b6-1JO" eventType="touchUpInside" id="Qc3-KQ-KzW"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lastname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiN-ws-DZh">
+                                <rect key="frame" x="20" y="225" width="122" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="addToFriendButton" destination="50W-bc-KLz" id="bkk-UQ-DQF"/>
+                        <outlet property="lastNameLabel" destination="oiN-ws-DZh" id="VbV-qg-9Gv"/>
+                        <outlet property="nameLabel" destination="fHh-sH-R8t" id="4qt-cF-JmT"/>
+                        <outlet property="userAvatar" destination="z3p-wO-CEn" id="mLg-Fz-x4H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dOp-IC-mS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="332" y="2929"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CdD-bK-aiJ">
@@ -415,10 +469,59 @@
             </objects>
             <point key="canvasLocation" x="332" y="2366"/>
         </scene>
-        <!--User InfoVC-->
+        <!--User Friend ListVC-->
+        <scene sceneID="4kk-Vd-h6y">
+            <objects>
+                <tableViewController storyboardIdentifier="UserFriendListVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G34-Wz-yZ4" customClass="UserFriendListVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Eay-DN-Twf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserCell" rowHeight="70" id="mCa-c4-NsK" customClass="UserCell">
+                                <rect key="frame" x="0.0" y="28" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mCa-c4-NsK" id="uLe-lJ-uuJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxB-th-hJs">
+                                            <rect key="frame" x="8" y="5" width="60" height="60"/>
+                                            <animations/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-DQ-sD0">
+                                            <rect key="frame" x="76" y="5" width="236" height="60"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="avatarImage" destination="qxB-th-hJs" id="l9A-7P-XI1"/>
+                                    <outlet property="nameLabel" destination="9gd-DQ-sD0" id="s1J-Pj-PAI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="G34-Wz-yZ4" id="zm6-hp-INr"/>
+                            <outlet property="delegate" destination="G34-Wz-yZ4" id="U3v-nd-azV"/>
+                        </connections>
+                    </tableView>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xT2-0f-a78" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="2366"/>
+        </scene>
+        <!--My InfoVC-->
         <scene sceneID="ux7-3l-ndY">
             <objects>
-                <viewController storyboardIdentifier="UserInfoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CSx-ib-bFA" customClass="UserInfoVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserInfoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CSx-ib-bFA" customClass="MyInfoVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M1I-p8-AhO"/>
                         <viewControllerLayoutGuide type="bottom" id="coF-ef-Ay5"/>

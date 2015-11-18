@@ -1,16 +1,16 @@
 //
-//  Users.h
+//  UserFriendList.h
 //  Chat
 //
-//  Created by Maks on 11/16/15.
+//  Created by Maks on 11/18/15.
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface AllFoundedUsers : NSObject
+@interface UserFriendList : NSObject
 
-@property (nonatomic, readonly) NSMutableArray *array;
+@property (nonatomic, readonly) NSMutableArray *friendsArray;
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 

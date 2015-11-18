@@ -122,6 +122,16 @@
     }];
 }
 
+- (void)connectionStartPUT {
+    [self.managerRequest PUT:_urlString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id _Nonnull responseObject) {
+        [self hiddenProgressOnView:_view];
+        _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+    }failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+        [self hiddenProgressOnView:_view];
+        _failBlock(operation, error);
+    }];
+}
+
 - (id)fillObjectResponseWithDictionary:(NSDictionary *)dictionary {
     
     SEL selector = sel_registerName(SELECTOR_NAME);
@@ -173,6 +183,16 @@
         [self requestSerializer];
     }
     [self connectionStartGET];
+}
+
+- (void)PUTConnectionWithURLString:(NSString *)urlString classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    [self fillManagerURLString:urlString parameters:nil classMapping:classMapping showProgressOnView:view response:response fail:failure];
+    
+    if (withSerializer) {
+        [self requestSerializer];
+    }
+    [self connectionStartPUT];
 }
 
 - (BOOL)isNetworkReachable {

@@ -6,16 +6,16 @@
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
-#import "UserInfoVC.h"
-#import "UserProfile.h"
+#import "MyInfoVC.h"
+#import "MyProfile.h"
 #import "HTTPManager.h"
 #import "APIRequestManager.h"
 #import "MBProgressHUD.h"
-#import "UserProfileEditVC.h"
+#import "MyProfileEditVC.h"
 #import "ConstantsOfAPI.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface UserInfoVC ()
+@interface MyInfoVC ()
 
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *emailLabel;
@@ -24,7 +24,7 @@
 
 @end
 
-@implementation UserInfoVC
+@implementation MyInfoVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +32,7 @@
 }
 
 - (void) loadDataInVC {
-    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] classMapping:[UserProfile class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] classMapping:[MyProfile class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
         
         self.nameLabel.text = [responseObject valueForKey:@"userName"];

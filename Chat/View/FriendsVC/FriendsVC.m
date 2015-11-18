@@ -7,10 +7,11 @@
 //
 
 #import "FriendsVC.h"
-#import "FoundedUser.h"
+#import "User.h"
 #import "AllFoundedUsers.h"
 #import "APIRequestManager.h"
 #import "SearchFriendCell.h"
+#import "UserProfileVC.h"
 
 @interface FriendsVC()<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
@@ -44,6 +45,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UserProfileVC *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserProfileVC"];
+    userInfoVC.userData = [self.foundedUsers.array objectAtIndex:indexPath.row];
+    [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[userInfoVC] animated:YES];
+}
+
 #pragma mark - UISearchBarDelegate
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
@@ -59,5 +66,10 @@
     }];
     
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
+
 
 @end

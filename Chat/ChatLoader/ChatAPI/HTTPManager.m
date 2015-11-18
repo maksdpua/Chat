@@ -76,7 +76,7 @@
     [self.managerRequest.requestSerializer setValue:[self.user_id stringValue] forHTTPHeaderField:@"userid"];
     [self.managerRequest.requestSerializer setValue:self.user_session_hash forHTTPHeaderField:@"usersessionhash"];
     
-    [self.managerRequest GET :[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] parameters:nil
+    [self.managerRequest GET :[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] parameters:nil
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
                           NSLog(@"%@", [responseObject valueForKey:@"user_info"]);
                           compliction([responseObject valueForKey:@"user_info"]);
@@ -149,7 +149,7 @@
     
     NSData *imageData = UIImageJPEGRepresentation([UIImage testImage], 0.5);
     
-    [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kUserProfile] parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         if (imageData) {
             [formData appendPartWithFileData:imageData name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
         }

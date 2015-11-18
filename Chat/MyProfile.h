@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserProfile : NSObject
+@interface MyProfile : NSObject
 
 @property (nonatomic, readonly) NSString *userName;
 @property (nonatomic, readonly) NSString *userEmail;

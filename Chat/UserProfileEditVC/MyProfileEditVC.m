@@ -6,10 +6,10 @@
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
-#import "UserProfileEditVC.h"
+#import "MyProfileEditVC.h"
 #import "HTTPManager.h"
 
-@interface UserProfileEditVC ()<ChatDatePickerDelegate, FamilyStatusPickerDelegate, UITextFieldDelegate>
+@interface MyProfileEditVC ()<ChatDatePickerDelegate, FamilyStatusPickerDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) ChatDatePicker *datePicker;
 @property (nonatomic, strong) FamilyStatusPicker *familyStatusPicker;
@@ -35,7 +35,7 @@
 
 @end
 
-@implementation UserProfileEditVC {
+@implementation MyProfileEditVC {
     NSInteger unixTimeBirthday;
     NSNumber *selectedFamilyStatusID;
 }

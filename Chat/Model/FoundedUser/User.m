@@ -6,12 +6,12 @@
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
-#import "FoundedUser.h"
+#import "User.h"
 
-@implementation FoundedUser
+@implementation User
 
 - (NSDictionary *)dictionaryInstructionManager {
-    return @{@"user_id" : @"userID", @"user_name" : @"userName", @"user_lastname" : @"userLastName", @"user_thumbnail_avatar" : @"avatar", @"user_online" : @"online"};
+    return @{@"user_id" : @"userID", @"user_name" : @"userName", @"user_lastname" : @"userLastName", @"user_thumbnail_avatar" : @"avatar", @"user_online" : @"online", @"friend": @"isFriend"};
 }
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {

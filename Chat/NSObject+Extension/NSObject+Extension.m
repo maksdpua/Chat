@@ -17,7 +17,7 @@
         if (propertyName) {
             if ([[obj class] isSubclassOfClass:[NSNumber class]]) {
                 [self setValue:[NSString stringWithFormat:@"%@", obj] forKey:propertyName];
-            } else {
+            } else if([[obj class] isSubclassOfClass:[NSString class]]) {
                 [self setValue:obj forKey:propertyName];
             }
         }
@@ -39,6 +39,18 @@
     }
     free(properties);
     NSLog(@"%@", [NSString stringWithFormat:@"\n%@:\n%@", self.class, propertyValues]);
+}
+
+- (NSString *)checkForImageAvatarPath:(NSString *)path {
+    if ([path hasPrefix:@"http://dev."]) {
+        return path;
+    } else {
+        NSRange range = [path rangeOfString:@"http://"];
+        if (range.location != NSNotFound) {
+            path = [NSString stringWithFormat:@"http://dev.%@", [path substringFromIndex:range.length]];
+        }
+        return path;
+    }
 }
 
 

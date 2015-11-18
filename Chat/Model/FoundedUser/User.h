@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface FoundedUser : NSObject
+@interface User : NSObject
 
 @property (nonatomic, readonly) NSString *userID;
 @property (nonatomic, readonly) NSString *userName;
 @property (nonatomic, readonly) NSString *userLastName;
 @property (nonatomic, readonly) NSString *avatar;
 @property (nonatomic, readonly) NSString *online;
+@property (nonatomic, readonly) NSString *isFriend;
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 

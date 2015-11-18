@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserProfileEditVC : UIViewController
+@interface MyProfileEditVC : UIViewController
 
 @end

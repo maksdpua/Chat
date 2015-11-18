@@ -11,22 +11,12 @@
 
 @implementation SearchFriendCell
 
-- (void)setupWithModel:(FoundedUser *)model {
+- (void)setupWithModel:(User *)model {
     
     self.nameLabel.text=model.userName;
     [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.avatar] ] placeholderImage:[UIImage placeholderImage]];
 }
 
-- (NSString *)checkForImageAvatarPath:(NSString *)path {
-    if ([path hasPrefix:@"http://dev."]) {
-        return path;
-    } else {
-        NSRange range = [path rangeOfString:@"http://"];
-        if (range.location != NSNotFound) {
-            path = [NSString stringWithFormat:@"http://dev.%@", [path substringFromIndex:range.length]];
-        }
-        return path;
-    }
-}
+
 
 @end

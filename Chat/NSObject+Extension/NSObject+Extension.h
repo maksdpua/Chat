@@ -14,4 +14,6 @@
 
 - (void)printDescription;
 
+- (NSString *)checkForImageAvatarPath:(NSString *)path;
+
 @end
