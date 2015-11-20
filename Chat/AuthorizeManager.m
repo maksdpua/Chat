@@ -8,44 +8,52 @@
 
 #import "AuthorizeManager.h"
 
-static AuthorizeManager *authorization = nil;
+//static AuthorizeManager *authorization = nil;
 
 @implementation AuthorizeManager
 
-- (NSDictionary *)dictionaryInstructionManager {
-    return @{@"user_id" : @"userID", @"user_session_hash" : @"sessionHash"};
-}
-
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
     
-    self = [super loadClassWithDictionary:dictionary InstructionDictionary:[self dictionaryInstructionManager]];
-    if (!authorization) {
-        [AuthorizeManager sharedAuthorization];
-        authorization = self;
-    }
-    if (![[NSUserDefaults standardUserDefaults] stringForKey:userIDKey] && ![[NSUserDefaults standardUserDefaults] stringForKey:sessionHashKey]) {
+//    self = [super loadClassWithDictionary:dictionary InstructionDictionary:@{}];
+    if (![AuthorizeManager userID] && ![AuthorizeManager sessionHash]) {
         [[NSUserDefaults standardUserDefaults]setObject:[dictionary valueForKey:@"user_id"] forKey:userIDKey];
         [[NSUserDefaults standardUserDefaults]setObject:[dictionary valueForKey:@"user_session_hash"] forKey:sessionHashKey];
     }
+//    if (!authorization) {
+//        [AuthorizeManager sharedAuthorization];
+//        authorization = self;
+//    }
     return self;
 }
 
-+ (instancetype)sharedAuthorization {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        authorization = [[AuthorizeManager alloc] init];
-        authorization.userID = [[NSUserDefaults standardUserDefaults]stringForKey:userIDKey];
-        authorization.sessionHash = [[NSUserDefaults standardUserDefaults]stringForKey:sessionHashKey];
-    });
-    return authorization;
-}
+//+ (instancetype)sharedAuthorization {
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        authorization = [[AuthorizeManager alloc] init];
+//    });
+//    return authorization;
+//}
+
+//- (instancetype)init {
+//    self = [super init];
+//    if (self) {
+//        self.userID = [[NSUserDefaults standardUserDefaults]stringForKey:userIDKey];
+//        self.sessionHash = [[NSUserDefaults standardUserDefaults]stringForKey:sessionHashKey];
+//    }
+//    return self;
+//}
 
 + (NSString *)userID {
-    return authorization.userID;
+    return [[NSUserDefaults standardUserDefaults]stringForKey:userIDKey];
 }
 
 + (NSString *)sessionHash {
-    return authorization.sessionHash;
+    return [[NSUserDefaults standardUserDefaults]stringForKey:sessionHashKey];
+}
+
++ (void)removeUserIdAndSessionHashData {
+    [[NSUserDefaults standardUserDefaults]setObject:nil forKey:userIDKey];
+    [[NSUserDefaults standardUserDefaults]setObject:nil forKey:sessionHashKey];
 }
 
 

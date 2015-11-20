@@ -20,7 +20,7 @@
     NSMutableArray *arrayVC = [NSMutableArray new];
     [arrayVC addObject:mainVC];
     
-    if ([AuthorizeManager sharedAuthorization].userID && [AuthorizeManager sharedAuthorization].sessionHash) {
+    if ([AuthorizeManager userID] && [AuthorizeManager sessionHash]) {
         MenuVC *menuVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([MenuVC class])];
         [arrayVC addObject:menuVC];
     }

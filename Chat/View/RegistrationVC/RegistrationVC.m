@@ -8,6 +8,8 @@
 
 #import "RegistrationVC.h"
 #import "HTTPManager.h"
+#import "APIRequestManager.h"
+#import "ConstantsOfAPI.h"
 
 @interface RegistrationVC()<ChatDatePickerDelegate, UITextFieldDelegate>
 
@@ -29,7 +31,20 @@
 }
 
 - (IBAction)registrateUserAction:(id)sender {
-    [[HTTPManager sharedInstance] registrateUserWithNameString:self.nameTextField.text emailString:self.emailTextField.text date:unixTimeBirthday passwordString:self.passwordTextField.text];
+    NSString *language = @"1";
+    NSString *user_token = kToken;
+    NSString *user_birthday = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
+    NSDictionary *params = @{@"user_name" : name,
+                             @"user_email" : self.emailTextField.text,
+                             @"user_password" : self.passwordTextField.text,
+                             @"user_token" : user_token,
+                             @"user_birthday": user_birthday,
+                             @"language" : language};
+    [[APIRequestManager sharedInstance]POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kRegistrationPath] parameters:params classMapping:nil requestSerializer:NO showProgressOnView:self.view response: ^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"%@", error);
+    }];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -59,12 +74,15 @@
     self.birthdayTextField.text = stringFromDate;
 }
 
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSSet *allTouches = [event allTouches];
-    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-    if ([touch.view class]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
+- (void)touchesEnded: (NSSet *) touches withEvent: (UIEvent *) event {
+    NSArray *subviews = [self.view subviews];
+    for (id objects in subviews) {
+        if ([objects isKindOfClass:[UITextField class]]) {
+            UITextField *theTextField = objects;
+            if ([objects isFirstResponder]) {
+                [theTextField resignFirstResponder];
+            }
+        }
     }
 }
 

@@ -14,6 +14,9 @@
 #import "MyProfileEditVC.h"
 #import "ConstantsOfAPI.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "AuthorizeManager.h"
+#import "MainNavigation.h"
+#import "MainVC.h"
 
 @interface MyInfoVC ()
 
@@ -33,40 +36,34 @@
 
 - (void) loadDataInVC {
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] classMapping:[MyProfile class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
-        
-        self.nameLabel.text = [responseObject valueForKey:@"userName"];
-        self.emailLabel.text = [responseObject valueForKey:@"userEmail"];
-        self.birthdayLabel.text = [responseObject valueForKey:@"userBirthday"];
-        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:[responseObject valueForKey:@"userAvatar"] ]] placeholderImage:[UIImage placeholderImage]];
+        [responseObject printDescription];
+        MyProfile *model = (MyProfile *)responseObject;
+        self.nameLabel.text = model.userName;
+        self.emailLabel.text = model.userEmail;
+        self.birthdayLabel.text = model.userBirthday;
+        [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userAvatar]] placeholderImage:[UIImage placeholderImage]];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
     }];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSSet *allTouches = [event allTouches];
-    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-    if ([touch.view class]) {
-        [self.navigationController popToRootViewControllerAnimated:YES];
-    }
 }
 
 - (IBAction)pushToEditVC:(id)sender {
         
 }
 
-- (NSString *)checkForImageAvatarPath:(NSString *)path {
-    if ([path hasPrefix:@"http://dev."]) {
-        return path;
-    } else {
-        NSRange range = [path rangeOfString:@"http://"];
-        if (range.location != NSNotFound) {
-            path = [NSString stringWithFormat:@"http://dev.%@", [path substringFromIndex:range.length]];
-        }
-        return path;
-    }
+- (IBAction)logoutAction:(id)sender {
+    [self requestToLogout];
+    [AuthorizeManager removeUserIdAndSessionHashData];
+
+}
+
+- (void)requestToLogout {
+    [[APIRequestManager sharedInstance] PUTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogout] classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
 }
 
 

@@ -6,22 +6,22 @@
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
-#import "UserFriendList.h"
+#import "Friends.h"
 #import "User.h"
 
-@interface UserFriendList()
+@interface Friends()
 
-@property (nonatomic, readwrite) NSMutableArray *friendsArray;
+@property (nonatomic, readwrite) NSMutableArray *array;
 
 @end
 
-@implementation UserFriendList
+@implementation Friends
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
-    self.friendsArray = [NSMutableArray new];
-    for (NSDictionary *userDictionary in [dictionary valueForKey:@"users"]) {
+    self.array = [NSMutableArray new];
+    for (NSDictionary *userDictionary in [dictionary valueForKey:@"friends"]) {
         User *user = [[User alloc]initClassWithDictionary:userDictionary];
-        [self.friendsArray addObject:user];
+        [self.array addObject:user];
     }
     return self;
 }

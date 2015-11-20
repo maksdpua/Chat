@@ -13,14 +13,16 @@ static NSString * sessionHashKey = @"usersessionhash";
 
 @interface AuthorizeManager : NSObject
 
-@property (nonatomic, readwrite) NSString *userID;
-@property (nonatomic, readwrite) NSString *sessionHash;
+//@property (nonatomic, readwrite) NSString *userID;
+//@property (nonatomic, readwrite) NSString *sessionHash;
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
-+ (instancetype)sharedAuthorization;
+//+ (instancetype)sharedAuthorization;
 
 + (NSString *)userID;
 + (NSString *)sessionHash;
+
++ (void)removeUserIdAndSessionHashData;
 
 @end

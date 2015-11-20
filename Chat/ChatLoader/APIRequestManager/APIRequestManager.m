@@ -52,7 +52,7 @@
     self = [super init];
     if (self) {
         self.managerRequest = [AFHTTPRequestOperationManager manager];
-        self.managerRequest.responseSerializer = [AFJSONResponseSerializer serializer];
+//        self.managerRequest.responseSerializer = [AFJSONResponseSerializer serializer];
         self.managerRequest.requestSerializer = [AFHTTPRequestSerializer serializer];
 //        self.user_id = [[NSNumber alloc]init];
 //        self.user_session_hash = [[NSString alloc]init];
@@ -96,8 +96,8 @@
 
 - (void)requestSerializer {
 //    _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
-    [self.managerRequest.requestSerializer setValue:[AuthorizeManager sharedAuthorization].userID forHTTPHeaderField:userIDKey];
-    [self.managerRequest.requestSerializer setValue:[AuthorizeManager sharedAuthorization].sessionHash forHTTPHeaderField:sessionHashKey];
+    [self.managerRequest.requestSerializer setValue:[AuthorizeManager userID] forHTTPHeaderField:userIDKey];
+    [self.managerRequest.requestSerializer setValue:[AuthorizeManager sessionHash] forHTTPHeaderField:sessionHashKey];
 }
 
 - (void)connectionStartPOST {

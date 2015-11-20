@@ -8,22 +8,40 @@
 
 #import "LeftMenuVC.h"
 #import "FriendsVC.h"
+#import "Friends.h"
+#import "APIRequestManager.h"
+#import "ConstantsOfAPI.h"
+#import "AuthorizeManager.h"
 
 @interface LeftMenuVC()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *leftMenuTableView;
-@property (nonatomic, strong) NSArray *leftMenuItems;
+@property (nonatomic, strong) NSMutableArray *leftMenuItems;
+@property (nonatomic, assign) BOOL checkFriendRequest;
 
 @end
 
 @implementation LeftMenuVC {
-    NSArray *arrayVCid;
+    NSMutableArray *arrayVCid;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.leftMenuItems = @[@"Profile", @"Search friend",@"Friends"];
-    arrayVCid = @[@"UserInfoVC", @"FriendsVC", @"UserFriendListVC"];
+    self.leftMenuItems = [[NSMutableArray alloc]init];
+    arrayVCid = [[NSMutableArray alloc]init];
+    [self.leftMenuItems addObjectsFromArray:@[@"Profile", @"Search friend",@"Friends"]];
+    [arrayVCid addObjectsFromArray:@[@"MyInfoVC", @"FriendsVC", @"UserFriendListVC"]];
+}
+
+- (void)checkForRequestToFriends {
+//    __weak LeftMenuVC *weakSelf = self;
+    
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@", kURLServer, kFriendRequest,[AuthorizeManager userID]] classMapping:nil requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [responseObject printDescription];
+        self.checkFriendRequest = YES;
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"%@", error);
+    }];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -46,15 +64,34 @@
     
     cell.textLabel.text = [self.leftMenuItems objectAtIndex:indexPath.row];
     
+    CGRect frame = CGRectMake(150, 15, 10, 10);
+    UILabel *label = [[UILabel alloc]initWithFrame:frame];
+    label.backgroundColor = [UIColor redColor];
+    [cell.contentView addSubview:label];
+    
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row==3) {
+        
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     id vc = [self.storyboard instantiateViewControllerWithIdentifier:[arrayVCid objectAtIndex:indexPath.row]];
     
     [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[vc] animated:YES];
     [self.slideMenuController hideMenu:YES];
 }
+
+- (void)requestToLogout {
+    [[APIRequestManager sharedInstance] PUTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogout] classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",responseObject);
+    } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",error);
+    }];
+    
+}
+
+
 
 @end

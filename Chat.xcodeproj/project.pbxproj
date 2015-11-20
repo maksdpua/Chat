@@ -12,6 +12,7 @@
 		2D4322BA1BE8BEC200E9B2EE /* MyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */; };
 		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
 		2D45CE311BECEEED006B9021 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D45CE301BECEEED006B9021 /* testImage.jpg */; };
+		2D53B2D21BFF681B00E7E2AE /* APIFriendsMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D53B2D11BFF681B00E7E2AE /* APIFriendsMethods.m */; };
 		2D6C82C01BEBD52000304EFA /* noUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82BF1BEBD52000304EFA /* noUser.jpg */; };
 		2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */; };
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
@@ -33,7 +34,7 @@
 		2DEC77321BCA62CE00C5F8E6 /* ChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77311BCA62CE00C5F8E6 /* ChatTests.m */; };
 		2DEC773D1BCA62CE00C5F8E6 /* ChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC773C1BCA62CE00C5F8E6 /* ChatUITests.m */; };
 		2DF667AE1BFCDA9200A90451 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667AD1BFCDA9200A90451 /* UserProfile.m */; };
-		2DF667B31BFCFFE200A90451 /* UserFriendList.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667B21BFCFFE200A90451 /* UserFriendList.m */; };
+		2DF667B31BFCFFE200A90451 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667B21BFCFFE200A90451 /* Friends.m */; };
 		2DF667B81BFD06F200A90451 /* UserFriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667B71BFD06F200A90451 /* UserFriendListVC.m */; };
 		2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667BB1BFD0A5700A90451 /* UserCell.m */; };
 		C2E61DB4C2BC5FE3B5355E1F /* libPods-Chat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF417B3C194F775D34C8C98F /* libPods-Chat.a */; };
@@ -77,6 +78,8 @@
 		2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInfoVC.m; path = View/UserInfoVC/MyInfoVC.m; sourceTree = "<group>"; };
 		2D4322BC1BE8FD7D00E9B2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D45CE301BECEEED006B9021 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
+		2D53B2D01BFF681B00E7E2AE /* APIFriendsMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIFriendsMethods.h; path = ChatLoader/APIFriendsMethods/APIFriendsMethods.h; sourceTree = "<group>"; };
+		2D53B2D11BFF681B00E7E2AE /* APIFriendsMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIFriendsMethods.m; path = ChatLoader/APIFriendsMethods/APIFriendsMethods.m; sourceTree = "<group>"; };
 		2D6C82BF1BEBD52000304EFA /* noUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noUser.jpg; sourceTree = "<group>"; };
 		2D6C82C21BEBEBC000304EFA /* FamilyStatusPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyStatusPicker.h; path = Chat/FamilyStatusPicker/FamilyStatusPicker.h; sourceTree = "<group>"; };
 		2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyStatusPicker.m; path = Chat/FamilyStatusPicker/FamilyStatusPicker.m; sourceTree = "<group>"; };
@@ -120,8 +123,8 @@
 		2DEC773E1BCA62CE00C5F8E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DF667AC1BFCDA9200A90451 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfile.h; path = Model/UserProfile/UserProfile.h; sourceTree = "<group>"; };
 		2DF667AD1BFCDA9200A90451 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfile.m; path = Model/UserProfile/UserProfile.m; sourceTree = "<group>"; };
-		2DF667B11BFCFFE200A90451 /* UserFriendList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserFriendList.h; path = Model/UserFriendList/UserFriendList.h; sourceTree = "<group>"; };
-		2DF667B21BFCFFE200A90451 /* UserFriendList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserFriendList.m; path = Model/UserFriendList/UserFriendList.m; sourceTree = "<group>"; };
+		2DF667B11BFCFFE200A90451 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Friends.h; path = Model/UserFriendList/Friends.h; sourceTree = "<group>"; };
+		2DF667B21BFCFFE200A90451 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Friends.m; path = Model/UserFriendList/Friends.m; sourceTree = "<group>"; };
 		2DF667B61BFD06F200A90451 /* UserFriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserFriendListVC.h; path = UserFriendListVC/UserFriendListVC.h; sourceTree = "<group>"; };
 		2DF667B71BFD06F200A90451 /* UserFriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserFriendListVC.m; path = UserFriendListVC/UserFriendListVC.m; sourceTree = "<group>"; };
 		2DF667BA1BFD0A5700A90451 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCell.h; path = UserCell/UserCell.h; sourceTree = "<group>"; };
@@ -215,6 +218,15 @@
 				2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */,
 			);
 			name = MyInfoVC;
+			sourceTree = "<group>";
+		};
+		2D53B2CF1BFF67BE00E7E2AE /* APIRequestWithFriendsMethods */ = {
+			isa = PBXGroup;
+			children = (
+				2D53B2D01BFF681B00E7E2AE /* APIFriendsMethods.h */,
+				2D53B2D11BFF681B00E7E2AE /* APIFriendsMethods.m */,
+			);
+			name = APIRequestWithFriendsMethods;
 			sourceTree = "<group>";
 		};
 		2D6C82C11BEBEB7700304EFA /* FamilyStatusPicker */ = {
@@ -343,6 +355,7 @@
 		2DC114DD1BE42F9000EC5854 /* ChatLoader */ = {
 			isa = PBXGroup;
 			children = (
+				2D53B2CF1BFF67BE00E7E2AE /* APIRequestWithFriendsMethods */,
 				2D7CF0851BF685AD00C48015 /* AuthorizeManager */,
 				2D229ED21BF509AB00D8A307 /* APIRequestManager */,
 				2DCA1DCC1BE7DC2C00E74877 /* HTTPManager */,
@@ -462,13 +475,13 @@
 			name = UserProfile;
 			sourceTree = "<group>";
 		};
-		2DF667AF1BFCFF9000A90451 /* UserFriendList */ = {
+		2DF667AF1BFCFF9000A90451 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				2DF667B11BFCFFE200A90451 /* UserFriendList.h */,
-				2DF667B21BFCFFE200A90451 /* UserFriendList.m */,
+				2DF667B11BFCFFE200A90451 /* Friends.h */,
+				2DF667B21BFCFFE200A90451 /* Friends.m */,
 			);
-			name = UserFriendList;
+			name = Friends;
 			sourceTree = "<group>";
 		};
 		2DF667B41BFD01EE00A90451 /* User */ = {
@@ -528,7 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				2DF667B41BFD01EE00A90451 /* User */,
-				2DF667AF1BFCFF9000A90451 /* UserFriendList */,
+				2DF667AF1BFCFF9000A90451 /* Friends */,
 				2DF667AB1BFCDA5B00A90451 /* UserProfile */,
 				FC57E4F51BF75FD900F77A72 /* FoundedUser */,
 				FCA98B0D1BF71A09000652CE /* MyProfile */,
@@ -804,6 +817,7 @@
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,
 				2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */,
+				2D53B2D21BFF681B00E7E2AE /* APIFriendsMethods.m in Sources */,
 				2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */,
 				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,
@@ -811,7 +825,7 @@
 				2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */,
 				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
 				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
-				2DF667B31BFCFFE200A90451 /* UserFriendList.m in Sources */,
+				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
 				FCA98B101BF71A26000652CE /* MyProfile.m in Sources */,

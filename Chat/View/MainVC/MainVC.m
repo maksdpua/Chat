@@ -59,7 +59,7 @@
                              @"user_token" : user_token};
     
     [[APIRequestManager sharedInstance] POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogin] parameters:params classMapping:[AuthorizeManager class] requestSerializer:NO showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
+        NSLog(@"%@ %@", [AuthorizeManager userID], [AuthorizeManager sessionHash]);
         MenuVC *menuVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([MenuVC class])];
         [self.navigationController pushViewController:menuVC animated:YES];
     }fail:^(AFHTTPRequestOperation *operation, id responseObject){

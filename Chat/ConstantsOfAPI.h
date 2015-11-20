@@ -17,8 +17,8 @@ static  NSString *const kMyProfile = @"user/profile";
 static  NSString *const kUserProfile = @"user/";
 static  NSString *const kAddUserToFriends = @"friend/add/";
 static  NSString *const kGetUserFrinedList = @"friends/";
-
-
+static  NSString *const kFriendRequest = @"friends/request/";
+static  NSString *const kLogout = @"user/logout";
 
 static  NSString *const kUserIDForJC = @"userid";
 

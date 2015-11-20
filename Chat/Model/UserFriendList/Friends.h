@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserFriendList : NSObject
+@interface Friends : NSObject
 
-@property (nonatomic, readonly) NSMutableArray *friendsArray;
+@property (nonatomic, readonly) NSMutableArray *array;
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
