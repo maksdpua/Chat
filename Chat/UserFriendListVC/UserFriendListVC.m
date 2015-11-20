@@ -25,26 +25,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    [self checkForNewFriends];
+    [self checkForNewFriends];
     [self getFriendList];
-    [self.tableView reloadData];
-    
 }
 
 - (void)checkForNewFriends {
+    __weak UserFriendListVC *weakSelf = self;
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@", kURLServer, kFriendRequest, [AuthorizeManager userID]] classMapping: [Friends class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.requestForFriends = (Friends *)responseObject;
-        NSLog(@"%@", self.requestForFriends.array);
+        weakSelf.requestForFriends = (Friends *)responseObject;
+        NSLog(@"%@", weakSelf.requestForFriends.array);
+        [self.tableView reloadData];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
         NSLog(@"%@", error);
     }];
 }
 
 - (void)getFriendList {
-
+    __weak UserFriendListVC *weakSelf = self;
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@", kURLServer, kGetUserFrinedList, [AuthorizeManager userID]] classMapping:[Friends class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.userFriendList = (Friends *)responseObject;
-        NSLog(@"%@", self.userFriendList.array);
+        weakSelf.userFriendList = (Friends *)responseObject;
+        NSLog(@"%@", weakSelf.userFriendList);
         [self.tableView reloadData];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
         NSLog(@"%@", error);
@@ -95,6 +95,10 @@
     } else {
         return @"Friends";
     }
+}
+
+- (CGFloat)estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 
