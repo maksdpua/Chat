@@ -11,9 +11,6 @@
 #import "MBProgressHUD.h"
 #import "AuthorizeManager.h"
 
-#define SELECTOR_NAME "initClassWithDictionary:"
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-
 @interface APIRequestManager()
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *managerRequest;
@@ -103,42 +100,57 @@
 - (void)connectionStartPOST {
     
     [self.managerRequest POST:_urlString parameters:_parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        [self hiddenProgressOnView:_view];
-        _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self hiddenProgressOnView:_view];
+            _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+        });
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        [self hiddenProgressOnView:_view];
-        _failBlock(operation, error);
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            
+            [self hiddenProgressOnView:_view];
+            _failBlock(operation, error);
+        });
     }];
 }
 
 - (void)connectionStartGET {
     
     [self.managerRequest GET:_urlString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        [self hiddenProgressOnView:_view];
-        _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self hiddenProgressOnView:_view];
+            _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+        });
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        [self hiddenProgressOnView:_view];
-        _failBlock(operation, error);
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self hiddenProgressOnView:_view];
+            _failBlock(operation, error);
+        });
+
     }];
 }
 
 - (void)connectionStartPUT {
     [self.managerRequest PUT:_urlString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id _Nonnull responseObject) {
-        [self hiddenProgressOnView:_view];
-        _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self hiddenProgressOnView:_view];
+            _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+        });
     }failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
-        [self hiddenProgressOnView:_view];
-        _failBlock(operation, error);
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self hiddenProgressOnView:_view];
+            _failBlock(operation, error);
+        });
     }];
 }
 
 - (id)fillObjectResponseWithDictionary:(NSDictionary *)dictionary {
     
-    SEL selector = sel_registerName(SELECTOR_NAME);
+//    SEL selector = sel_registerName(SELECTOR_NAME);
     id obj = [_class alloc];
-    if ([obj respondsToSelector:selector]) {
-        [obj performSelector:selector withObject:dictionary];
+    if ([obj respondsToSelector:@selector(initClassWithDictionary:)]) {
+        obj = [obj initClassWithDictionary:dictionary];
     }
+    [obj printDescription];
     return obj;
 }
 
@@ -176,6 +188,7 @@
 }
 
 - (void)GETConnectionWithURLString:(NSString *)urlString classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
     
     [self fillManagerURLString:urlString parameters:nil classMapping:classMapping showProgressOnView:view response:response fail:failure];
     

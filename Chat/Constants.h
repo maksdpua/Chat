@@ -28,6 +28,7 @@ static NSString *const CellIdentifier = @"customCell";
 
 static NSString *const kSearchFriendCell = @"SearchFriendCell";
 static NSString *const kUserCell = @"UserCell";
+static NSString *const kUserRequestCell = @"UserRequestCell";
 
 
 

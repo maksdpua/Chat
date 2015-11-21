@@ -35,9 +35,9 @@
 		2DEC773D1BCA62CE00C5F8E6 /* ChatUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC773C1BCA62CE00C5F8E6 /* ChatUITests.m */; };
 		2DF667AE1BFCDA9200A90451 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667AD1BFCDA9200A90451 /* UserProfile.m */; };
 		2DF667B31BFCFFE200A90451 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667B21BFCFFE200A90451 /* Friends.m */; };
-		2DF667B81BFD06F200A90451 /* UserFriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667B71BFD06F200A90451 /* UserFriendListVC.m */; };
 		2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667BB1BFD0A5700A90451 /* UserCell.m */; };
 		C2E61DB4C2BC5FE3B5355E1F /* libPods-Chat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF417B3C194F775D34C8C98F /* libPods-Chat.a */; };
+		FC19E3081C007968001B3351 /* UserFriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC19E3071C007968001B3351 /* UserFriendListVC.m */; };
 		FC57E4F81BF7609B00F77A72 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC57E4F71BF7609B00F77A72 /* User.m */; };
 		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
 		FCA98B101BF71A26000652CE /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA98B0F1BF71A26000652CE /* MyProfile.m */; };
@@ -125,13 +125,13 @@
 		2DF667AD1BFCDA9200A90451 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfile.m; path = Model/UserProfile/UserProfile.m; sourceTree = "<group>"; };
 		2DF667B11BFCFFE200A90451 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Friends.h; path = Model/UserFriendList/Friends.h; sourceTree = "<group>"; };
 		2DF667B21BFCFFE200A90451 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Friends.m; path = Model/UserFriendList/Friends.m; sourceTree = "<group>"; };
-		2DF667B61BFD06F200A90451 /* UserFriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserFriendListVC.h; path = UserFriendListVC/UserFriendListVC.h; sourceTree = "<group>"; };
-		2DF667B71BFD06F200A90451 /* UserFriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserFriendListVC.m; path = UserFriendListVC/UserFriendListVC.m; sourceTree = "<group>"; };
 		2DF667BA1BFD0A5700A90451 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCell.h; path = UserCell/UserCell.h; sourceTree = "<group>"; };
 		2DF667BB1BFD0A5700A90451 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCell.m; path = UserCell/UserCell.m; sourceTree = "<group>"; };
 		BF417B3C194F775D34C8C98F /* libPods-Chat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D33CFF9CF90FC6430B7B5534 /* Pods-Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
+		FC19E3061C007968001B3351 /* UserFriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFriendListVC.h; sourceTree = "<group>"; };
+		FC19E3071C007968001B3351 /* UserFriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFriendListVC.m; sourceTree = "<group>"; };
 		FC57E4F61BF7609B00F77A72 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/FoundedUser/User.h; sourceTree = "<group>"; };
 		FC57E4F71BF7609B00F77A72 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/FoundedUser/User.m; sourceTree = "<group>"; };
 		FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationVC.h; path = Chat/View/RegistrationVC/RegistrationVC.h; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 		2D7A94FF1BCA6CF0001BC204 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2DF667B51BFD06BF00A90451 /* UserFriendListVC */,
+				FC19E3051C007917001B3351 /* UserFriendListVC */,
 				2D98D1D51BFBBFC500B8F207 /* UserProfileVC */,
 				2DB72FC41BEA9E650014B34F /* MyProfileEditVC */,
 				FCBE687E1BEE112400AAA0D6 /* LeftMenuVC */,
@@ -493,15 +493,6 @@
 			name = User;
 			sourceTree = "<group>";
 		};
-		2DF667B51BFD06BF00A90451 /* UserFriendListVC */ = {
-			isa = PBXGroup;
-			children = (
-				2DF667B61BFD06F200A90451 /* UserFriendListVC.h */,
-				2DF667B71BFD06F200A90451 /* UserFriendListVC.m */,
-			);
-			name = UserFriendListVC;
-			sourceTree = "<group>";
-		};
 		2DF667B91BFD09E600A90451 /* UserCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +517,15 @@
 				E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FC19E3051C007917001B3351 /* UserFriendListVC */ = {
+			isa = PBXGroup;
+			children = (
+				FC19E3061C007968001B3351 /* UserFriendListVC.h */,
+				FC19E3071C007968001B3351 /* UserFriendListVC.m */,
+			);
+			name = UserFriendListVC;
 			sourceTree = "<group>";
 		};
 		FC57E4F51BF75FD900F77A72 /* FoundedUser */ = {
@@ -810,7 +810,6 @@
 			files = (
 				FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */,
 				FCECFA941BE4B82800B7B714 /* ChatDatePicker.m in Sources */,
-				2DF667B81BFD06F200A90451 /* UserFriendListVC.m in Sources */,
 				2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */,
 				2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */,
 				2DF667AE1BFCDA9200A90451 /* UserProfile.m in Sources */,
@@ -832,6 +831,7 @@
 				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,
 				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
 				FCB9EB841BF757CB0025920A /* MainNavigation.m in Sources */,
+				FC19E3081C007968001B3351 /* UserFriendListVC.m in Sources */,
 				2D4322BA1BE8BEC200E9B2EE /* MyInfoVC.m in Sources */,
 				FCBE68861BEE169D00AAA0D6 /* FriendsVC.m in Sources */,
 				2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */,

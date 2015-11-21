@@ -17,7 +17,7 @@
 @property (nonatomic, readonly) NSString *online;
 @property (nonatomic, readonly) NSString *isFriend;
 
-- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
+//- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
 //"users": [
 //          {

@@ -8,7 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (Extension)
+@protocol FillingClassProtocol
+
+@optional
+
+- (instancetype) initClassWithDictionary: (NSDictionary *)dictionary;
+
+@end
+
+@interface NSObject (Extension) <FillingClassProtocol>
 
 - (instancetype)loadClassWithDictionary:(NSDictionary *)dictionary InstructionDictionary:(NSDictionary *)instruction;
 

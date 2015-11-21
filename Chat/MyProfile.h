@@ -15,7 +15,7 @@
 @property (nonatomic, readonly) NSString *userBirthday;
 @property (nonatomic, readonly) NSString *userAvatar;
 
-- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
+//- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
 
 //"user_id": 20166,

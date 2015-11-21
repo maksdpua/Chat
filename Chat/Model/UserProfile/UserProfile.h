@@ -16,7 +16,7 @@
 @property (nonatomic, readonly) NSString *userAvatar;
 @property (nonatomic, readonly) NSString *isFriend;
 
-- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
+//- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
 /*
     "result": true,

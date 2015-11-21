@@ -16,7 +16,7 @@ static NSString * sessionHashKey = @"usersessionhash";
 //@property (nonatomic, readwrite) NSString *userID;
 //@property (nonatomic, readwrite) NSString *sessionHash;
 
-- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
+//- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
 //+ (instancetype)sharedAuthorization;
 

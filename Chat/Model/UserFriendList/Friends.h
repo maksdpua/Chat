@@ -12,6 +12,6 @@
 
 @property (nonatomic, readonly) NSMutableArray *array;
 
-- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
+//- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 
 @end

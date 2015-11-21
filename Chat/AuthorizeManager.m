@@ -14,7 +14,7 @@
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
     
-//    self = [super loadClassWithDictionary:dictionary InstructionDictionary:@{}];
+    self = [super loadClassWithDictionary:dictionary InstructionDictionary:@{}];
     if (![AuthorizeManager userID] && ![AuthorizeManager sessionHash]) {
         [[NSUserDefaults standardUserDefaults]setObject:[dictionary valueForKey:@"user_id"] forKey:userIDKey];
         [[NSUserDefaults standardUserDefaults]setObject:[dictionary valueForKey:@"user_session_hash"] forKey:sessionHashKey];
