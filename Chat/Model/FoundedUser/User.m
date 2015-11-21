@@ -16,6 +16,7 @@
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
     self = [super loadClassWithDictionary:dictionary InstructionDictionary:[self dictionaryInstructionManager]];
+    [self printDescription];
     return self;
 }
 

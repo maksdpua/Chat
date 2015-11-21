@@ -12,7 +12,6 @@
 		2D4322BA1BE8BEC200E9B2EE /* MyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */; };
 		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
 		2D45CE311BECEEED006B9021 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D45CE301BECEEED006B9021 /* testImage.jpg */; };
-		2D53B2D21BFF681B00E7E2AE /* APIFriendsMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D53B2D11BFF681B00E7E2AE /* APIFriendsMethods.m */; };
 		2D6C82C01BEBD52000304EFA /* noUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82BF1BEBD52000304EFA /* noUser.jpg */; };
 		2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */; };
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
@@ -38,9 +37,10 @@
 		2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DF667BB1BFD0A5700A90451 /* UserCell.m */; };
 		C2E61DB4C2BC5FE3B5355E1F /* libPods-Chat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF417B3C194F775D34C8C98F /* libPods-Chat.a */; };
 		FC19E3081C007968001B3351 /* UserFriendListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FC19E3071C007968001B3351 /* UserFriendListVC.m */; };
+		FC19E30C1C00A018001B3351 /* UIButton+indexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FC19E30B1C00A018001B3351 /* UIButton+indexPath.m */; };
 		FC57E4F81BF7609B00F77A72 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC57E4F71BF7609B00F77A72 /* User.m */; };
 		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
-		FCA98B101BF71A26000652CE /* MyProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA98B0F1BF71A26000652CE /* MyProfile.m */; };
+		FCA98B101BF71A26000652CE /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA98B0F1BF71A26000652CE /* UserInfo.m */; };
 		FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C241BDB5F3A0035B38B /* ChatCell.m */; };
 		FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C281BDB6A0D0035B38B /* MessageObject.m */; };
 		FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */; };
@@ -78,8 +78,6 @@
 		2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInfoVC.m; path = View/UserInfoVC/MyInfoVC.m; sourceTree = "<group>"; };
 		2D4322BC1BE8FD7D00E9B2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2D45CE301BECEEED006B9021 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
-		2D53B2D01BFF681B00E7E2AE /* APIFriendsMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIFriendsMethods.h; path = ChatLoader/APIFriendsMethods/APIFriendsMethods.h; sourceTree = "<group>"; };
-		2D53B2D11BFF681B00E7E2AE /* APIFriendsMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIFriendsMethods.m; path = ChatLoader/APIFriendsMethods/APIFriendsMethods.m; sourceTree = "<group>"; };
 		2D6C82BF1BEBD52000304EFA /* noUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noUser.jpg; sourceTree = "<group>"; };
 		2D6C82C21BEBEBC000304EFA /* FamilyStatusPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyStatusPicker.h; path = Chat/FamilyStatusPicker/FamilyStatusPicker.h; sourceTree = "<group>"; };
 		2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyStatusPicker.m; path = Chat/FamilyStatusPicker/FamilyStatusPicker.m; sourceTree = "<group>"; };
@@ -132,12 +130,14 @@
 		E4CD1A893F317BF244129C76 /* Pods-Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chat/Pods-Chat.release.xcconfig"; sourceTree = "<group>"; };
 		FC19E3061C007968001B3351 /* UserFriendListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserFriendListVC.h; sourceTree = "<group>"; };
 		FC19E3071C007968001B3351 /* UserFriendListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserFriendListVC.m; sourceTree = "<group>"; };
+		FC19E30A1C00A018001B3351 /* UIButton+indexPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+indexPath.h"; path = "Category/UIButton+indexPath/UIButton+indexPath.h"; sourceTree = "<group>"; };
+		FC19E30B1C00A018001B3351 /* UIButton+indexPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+indexPath.m"; path = "Category/UIButton+indexPath/UIButton+indexPath.m"; sourceTree = "<group>"; };
 		FC57E4F61BF7609B00F77A72 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/FoundedUser/User.h; sourceTree = "<group>"; };
 		FC57E4F71BF7609B00F77A72 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/FoundedUser/User.m; sourceTree = "<group>"; };
 		FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationVC.h; path = Chat/View/RegistrationVC/RegistrationVC.h; sourceTree = "<group>"; };
 		FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationVC.m; path = Chat/View/RegistrationVC/RegistrationVC.m; sourceTree = "<group>"; };
-		FCA98B0E1BF71A26000652CE /* MyProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfile.h; sourceTree = "<group>"; };
-		FCA98B0F1BF71A26000652CE /* MyProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfile.m; sourceTree = "<group>"; };
+		FCA98B0E1BF71A26000652CE /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		FCA98B0F1BF71A26000652CE /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		FCB53C231BDB5F3A0035B38B /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		FCB53C241BDB5F3A0035B38B /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		FCB53C271BDB6A0D0035B38B /* MessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageObject.h; sourceTree = "<group>"; };
@@ -218,15 +218,6 @@
 				2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */,
 			);
 			name = MyInfoVC;
-			sourceTree = "<group>";
-		};
-		2D53B2CF1BFF67BE00E7E2AE /* APIRequestWithFriendsMethods */ = {
-			isa = PBXGroup;
-			children = (
-				2D53B2D01BFF681B00E7E2AE /* APIFriendsMethods.h */,
-				2D53B2D11BFF681B00E7E2AE /* APIFriendsMethods.m */,
-			);
-			name = APIRequestWithFriendsMethods;
 			sourceTree = "<group>";
 		};
 		2D6C82C11BEBEB7700304EFA /* FamilyStatusPicker */ = {
@@ -355,7 +346,6 @@
 		2DC114DD1BE42F9000EC5854 /* ChatLoader */ = {
 			isa = PBXGroup;
 			children = (
-				2D53B2CF1BFF67BE00E7E2AE /* APIRequestWithFriendsMethods */,
 				2D7CF0851BF685AD00C48015 /* AuthorizeManager */,
 				2D229ED21BF509AB00D8A307 /* APIRequestManager */,
 				2DCA1DCC1BE7DC2C00E74877 /* HTTPManager */,
@@ -366,6 +356,7 @@
 		2DC146861BEB6FC4002188F7 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				FC19E3091C009F84001B3351 /* UIButton+indexPath */,
 				2D7CF08A1BF6961200C48015 /* NSObject+Extension */,
 				2DC146871BEB6FD1002188F7 /* UIImage+Placeholder */,
 			);
@@ -528,6 +519,15 @@
 			name = UserFriendListVC;
 			sourceTree = "<group>";
 		};
+		FC19E3091C009F84001B3351 /* UIButton+indexPath */ = {
+			isa = PBXGroup;
+			children = (
+				FC19E30A1C00A018001B3351 /* UIButton+indexPath.h */,
+				FC19E30B1C00A018001B3351 /* UIButton+indexPath.m */,
+			);
+			name = "UIButton+indexPath";
+			sourceTree = "<group>";
+		};
 		FC57E4F51BF75FD900F77A72 /* FoundedUser */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,8 +562,8 @@
 		FCA98B0D1BF71A09000652CE /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
-				FCA98B0E1BF71A26000652CE /* MyProfile.h */,
-				FCA98B0F1BF71A26000652CE /* MyProfile.m */,
+				FCA98B0E1BF71A26000652CE /* UserInfo.h */,
+				FCA98B0F1BF71A26000652CE /* UserInfo.m */,
 			);
 			name = MyProfile;
 			sourceTree = "<group>";
@@ -811,12 +811,12 @@
 				FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */,
 				FCECFA941BE4B82800B7B714 /* ChatDatePicker.m in Sources */,
 				2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */,
+				FC19E30C1C00A018001B3351 /* UIButton+indexPath.m in Sources */,
 				2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */,
 				2DF667AE1BFCDA9200A90451 /* UserProfile.m in Sources */,
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,
 				2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */,
-				2D53B2D21BFF681B00E7E2AE /* APIFriendsMethods.m in Sources */,
 				2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */,
 				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,
@@ -827,7 +827,7 @@
 				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
-				FCA98B101BF71A26000652CE /* MyProfile.m in Sources */,
+				FCA98B101BF71A26000652CE /* UserInfo.m in Sources */,
 				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,
 				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
 				FCB9EB841BF757CB0025920A /* MainNavigation.m in Sources */,

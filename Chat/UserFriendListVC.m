@@ -58,6 +58,21 @@
     return [self arrayAtSection:indexPath.section][indexPath.row];
 }
 
+- (IBAction)acceptButton:(id)sender {
+    NSDictionary *parametrs;
+    UIButton *index = (UIButton *)sender;
+    User *user = [self objectAtIndexPath:[NSIndexPath indexPathForRow:index.indexPathForButton.row inSection:0]];
+    parametrs = @{@"confirm_friend" : @"1"};
+    
+    [[APIRequestManager sharedInstance] POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@", kURLServer, kFriendAccept, user.userID] parameters:parametrs classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+        [self.tableView reloadData];
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    
+}
+
 
 #pragma mark - UITableVIewDelegate
 
@@ -72,25 +87,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        UserCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserRequestCell];
-//        [cell setupWithModel:[self objectAtIndexPath:indexPath]];
-//        return cell;
-//    } else {
-//        UserCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserCell];
-//        [cell setupWithModel:[self objectAtIndexPath:indexPath]];
-//        return cell;
-//    }
-    
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:[self.allFriends allKeys][indexPath.section]];
     [cell setupWithModel:[self objectAtIndexPath:indexPath]];
-    return cell;
 
-//    UserCell *cell = [tableView dequeueReusableCellWithIdentifier:kUserCell];
-//    
-//    [cell setupWithModel:[self.requestForFriends.array objectAtIndex:indexPath.row]];
-//    
-//    return cell;
+    cell.acceptButton.indexPathForButton = indexPath;
+    
+    return cell;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

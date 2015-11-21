@@ -6,9 +6,9 @@
 //  Copyright © 2015 Genrih Korenujenko. All rights reserved.
 //
 
-#import "MyProfile.h"
+#import "UserInfo.h"
 
-@implementation MyProfile
+@implementation UserInfo
 
 - (NSDictionary *)dictionaryInstructionManager {
     return @{@"username" : @"userName", @"email" : @"userEmail", @"birthday" : @"userBirthday", @"avatar" : @"userAvatar"};

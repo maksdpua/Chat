@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SiJ-Qu-Jp8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SiJ-Qu-Jp8">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -29,182 +29,7 @@
         <scene sceneID="puP-dw-b5i">
             <objects>
                 <viewController storyboardIdentifier="UserProfileEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gsH-b7-vE5" customClass="MyProfileEditVC" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="67H-Dh-M9h"/>
-                        <viewControllerLayoutGuide type="bottom" id="IdU-r4-IaQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iOV-Nm-hPQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hometown" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80e-aQ-0a6">
-                                <rect key="frame" x="13" y="149" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="SXA-34-wqn"/>
-                                </connections>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9kL-cZ-sEn">
-                                <rect key="frame" x="13" y="21" width="120" height="120"/>
-                                <animations/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GiJ-wK-nvF">
-                                <rect key="frame" x="141" y="21" width="159" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="g58-Yx-hkG"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i0f-o9-2qR">
-                                <rect key="frame" x="141" y="59" width="159" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="iX1-Vh-5yl"/>
-                                </connections>
-                            </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Td-PJ-C2S">
-                                <rect key="frame" x="196" y="97" width="51" height="31"/>
-                                <animations/>
-                            </switch>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vpY-Ob-0sg">
-                                <rect key="frame" x="13" y="187" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="CqU-JB-rEY"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthday" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-CJ-TED">
-                                <rect key="frame" x="13" y="225" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="WGE-Ys-hvo"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QRC-Po-07t">
-                                <rect key="frame" x="13" y="301" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="1nz-Bb-6o2"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G4B-Ic-647">
-                                <rect key="frame" x="13" y="339" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="DYp-8L-edI"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Univercity" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gfW-5n-OY4">
-                                <rect key="frame" x="13" y="377" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="3Fz-rP-HP9"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="About me" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4qF-rX-izd">
-                                <rect key="frame" x="13" y="415" width="287" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="gsH-b7-vE5" id="msX-Ng-kGm"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSu-Pz-78D">
-                                <rect key="frame" x="137" y="450" width="46" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="Jo8-Gn-awd"/>
-                                </constraints>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveChangesInUserProfile:" destination="gsH-b7-vE5" eventType="touchUpInside" id="hcn-c8-XKJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKc-u4-qQV">
-                                <rect key="frame" x="13" y="263" width="287" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.99466474500000002" blue="0.74407433619999996" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Please select your family status"/>
-                                <connections>
-                                    <action selector="selectFamilyStatusButton:" destination="gsH-b7-vE5" eventType="touchUpInside" id="FxW-0I-0mj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="80e-aQ-0a6" firstAttribute="top" secondItem="9kL-cZ-sEn" secondAttribute="bottom" constant="8" symbolic="YES" id="0Vc-Tf-Alf"/>
-                            <constraint firstItem="gfW-5n-OY4" firstAttribute="leading" secondItem="G4B-Ic-647" secondAttribute="leading" id="2Ql-L6-EcU"/>
-                            <constraint firstItem="vpY-Ob-0sg" firstAttribute="top" secondItem="80e-aQ-0a6" secondAttribute="bottom" constant="8" symbolic="YES" id="3Dw-Wd-6J9"/>
-                            <constraint firstItem="9kL-cZ-sEn" firstAttribute="leading" secondItem="iOV-Nm-hPQ" secondAttribute="leadingMargin" constant="-3" id="5Gx-mR-D7D"/>
-                            <constraint firstItem="4qF-rX-izd" firstAttribute="leading" secondItem="gfW-5n-OY4" secondAttribute="leading" id="6XV-2J-KmL"/>
-                            <constraint firstItem="G4B-Ic-647" firstAttribute="leading" secondItem="QRC-Po-07t" secondAttribute="leading" id="8U6-mO-s1h"/>
-                            <constraint firstItem="vpY-Ob-0sg" firstAttribute="leading" secondItem="4Ua-CJ-TED" secondAttribute="leading" id="9wL-oz-zSc"/>
-                            <constraint firstItem="i0f-o9-2qR" firstAttribute="top" secondItem="GiJ-wK-nvF" secondAttribute="bottom" constant="8" symbolic="YES" id="DmL-Lx-db2"/>
-                            <constraint firstItem="vpY-Ob-0sg" firstAttribute="leading" secondItem="80e-aQ-0a6" secondAttribute="leading" id="Gca-EB-H0t"/>
-                            <constraint firstItem="dKc-u4-qQV" firstAttribute="leading" secondItem="4Ua-CJ-TED" secondAttribute="leading" id="JQW-nr-cUX"/>
-                            <constraint firstItem="gfW-5n-OY4" firstAttribute="top" secondItem="G4B-Ic-647" secondAttribute="bottom" constant="8" symbolic="YES" id="Kqa-vC-Ij1"/>
-                            <constraint firstItem="3Td-PJ-C2S" firstAttribute="leading" secondItem="9kL-cZ-sEn" secondAttribute="trailing" constant="63" id="M05-cb-zFV"/>
-                            <constraint firstItem="cSu-Pz-78D" firstAttribute="centerX" secondItem="iOV-Nm-hPQ" secondAttribute="centerX" id="MWt-Mr-Cfw"/>
-                            <constraint firstItem="GiJ-wK-nvF" firstAttribute="leading" secondItem="9kL-cZ-sEn" secondAttribute="trailing" constant="8" symbolic="YES" id="PIM-D9-9Wu"/>
-                            <constraint firstItem="G4B-Ic-647" firstAttribute="top" secondItem="QRC-Po-07t" secondAttribute="bottom" constant="8" symbolic="YES" id="RId-2t-Odf"/>
-                            <constraint firstItem="4Ua-CJ-TED" firstAttribute="centerY" secondItem="iOV-Nm-hPQ" secondAttribute="centerY" id="SHg-vb-UYL"/>
-                            <constraint firstItem="dKc-u4-qQV" firstAttribute="trailing" secondItem="QRC-Po-07t" secondAttribute="trailing" id="Say-4U-edh"/>
-                            <constraint firstItem="vpY-Ob-0sg" firstAttribute="trailing" secondItem="4Ua-CJ-TED" secondAttribute="trailing" id="Sp8-1b-zuv"/>
-                            <constraint firstItem="GiJ-wK-nvF" firstAttribute="top" secondItem="9kL-cZ-sEn" secondAttribute="top" id="U09-t2-GHs"/>
-                            <constraint firstItem="80e-aQ-0a6" firstAttribute="leading" secondItem="9kL-cZ-sEn" secondAttribute="leading" id="UF6-qo-zIT"/>
-                            <constraint firstItem="4Ua-CJ-TED" firstAttribute="trailing" secondItem="dKc-u4-qQV" secondAttribute="trailing" id="UaO-Ze-fCt"/>
-                            <constraint firstItem="3Td-PJ-C2S" firstAttribute="top" secondItem="i0f-o9-2qR" secondAttribute="bottom" constant="8" symbolic="YES" id="XI8-g7-CvW"/>
-                            <constraint firstItem="80e-aQ-0a6" firstAttribute="trailing" secondItem="i0f-o9-2qR" secondAttribute="trailing" id="Xv3-Je-gtX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GiJ-wK-nvF" secondAttribute="trailing" constant="4" id="Ybr-JR-SbX"/>
-                            <constraint firstItem="QRC-Po-07t" firstAttribute="leading" secondItem="dKc-u4-qQV" secondAttribute="leading" id="afn-Kl-qu0"/>
-                            <constraint firstItem="4Ua-CJ-TED" firstAttribute="top" secondItem="vpY-Ob-0sg" secondAttribute="bottom" constant="8" symbolic="YES" id="aiB-5M-41z"/>
-                            <constraint firstItem="i0f-o9-2qR" firstAttribute="centerX" secondItem="3Td-PJ-C2S" secondAttribute="centerX" id="dIs-D6-Cqy"/>
-                            <constraint firstItem="i0f-o9-2qR" firstAttribute="trailing" secondItem="GiJ-wK-nvF" secondAttribute="trailing" id="dbX-2w-Rj0"/>
-                            <constraint firstItem="9kL-cZ-sEn" firstAttribute="top" secondItem="67H-Dh-M9h" secondAttribute="bottom" constant="1" id="fOL-ig-2Cj"/>
-                            <constraint firstItem="4qF-rX-izd" firstAttribute="top" secondItem="gfW-5n-OY4" secondAttribute="bottom" constant="8" symbolic="YES" id="gRy-IK-G6k"/>
-                            <constraint firstItem="gfW-5n-OY4" firstAttribute="trailing" secondItem="4qF-rX-izd" secondAttribute="trailing" id="hEd-hg-7Xh"/>
-                            <constraint firstItem="cSu-Pz-78D" firstAttribute="bottom" secondItem="IdU-r4-IaQ" secondAttribute="top" id="hac-aJ-aZB"/>
-                            <constraint firstItem="i0f-o9-2qR" firstAttribute="leading" secondItem="GiJ-wK-nvF" secondAttribute="leading" id="knB-Tc-07f"/>
-                            <constraint firstItem="G4B-Ic-647" firstAttribute="trailing" secondItem="QRC-Po-07t" secondAttribute="trailing" id="nGw-Cb-n3I"/>
-                            <constraint firstItem="dKc-u4-qQV" firstAttribute="top" secondItem="4Ua-CJ-TED" secondAttribute="bottom" constant="8" symbolic="YES" id="p0U-yl-wpu"/>
-                            <constraint firstItem="vpY-Ob-0sg" firstAttribute="trailing" secondItem="80e-aQ-0a6" secondAttribute="trailing" id="sdQ-Yr-oOU"/>
-                            <constraint firstItem="G4B-Ic-647" firstAttribute="trailing" secondItem="gfW-5n-OY4" secondAttribute="trailing" id="wRX-FU-Cky"/>
-                            <constraint firstItem="QRC-Po-07t" firstAttribute="top" secondItem="dKc-u4-qQV" secondAttribute="bottom" constant="8" symbolic="YES" id="zhG-tm-nFS"/>
-                        </constraints>
-                    </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="aboutMeTextField" destination="4qF-rX-izd" id="yH1-MQ-Wki"/>
-                        <outlet property="avatarImage" destination="9kL-cZ-sEn" id="E6g-ny-rzM"/>
-                        <outlet property="birthdayTextField" destination="4Ua-CJ-TED" id="0ei-p0-ZI2"/>
-                        <outlet property="emailTextField" destination="vpY-Ob-0sg" id="pvy-vY-k6b"/>
-                        <outlet property="familyStatusButton" destination="dKc-u4-qQV" id="0aN-dg-AIE"/>
-                        <outlet property="genderSwitch" destination="3Td-PJ-C2S" id="Jur-dt-BL0"/>
-                        <outlet property="hometownTextField" destination="80e-aQ-0a6" id="QIA-6i-Fjc"/>
-                        <outlet property="lastNameTextField" destination="i0f-o9-2qR" id="azv-lt-wOa"/>
-                        <outlet property="phoneTextField" destination="QRC-Po-07t" id="wYj-uK-RhH"/>
-                        <outlet property="schoolTextField" destination="G4B-Ic-647" id="0as-Nn-ZUQ"/>
-                        <outlet property="universityTextField" destination="gfW-5n-OY4" id="sAL-9E-eqz"/>
-                        <outlet property="userNameTextField" destination="GiJ-wK-nvF" id="0Bj-NR-Xdw"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIp-UE-V2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -603,6 +428,103 @@
             </objects>
             <point key="canvasLocation" x="980" y="1742"/>
         </scene>
+        <!--My Profile EditVC-->
+        <scene sceneID="Tnq-cZ-Hno">
+            <objects>
+                <viewController id="GXy-pJ-T5K" customClass="MyProfileEditVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hj3-i4-rqX"/>
+                        <viewControllerLayoutGuide type="bottom" id="4dD-1N-fTP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AHL-lD-SbA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qWC-bq-84O">
+                                <rect key="frame" x="20" y="20" width="130" height="130"/>
+                                <animations/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-Q9-1eh">
+                                <rect key="frame" x="158" y="20" width="142" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ggi-HJ-3qw">
+                                <rect key="frame" x="158" y="58" width="142" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthday" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YxH-mI-P1L">
+                                <rect key="frame" x="158" y="96" width="142" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hometown" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="33h-oC-ugn">
+                                <rect key="frame" x="20" y="310" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5l-dF-azy">
+                                <rect key="frame" x="20" y="396" width="51" height="31"/>
+                                <animations/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ncP-NJ-yQH">
+                                <rect key="frame" x="20" y="196" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Univercity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFV-LE-gSp">
+                                <rect key="frame" x="20" y="234" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Favorite" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9TQ-vV-bRk">
+                                <rect key="frame" x="20" y="272" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qld-ai-maH">
+                                <rect key="frame" x="20" y="158" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-UM-eC1">
+                                <rect key="frame" x="20" y="348" width="280" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.99466474500000002" blue="0.74407433619999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Please select your family status"/>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="avatarImage" destination="qWC-bq-84O" id="aAP-ZW-vlp"/>
+                        <outlet property="birthdayTextField" destination="YxH-mI-P1L" id="QI2-0d-Xyk"/>
+                        <outlet property="emailTextField" destination="Qld-ai-maH" id="VrU-MJ-efd"/>
+                        <outlet property="familyStatusButton" destination="AHp-UM-eC1" id="6Je-6b-o8O"/>
+                        <outlet property="favoriteTextField" destination="9TQ-vV-bRk" id="Fs7-lq-vrx"/>
+                        <outlet property="genderSwitch" destination="D5l-dF-azy" id="qpb-Po-foa"/>
+                        <outlet property="hometownTextField" destination="33h-oC-ugn" id="894-8p-Dg8"/>
+                        <outlet property="lastNameTextField" destination="ggi-HJ-3qw" id="oWd-pE-S16"/>
+                        <outlet property="phoneTextField" destination="ncP-NJ-yQH" id="4cF-LP-FnE"/>
+                        <outlet property="universityTextField" destination="aFV-LE-gSp" id="nCa-sh-NiO"/>
+                        <outlet property="userNameTextField" destination="gkb-Q9-1eh" id="saM-14-ZLq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TWw-x1-62Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="564" y="1181"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -801,15 +723,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="maksdpua@gmail.com" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qm-2I-a6M">
-                                <rect key="frame" x="58" y="104" width="205" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="C5N-q3-8aK" id="Tlv-g3-VJQ"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="mxx21S" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZ8-Ge-lfp">
                                 <rect key="frame" x="58" y="169" width="205" height="30"/>
                                 <animations/>
@@ -838,6 +751,15 @@
                                     <action selector="loginAction:" destination="C5N-q3-8aK" eventType="touchUpInside" id="m2q-Px-VGZ"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="maksdpua@gmail.com" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9qm-2I-a6M">
+                                <rect key="frame" x="58" y="104" width="205" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="C5N-q3-8aK" id="Tlv-g3-VJQ"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -938,6 +860,9 @@
                                                 <constraint firstAttribute="width" constant="49" id="kH0-fP-zbK"/>
                                             </constraints>
                                             <state key="normal" title="Accept"/>
+                                            <connections>
+                                                <action selector="acceptButton:" destination="SPO-9x-Es8" eventType="touchUpInside" id="xLf-vn-5TX"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhJ-0B-CaQ">
                                             <rect key="frame" x="76" y="5" width="179" height="60"/>
@@ -961,6 +886,7 @@
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
+                                    <outlet property="acceptButton" destination="9bB-4U-hKL" id="fJn-w7-NbO"/>
                                     <outlet property="avatarImage" destination="cKq-FI-0i9" id="0nd-a8-jdf"/>
                                     <outlet property="nameLabel" destination="WhJ-0B-CaQ" id="1L3-PX-eQF"/>
                                 </connections>

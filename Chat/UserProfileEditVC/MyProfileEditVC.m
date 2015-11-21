@@ -7,7 +7,9 @@
 //
 
 #import "MyProfileEditVC.h"
-#import "HTTPManager.h"
+#import "APIRequestManager.h"
+#import "ConstantsOfAPI.h"
+#import "UserInfo.h"
 
 @interface MyProfileEditVC ()<ChatDatePickerDelegate, FamilyStatusPickerDelegate, UITextFieldDelegate>
 
@@ -22,12 +24,11 @@
 @property (nonatomic, weak) IBOutlet UITextField *hometownTextField;
 @property (nonatomic, weak) IBOutlet UITextField *emailTextField;
 @property (nonatomic, weak) IBOutlet UITextField *birthdayTextField;
-@property (nonatomic, weak) IBOutlet UITextField *workPlaceTextField;
-@property (nonatomic, weak) IBOutlet UITextField *workPositionTextField;
-@property (nonatomic, weak) IBOutlet UITextField *aboutMeTextField;
+
+
 @property (nonatomic, weak) IBOutlet UITextField *favoriteTextField;
 @property (nonatomic, weak) IBOutlet UITextField *universityTextField;
-@property (nonatomic, weak) IBOutlet UITextField *schoolTextField;
+
 
 @property (nonatomic, weak) IBOutlet UIButton *familyStatusButton;
 @property (nonatomic, weak) IBOutlet UISwitch *genderSwitch;
@@ -47,54 +48,40 @@
 
 
 - (void)parseDataFromHTTPManager {
-    [[HTTPManager sharedInstance]loadUserInfoCompliction:^(NSDictionary *dictionary){
-        
-        self.userNameTextField.text = [dictionary valueForKey:@"username"];
-        self.emailTextField.text = [dictionary valueForKey:@"email"];
-        self.birthdayTextField.text = [dictionary valueForKey:@"birthday"];
-    }
-    failure:^(NSString *errorText){
-        NSLog(@"%@", errorText);
-        }];
+    
 }
 
+
 - (IBAction)saveChangesInUserProfile:(id)sender {
-    if ([[HTTPManager sharedInstance] isNetworkReachable]) {
+    
+    NSNumber *genderIsMale = [NSNumber numberWithBool:self.genderSwitch.on] ;
+    NSString *user_birthdayString = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
+    
+    if ([self.userNameTextField.text isEqualToString:@""] || [self.lastNameTextField.text isEqualToString:@""] || [self.phoneTextField.text isEqualToString:@""] || user_birthdayString==nil || selectedFamilyStatusID.stringValue==nil ||  [self.hometownTextField.text isEqualToString:@""]) {
         
-        NSNumber *genderIsMale = [NSNumber numberWithBool:self.genderSwitch.on] ;
-        NSString *user_birthdayString = [NSString stringWithFormat:@"%tu", unixTimeBirthday];
-        if ([self.userNameTextField.text isEqualToString:@""] || [self.lastNameTextField.text isEqualToString:@""] || [self.phoneTextField.text isEqualToString:@""] || user_birthdayString==nil || selectedFamilyStatusID.stringValue==nil ||  [self. self.schoolTextField.text isEqualToString:@""] ||  [self.hometownTextField.text isEqualToString:@""]) {
-            
-            UIAlertController * alert = [AlertFactory showAlertWithTitle:@"Warning" message:@"Please enter all information!"];
-            [self.navigationController presentViewController:alert animated:YES completion:nil];
-        }
-        else {
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            NSDictionary *userProfile = @{@"user_name" : self.userNameTextField.text,
-                                          @"user_lastname" : self.lastNameTextField.text,
-                                          @"user_phone" : self.phoneTextField.text,
-                                          @"user_gender" : genderIsMale.stringValue,
-                                          @"user_birthday" : user_birthdayString,
-                                          @"familystatus" : selectedFamilyStatusID.stringValue,
-                                          @"user_work_place" : @"workplace",
-                                          @"user_work_position" : @"workposition",
-                                          @"user_about_me" : self.aboutMeTextField.text,
-                                          @"user_favourite" : @"favorite",
-                                          @"user_university" : self.universityTextField.text,
-                                          @"user_school" : self.schoolTextField.text,
-                                          @"user_hometown" : self.hometownTextField.text};
-            
-            [[HTTPManager sharedInstance]editUserProfileWithDictionary:userProfile];
-            
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    } else {
-        UIAlertController * alert = [AlertFactory showAlertWithTitle:@"error" message:@"Network is not reachable"];
+        UIAlertController * alert = [AlertFactory showAlertWithTitle:@"Warning" message:@"Please enter all information!"];
         [self.navigationController presentViewController:alert animated:YES completion:nil];
     }
-
+    else {
+        NSDictionary *userProfile = @{@"user_name" : self.userNameTextField.text,
+                                      @"user_lastname" : self.lastNameTextField.text,
+                                      @"user_phone" : self.phoneTextField.text,
+                                      @"user_gender" : genderIsMale.stringValue,
+                                      @"user_birthday" : user_birthdayString,
+                                      @"familystatus" : selectedFamilyStatusID.stringValue,
+                                      @"user_work_place" : @"workplace",
+                                      @"user_work_position" : @"workposition",
+                                      @"user_about_me" : @"something",
+                                      @"user_favourite" : @"favorite",
+                                      @"user_university" : self.universityTextField.text,
+                                      @"user_school" : @"55",
+                                      @"user_hometown" : self.hometownTextField.text};
+        [[APIRequestManager sharedInstance]POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@",kURLServer, kMyProfile] parameters:userProfile classMapping:[UserInfo class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }fail:^(AFHTTPRequestOperation *operation, NSError *error){
+            NSLog(@"Error - %@",error);
+        }];
+    }
 }
 
 - (void)loadDatePicker {

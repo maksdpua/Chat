@@ -15,9 +15,10 @@
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *managerRequest;
 
+typedef void (^responseBlock)(AFHTTPRequestOperation *operation, id responseObject);
+typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
+
 @end
-
-
 
 @implementation APIRequestManager {
     NSDictionary *_parameters;
@@ -27,9 +28,10 @@
     
 //    AFHTTPRequestOperationManager *_manager;
     
-    void (^_responseBlock)(AFHTTPRequestOperation *operation, id);
-    void (^_failBlock)(AFHTTPRequestOperation *, NSError *error);
-
+//    void (^_responseBlock)(AFHTTPRequestOperation *operation, id);
+//    void (^_failBlock)(AFHTTPRequestOperation *, NSError *error);
+//    
+    
 }
 
 + (instancetype)sharedInstance {
@@ -83,62 +85,64 @@
     _class = theClass;
 }
 
-- (void)setResponseBlock:(void (^)(AFHTTPRequestOperation *, id))responseBlock {
-    _responseBlock = responseBlock;
-}
-
-- (void)setFailBlock:(void (^)(AFHTTPRequestOperation *, NSError *))failBlock {
-    _failBlock = failBlock;
-}
-
 - (void)requestSerializer {
 //    _manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     [self.managerRequest.requestSerializer setValue:[AuthorizeManager userID] forHTTPHeaderField:userIDKey];
     [self.managerRequest.requestSerializer setValue:[AuthorizeManager sessionHash] forHTTPHeaderField:sessionHashKey];
 }
 
-- (void)connectionStartPOST {
+- (void)connectionStartPOSTresponse:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    responseBlock compl = response;
+    failBlock fail = failure;
     
     [self.managerRequest POST:_urlString parameters:_parameters success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self hiddenProgressOnView:_view];
-            _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+            compl(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
         });
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
             
             [self hiddenProgressOnView:_view];
-            _failBlock(operation, error);
+            fail(operation, error);
         });
     }];
 }
 
-- (void)connectionStartGET {
+- (void)connectionStartGETresponse:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
+    responseBlock compl = response;
+    failBlock fail = failure;
+
     [self.managerRequest GET:_urlString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self hiddenProgressOnView:_view];
-            _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+            compl(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
         });
     } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self hiddenProgressOnView:_view];
-            _failBlock(operation, error);
+            fail(operation, error);
         });
 
     }];
 }
 
-- (void)connectionStartPUT {
+- (void)connectionStartPUTresponse:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    responseBlock compl = response;
+    failBlock fail = failure;
+    
     [self.managerRequest PUT:_urlString parameters:nil success:^(AFHTTPRequestOperation * _Nonnull operation, id _Nonnull responseObject) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self hiddenProgressOnView:_view];
-            _responseBlock(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+            compl(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
         });
     }failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^(void){
             [self hiddenProgressOnView:_view];
-            _failBlock(operation, error);
+            fail(operation, error);
         });
     }];
 }
@@ -164,48 +168,46 @@
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
-- (void)fillManagerURLString:(NSString *)urlString parameters:(NSDictionary *)parameters classMapping:(__unsafe_unretained Class)classMapping showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *, id))response fail:(void (^)(AFHTTPRequestOperation *, NSError *))failure  {
+- (void)fillManagerURLString:(NSString *)urlString parameters:(NSDictionary *)parameters classMapping:(__unsafe_unretained Class)classMapping showProgressOnView:(UIView *)view {
 //    [self manager];
     
     [self setURLString:urlString];
     [self setParameters:parameters];
     [self setClass:classMapping];
     [self setView:view];
-    [self setResponseBlock:response];
-    [self setFailBlock:failure];
     
     [self showProgressOnView:view];
 }
 
 - (void)POSTConnectionWithURLString:(NSString *)urlString parameters:(NSDictionary *)parameters classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
-    [self fillManagerURLString:urlString parameters:parameters classMapping:classMapping showProgressOnView:view response:response fail:failure];
+    [self fillManagerURLString:urlString parameters:parameters classMapping:classMapping showProgressOnView:view];
     
     if (withSerializer) {
         [self requestSerializer];
     }
-    [self connectionStartPOST];
+    [self connectionStartPOSTresponse:response fail:failure];
 }
 
 - (void)GETConnectionWithURLString:(NSString *)urlString classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     
-    [self fillManagerURLString:urlString parameters:nil classMapping:classMapping showProgressOnView:view response:response fail:failure];
+    [self fillManagerURLString:urlString parameters:nil classMapping:classMapping showProgressOnView:view];
     
     if (withSerializer) {
         [self requestSerializer];
     }
-    [self connectionStartGET];
+    [self connectionStartGETresponse:response fail:failure];
 }
 
 - (void)PUTConnectionWithURLString:(NSString *)urlString classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
-    [self fillManagerURLString:urlString parameters:nil classMapping:classMapping showProgressOnView:view response:response fail:failure];
+    [self fillManagerURLString:urlString parameters:nil classMapping:classMapping showProgressOnView:view];
     
     if (withSerializer) {
         [self requestSerializer];
     }
-    [self connectionStartPUT];
+    [self connectionStartPUTresponse:response fail:failure];
 }
 
 - (BOOL)isNetworkReachable {

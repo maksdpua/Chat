@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "UIButton+indexPath.h"
 
 @interface UserCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UIImageView *avatarImage;
+@property (nonatomic, strong) IBOutlet UIButton *acceptButton;
 
 - (void)setupWithModel:(User *)model;
 

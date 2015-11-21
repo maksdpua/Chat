@@ -7,7 +7,7 @@
 //
 
 #import "MyInfoVC.h"
-#import "MyProfile.h"
+#import "UserInfo.h"
 #import "HTTPManager.h"
 #import "APIRequestManager.h"
 #import "MBProgressHUD.h"
@@ -35,9 +35,9 @@
 }
 
 - (void) loadDataInVC {
-    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] classMapping:[MyProfile class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] classMapping:[UserInfo class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
         [responseObject printDescription];
-        MyProfile *model = (MyProfile *)responseObject;
+        UserInfo *model = (UserInfo *)responseObject;
         self.nameLabel.text = model.userName;
         self.emailLabel.text = model.userEmail;
         self.birthdayLabel.text = model.userBirthday;
