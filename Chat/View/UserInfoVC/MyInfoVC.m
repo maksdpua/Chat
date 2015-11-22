@@ -8,9 +8,7 @@
 
 #import "MyInfoVC.h"
 #import "UserInfo.h"
-#import "HTTPManager.h"
 #import "APIRequestManager.h"
-#import "MBProgressHUD.h"
 #import "MyProfileEditVC.h"
 #import "ConstantsOfAPI.h"
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -48,7 +46,8 @@
 }
 
 - (IBAction)pushToEditVC:(id)sender {
-        
+    MyProfileEditVC *editVC = [self.storyboard instantiateViewControllerWithIdentifier:kMyProfileEditVC];
+    [self.navigationController pushViewController:editVC animated:YES];
 }
 
 - (IBAction)logoutAction:(id)sender {

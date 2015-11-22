@@ -11,7 +11,7 @@
 
 @interface HTTPManager : NSObject
 
-@property (nonatomic, readonly) NSNumber *user_id;
+@property (nonatomic, readonly) NSString *user_id;
 @property (nonatomic, readonly) NSString *user_session_hash;
 
 + (instancetype)sharedInstance;

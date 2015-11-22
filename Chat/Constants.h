@@ -31,6 +31,8 @@ static NSString *const kUserCell = @"UserCell";
 static NSString *const kUserRequestCell = @"UserRequestCell";
 
 
+static NSString *const kMyProfileEditVC = @"MyProfileEditVC";
+
 
 
 #endif /* Constants_h */

@@ -10,11 +10,12 @@
 #import "AFNetworking.h"
 #import "ConstantsOfAPI.h"
 #import "MBProgressHUD.h"
+#import "AuthorizeManager.h"
 
 @interface HTTPManager()
 
 @property (nonatomic, strong) AFHTTPRequestOperationManager *managerRequest;
-@property (nonatomic, readwrite) NSNumber *user_id;
+@property (nonatomic, readwrite) NSString *user_id;
 @property (nonatomic, readwrite) NSString *user_session_hash;
 
 @end
@@ -26,8 +27,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[HTTPManager alloc] init];
-        sharedInstance.user_id = [NSNumber numberWithInteger:[[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] integerValue]];
-        sharedInstance.user_session_hash = [[NSUserDefaults standardUserDefaults]stringForKey:@"user_session_hash"];
+        sharedInstance.user_id = [AuthorizeManager userID];
+        sharedInstance.user_session_hash = [AuthorizeManager sessionHash];
         
     });
     
@@ -40,8 +41,7 @@
         self.managerRequest = [AFHTTPRequestOperationManager manager];
         self.managerRequest.responseSerializer = [AFJSONResponseSerializer serializer];
         self.managerRequest.requestSerializer = [AFHTTPRequestSerializer serializer];
-        self.user_id = [[NSNumber alloc]init];
-        self.user_session_hash = [[NSString alloc]init];
+
     }
     return self;
 }
@@ -73,8 +73,8 @@
 
 - (void)loadUserInfoCompliction:(void (^)(NSDictionary *dictionary))compliction failure:(void (^)(NSString *errorText))failure  {
     
-    [self.managerRequest.requestSerializer setValue:[self.user_id stringValue] forHTTPHeaderField:@"userid"];
-    [self.managerRequest.requestSerializer setValue:self.user_session_hash forHTTPHeaderField:@"usersessionhash"];
+    [self.managerRequest.requestSerializer setValue:[AuthorizeManager userID] forHTTPHeaderField:@"userid"];
+    [self.managerRequest.requestSerializer setValue:[AuthorizeManager sessionHash] forHTTPHeaderField:@"usersessionhash"];
     
     [self.managerRequest GET :[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] parameters:nil
                       success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -94,7 +94,7 @@
 
 - (void)getRequestWithParameters: (NSDictionary *)dicParamters pathArgumentText:(NSString *)pathString compliction:(void (^)(NSDictionary *dictionary))compliction failure:(void (^)(NSString *errorText))failure {
     
-    [self.managerRequest.requestSerializer setValue:[self.user_id stringValue] forHTTPHeaderField:@"userid"];
+//    [self.managerRequest.requestSerializer setValue:[self.user_id stringValue] forHTTPHeaderField:@"userid"];
     [self.managerRequest.requestSerializer setValue:self.user_session_hash forHTTPHeaderField:@"usersessionhash"];
     
     [self.managerRequest GET :[NSString stringWithFormat:@"%@%@", kURLServer, pathString] parameters:dicParamters
@@ -149,9 +149,12 @@
     
     NSData *imageData = UIImageJPEGRepresentation([UIImage testImage], 0.5);
     
+    [self.managerRequest.requestSerializer setValue:[AuthorizeManager userID] forHTTPHeaderField:@"userid"];
+    [self.managerRequest.requestSerializer setValue:[AuthorizeManager sessionHash] forHTTPHeaderField:@"usersessionhash"];
+    
     [self.managerRequest POST:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] parameters:dictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         if (imageData) {
-            [formData appendPartWithFileData:imageData name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:imageData name:@"user_avatar" fileName:@"testImaапge.jpeg" mimeType:@"image/jpeg"];
         }
     } success:^(AFHTTPRequestOperation *operation, id responseObject){
         NSError *error;

@@ -25,16 +25,6 @@
             </objects>
             <point key="canvasLocation" x="114" y="633"/>
         </scene>
-        <!--My Profile EditVC-->
-        <scene sceneID="puP-dw-b5i">
-            <objects>
-                <viewController storyboardIdentifier="UserProfileEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gsH-b7-vE5" customClass="MyProfileEditVC" sceneMemberID="viewController">
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WIp-UE-V2b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="114" y="1181"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nh8-0c-fou">
             <objects>
@@ -297,7 +287,7 @@
         <!--My InfoVC-->
         <scene sceneID="ux7-3l-ndY">
             <objects>
-                <viewController storyboardIdentifier="UserInfoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CSx-ib-bFA" customClass="MyInfoVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyInfoVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CSx-ib-bFA" customClass="MyInfoVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M1I-p8-AhO"/>
                         <viewControllerLayoutGuide type="bottom" id="coF-ef-Ay5"/>
@@ -359,17 +349,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cax-WS-amv">
-                                <rect key="frame" x="20" y="28" width="46" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="tso-M1-J43"/>
-                                </constraints>
-                                <state key="normal" title="Edit"/>
-                                <connections>
-                                    <action selector="pushToEditVC:" destination="CSx-ib-bFA" eventType="touchUpInside" id="UZ9-En-flU"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XsR-1w-Xs3">
                                 <rect key="frame" x="20" y="186" width="120" height="120"/>
                                 <animations/>
@@ -383,6 +362,17 @@
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="logoutAction:" destination="CSx-ib-bFA" eventType="touchUpInside" id="QZD-oU-6qt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cax-WS-amv">
+                                <rect key="frame" x="20" y="28" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="tso-M1-J43"/>
+                                </constraints>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="pushToEditVC:" destination="CSx-ib-bFA" eventType="touchUpInside" id="UZ9-En-flU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -431,7 +421,7 @@
         <!--My Profile EditVC-->
         <scene sceneID="Tnq-cZ-Hno">
             <objects>
-                <viewController id="GXy-pJ-T5K" customClass="MyProfileEditVC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfileEditVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GXy-pJ-T5K" customClass="MyProfileEditVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hj3-i4-rqX"/>
                         <viewControllerLayoutGuide type="bottom" id="4dD-1N-fTP"/>
@@ -469,17 +459,11 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5l-dF-azy">
-                                <rect key="frame" x="20" y="396" width="51" height="31"/>
+                                <rect key="frame" x="136" y="397" width="51" height="31"/>
                                 <animations/>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ncP-NJ-yQH">
                                 <rect key="frame" x="20" y="196" width="280" height="30"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Univercity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFV-LE-gSp">
-                                <rect key="frame" x="20" y="234" width="280" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -501,6 +485,44 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.99466474500000002" blue="0.74407433619999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Please select your family status"/>
+                                <connections>
+                                    <action selector="selectFamilyStatusButton:" destination="GXy-pJ-T5K" eventType="touchUpInside" id="fQK-ms-H4A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9d-Im-rTc">
+                                <rect key="frame" x="136" y="442" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveChangesInUserProfile:" destination="GXy-pJ-T5K" eventType="touchUpInside" id="umx-LG-6A4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuG-gJ-hO9">
+                                <rect key="frame" x="200" y="402" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Female" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWS-Tm-5jC">
+                                <rect key="frame" x="69" y="402" width="59" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Univercity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aFV-LE-gSp">
+                                <rect key="frame" x="20" y="234" width="280" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xng-QH-1h3">
+                                <rect key="frame" x="20" y="20" width="130" height="130"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="changeAvatar:" destination="GXy-pJ-T5K" eventType="touchUpInside" id="5IC-Si-ve9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>

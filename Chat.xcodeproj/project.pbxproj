@@ -544,7 +544,7 @@
 				2DF667AF1BFCFF9000A90451 /* Friends */,
 				2DF667AB1BFCDA5B00A90451 /* UserProfile */,
 				FC57E4F51BF75FD900F77A72 /* FoundedUser */,
-				FCA98B0D1BF71A09000652CE /* MyProfile */,
+				FCA98B0D1BF71A09000652CE /* UserInfo */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -559,13 +559,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		FCA98B0D1BF71A09000652CE /* MyProfile */ = {
+		FCA98B0D1BF71A09000652CE /* UserInfo */ = {
 			isa = PBXGroup;
 			children = (
 				FCA98B0E1BF71A26000652CE /* UserInfo.h */,
 				FCA98B0F1BF71A26000652CE /* UserInfo.m */,
 			);
-			name = MyProfile;
+			name = UserInfo;
 			sourceTree = "<group>";
 		};
 		FCB53C261BDB69DA0035B38B /* MessageObject */ = {

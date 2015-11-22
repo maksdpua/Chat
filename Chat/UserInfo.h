@@ -11,9 +11,15 @@
 @interface UserInfo : NSObject
 
 @property (nonatomic, readonly) NSString *userName;
+@property (nonatomic, readonly) NSString *userLastname;
 @property (nonatomic, readonly) NSString *userEmail;
 @property (nonatomic, readonly) NSString *userBirthday;
 @property (nonatomic, readonly) NSString *userAvatar;
+@property (nonatomic, readonly) NSString *userPhone;
+@property (nonatomic, readonly) NSString *userUnivercity;
+@property (nonatomic, readonly) NSString *userFavourite;
+@property (nonatomic, readonly) NSString *userHometown;
+@property (nonatomic, readonly) NSNumber *isMale;
 
 //- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 

@@ -17,6 +17,7 @@
 
 typedef void (^responseBlock)(AFHTTPRequestOperation *operation, id responseObject);
 typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
+typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
 
 @end
 
@@ -25,12 +26,8 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
     NSString *_urlString;
     UIView *_view;
     Class _class;
-    
-//    AFHTTPRequestOperationManager *_manager;
-    
-//    void (^_responseBlock)(AFHTTPRequestOperation *operation, id);
-//    void (^_failBlock)(AFHTTPRequestOperation *, NSError *error);
-//    
+    UIImage *_image;
+    NSData *_dataWithImage;
     
 }
 
@@ -39,9 +36,6 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[APIRequestManager alloc] init];
-//        sharedInstance.user_id = [NSNumber numberWithInteger:[[[NSUserDefaults standardUserDefaults] stringForKey:@"user_id"] integerValue]];
-//        sharedInstance.user_session_hash = [[NSUserDefaults standardUserDefaults]stringForKey:@"user_session_hash"];
-        
     });
     
     return sharedInstance;
@@ -51,10 +45,8 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
     self = [super init];
     if (self) {
         self.managerRequest = [AFHTTPRequestOperationManager manager];
-//        self.managerRequest.responseSerializer = [AFJSONResponseSerializer serializer];
         self.managerRequest.requestSerializer = [AFHTTPRequestSerializer serializer];
-//        self.user_id = [[NSNumber alloc]init];
-//        self.user_session_hash = [[NSString alloc]init];
+
     }
     return self;
 }
@@ -83,6 +75,11 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
 
 - (void)setClass:(Class)theClass {
     _class = theClass;
+}
+
+- (void)setImage:(UIImage*)image{
+    _image = image;
+    _dataWithImage = UIImageJPEGRepresentation(_image, 0.5);
 }
 
 - (void)requestSerializer {
@@ -127,6 +124,34 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
         });
 
     }];
+}
+
+- (void)connectionStartPOSTresponseWithData:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+
+    responseBlock compl = response;
+    failBlock fail = failure;
+    
+    [self.managerRequest POST:_urlString parameters:_parameters
+    constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+//        dispatch_async(dispatch_get_main_queue(), ^(void){
+            if (_dataWithImage) {
+                [formData appendPartWithFileData:_dataWithImage name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
+            }
+//        });
+    }
+                      success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+                          dispatch_async(dispatch_get_main_queue(), ^(void){
+                              [self hiddenProgressOnView:_view];
+                              compl(operation, _class ? [self fillObjectResponseWithDictionary:responseObject] : responseObject);
+                          });
+                      } failure:^(AFHTTPRequestOperation * _Nonnull operation, NSError * _Nonnull error) {
+                          dispatch_async(dispatch_get_main_queue(), ^(void){
+                              
+                              [self hiddenProgressOnView:_view];
+                              fail(operation, error);
+                          });
+                      }];
+    
 }
 
 - (void)connectionStartPUTresponse:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
@@ -179,6 +204,19 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
     [self showProgressOnView:view];
 }
 
+- (void)POSTConnectionWithURLStringAndData:(NSString *)urlString parameters:(NSDictionary *)parameters image:(UIImage *)image classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+    
+    [self fillManagerURLString:urlString parameters:parameters classMapping:classMapping showProgressOnView:view];
+    
+    [self setImage:image];
+    
+    if (withSerializer) {
+        [self requestSerializer];
+    }
+    [self connectionStartPOSTresponseWithData:response fail:failure];
+}
+
+
 - (void)POSTConnectionWithURLString:(NSString *)urlString parameters:(NSDictionary *)parameters classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     [self fillManagerURLString:urlString parameters:parameters classMapping:classMapping showProgressOnView:view];
@@ -209,6 +247,7 @@ typedef void (^failBlock)(AFHTTPRequestOperation *operation, NSError *error);
     }
     [self connectionStartPUTresponse:response fail:failure];
 }
+
 
 - (BOOL)isNetworkReachable {
     if ([AFNetworkReachabilityManager sharedManager].reachable) {
