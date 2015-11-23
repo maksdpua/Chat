@@ -50,7 +50,7 @@
                                 </button>
                             </subviews>
                             <animations/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="1" alpha="0.65287012411347523" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="OBz-fo-sWt" firstAttribute="leading" secondItem="mnV-31-D8v" secondAttribute="leading" id="5cP-uU-Xf5"/>
                                 <constraint firstAttribute="bottom" secondItem="OBz-fo-sWt" secondAttribute="bottom" id="5gz-jo-fGs"/>
@@ -62,7 +62,7 @@
                         </view>
                     </subviews>
                     <animations/>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.55357934397163122" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.28636289267015702" green="0.28636289267015702" blue="0.28636289267015702" alpha="0.5" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="mnV-31-D8v" secondAttribute="trailing" id="5KB-ZM-NA0"/>
                         <constraint firstItem="mnV-31-D8v" firstAttribute="top" secondItem="uTa-fl-oOr" secondAttribute="top" constant="190" id="9lW-kb-TyX"/>
@@ -72,7 +72,7 @@
                 </view>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="0.74565048758865249" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="uTa-fl-oOr" secondAttribute="bottom" id="9V7-UU-4LH"/>
                 <constraint firstItem="uTa-fl-oOr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FvT-cD-3ye"/>

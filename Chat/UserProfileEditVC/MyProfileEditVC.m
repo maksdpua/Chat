@@ -41,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self parseDataFromResponse];
+    self.familyStatusButton.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 
@@ -98,18 +99,13 @@
                                       @"user_university" : self.universityTextField.text,
                                       @"user_school" : @"55",
                                       @"user_hometown" : self.hometownTextField.text};
-//        [[APIRequestManager sharedInstance]POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@",kURLServer, kMyProfile] parameters:userProfile classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
-//            NSLog(@"%@", responseObject);
-//            [self.navigationController popToRootViewControllerAnimated:YES];
-//        }fail:^(AFHTTPRequestOperation *operation, NSError *error){
-//            NSLog(@"Error - %@",error);
-//        }];
+
         [[APIRequestManager sharedInstance]POSTConnectionWithURLStringAndData:[NSString stringWithFormat:@"%@%@",kURLServer, kMyProfile] parameters:userProfile image:self.avatarImage.image classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
             NSLog(@"%@", responseObject);
         }fail:^(AFHTTPRequestOperation *operation, NSError *error){
             NSLog(@"%@", error);
         }];
-//        [[HTTPManager sharedInstance] editUserProfileWithDictionary:userProfile];
+
     }
 }
 
@@ -134,10 +130,6 @@
     self.familyStatusPicker.delegate = self;
 }
 
-- (IBAction)saveChangeAction:(id)sender {
-    
-}
-
 - (void)dateSelected:(NSDate *)date {
     unixTimeBirthday = [date timeIntervalSince1970];
     
@@ -153,8 +145,7 @@
 }
 
 - (void)familyStatusSelectedInString:(NSString *)familyStatusString {
-    self.familyStatusButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.familyStatusButton.titleLabel.text = familyStatusString;
+    self.familyStatusButton.titleLabel.text = self.familyStatusPicker.statusString;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

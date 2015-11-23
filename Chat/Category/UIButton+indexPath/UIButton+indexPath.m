@@ -19,7 +19,7 @@ static char UIB_PROPERTY_KEY;
     objc_setAssociatedObject(self, &UIB_PROPERTY_KEY, indexPathForButton, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(NSIndexPath *)indexPathForButton {
+- (NSIndexPath *)indexPathForButton {
     return (NSIndexPath *)objc_getAssociatedObject(self, &UIB_PROPERTY_KEY);
 }
 

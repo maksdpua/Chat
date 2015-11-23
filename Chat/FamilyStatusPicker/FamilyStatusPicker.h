@@ -16,6 +16,9 @@
 @property (nonatomic, weak) id<FamilyStatusPickerDelegate>delegate;
 
 @property (nonatomic, weak) IBOutlet UIPickerView *familyStatusPicker;
+@property (nonatomic, readonly) NSArray *arrayOfStatusID;
+@property (nonatomic, readonly) NSNumber *statusID;
+@property (nonatomic, readonly) NSString *statusString;
 
 - (instancetype)initOnView:(UIView *)view;
 

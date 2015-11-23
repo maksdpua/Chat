@@ -13,6 +13,8 @@
 @property (nonatomic, strong) NSArray *statuses;
 @property (nonatomic, strong) NSNumber *statusID;
 @property (nonatomic, strong) NSString *statusString;
+@property (nonatomic, readwrite) NSArray *arrayOfStatusID;
+
 
 @end
 
@@ -22,11 +24,14 @@
 - (instancetype)initOnView:(UIView *)view {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil]firstObject];
     if (self) {
+        self.arrayOfStatusID = @[@8,@9,@10,@11,@12,@13,@14];
+        
         self.statuses = @[@"Single", @"In a relationship", @"Engaged", @"Married", @"In love", @"It's complicated", @"Activelly searching"];
         self.alpha = 0;
         
         self.statusString = [self.statuses objectAtIndex:0];
-        self.statusID = [NSNumber numberWithInteger:8];
+        self.statusID = [self.arrayOfStatusID objectAtIndex:0];
+        
         
         [view addSubview:self];
         [self showWithDuration:0.25 withAlpha:1];
@@ -62,45 +67,13 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    
     self.statusString = [self.statuses objectAtIndex:row];
-    
-    if (row == -1) {
-        self.statusString = [self.statuses objectAtIndex:0];
-        self.statusID = [NSNumber numberWithInteger:8];
-    }
-    
-    switch (row) {
-        case 0:
-            self.statusID = [NSNumber numberWithInteger:8];
-            break;
-        case 1:
-            self.statusID = [NSNumber numberWithInteger:9];
-            break;
-        case 2:
-            self.statusID = [NSNumber numberWithInteger:10];
-            break;
-        case 3:
-            self.statusID = [NSNumber numberWithInteger:11];
-            break;
-        case 4:
-            self.statusID = [NSNumber numberWithInteger:12];
-            break;
-        case 5:
-            self.statusID = [NSNumber numberWithInteger:13];
-            break;
-        case 6:
-            self.statusID = [NSNumber numberWithInteger:14];
-        default:
-            NSLog(@"Wrong row");
-            break;
-    }
+    self.statusID = [self.arrayOfStatusID objectAtIndex:row];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
     return 1;
 }
-
 
 - (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component
 {
