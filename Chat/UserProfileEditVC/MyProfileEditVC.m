@@ -9,7 +9,8 @@
 #import "MyProfileEditVC.h"
 #import "APIRequestManager.h"
 #import "ConstantsOfAPI.h"
-#import "UserInfo.h"
+//#import "UserInfo.h"
+#import "UserProfile.h"
 #import "HTTPManager.h"
 
 @interface MyProfileEditVC ()<ChatDatePickerDelegate, FamilyStatusPickerDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -46,18 +47,18 @@
 
 
 - (void)parseDataFromResponse {
-    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] classMapping:[UserInfo class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
-        [self responseWithModel:(UserInfo *)responseObject];
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kMyProfile] classMapping:[UserProfile class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
+        [self responseWithModel:(UserProfile *)responseObject];
         
     }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error - %@", error);
          }];
 }
 
-- (void)responseWithModel:(UserInfo *)model {
+- (void)responseWithModel:(UserProfile *)model {
     [self.avatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userAvatar]] placeholderImage:[UIImage placeholderImage]];
     self.userNameTextField.text = model.userName;
-    self.lastNameTextField.text = model.userLastname;
+    self.lastNameTextField.text = model.userLastName;
     self.birthdayTextField.text = model.userBirthday;
     self.emailTextField.text = model.userEmail;
     self.phoneTextField.text = model.userPhone;

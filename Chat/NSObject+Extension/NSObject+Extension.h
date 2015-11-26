@@ -24,4 +24,6 @@
 
 - (NSString *)checkForImageAvatarPath:(NSString *)path;
 
+- (BOOL)checkForSymbolsInString:(NSString *)string;
+
 @end

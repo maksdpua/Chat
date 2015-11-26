@@ -13,6 +13,7 @@
 #import "APIRequestManager.h"
 #import "ConstantsOfAPI.h"
 #import "AuthorizeManager.h"
+#import "UserProfileVC.h"
 
 @interface UserFriendListVC()<UITableViewDataSource, UITableViewDataSource>
 
@@ -106,9 +107,9 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    UserProfileVC *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserProfileVC"];
-    //    userInfoVC.userData = [self.foundedUsers.array objectAtIndex:indexPath.row];
-    //    [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[userInfoVC] animated:YES];
+        UserProfileVC *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserProfileVC"];
+        userInfoVC.userData = [self objectAtIndexPath:indexPath];
+        [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[userInfoVC] animated:YES];
 }
 
 

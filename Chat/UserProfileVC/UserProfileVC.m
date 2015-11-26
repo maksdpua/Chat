@@ -10,6 +10,7 @@
 #import "ConstantsOfAPI.h"
 #import "APIRequestManager.h"
 #import "UserProfile.h"
+#import "SendMessageForm.h"
 
 @interface UserProfileVC()
 
@@ -17,6 +18,7 @@
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *lastNameLabel;
 @property (nonatomic, strong) IBOutlet UIButton *addToFriendButton;
+@property (nonatomic, strong) SendMessageForm *messageForm;
 
 @end
 
@@ -25,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self getUserProfileWithFoundedUser];
+    
 }
 
 - (void)getUserProfileWithFoundedUser {
@@ -40,10 +43,7 @@
     self.nameLabel.text = model.userName;
     self.lastNameLabel.text = model.userLastName;
     [self.userAvatar setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userAvatar]] placeholderImage:[UIImage placeholderImage]];
-    if (!model.isFriend) {
-        [self.addToFriendButton setEnabled:NO];
-    }
-    
+    [self changeAddButtonIfFriend];
 }
 
 - (IBAction)addToFriendAction:(id)sender {
@@ -52,6 +52,17 @@
     }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
     }];
+}
+
+- (IBAction)sendMessageButton:(id)sender {
+    self.messageForm = [[SendMessageForm alloc]initOnView:self.view withUser:self.userData];
+}
+
+- (void)changeAddButtonIfFriend {
+    if (!self.userData.isFriend){
+        [self.addToFriendButton setEnabled:NO];
+        self.addToFriendButton.titleLabel.text = @"Friend";
+    }
 }
 
 

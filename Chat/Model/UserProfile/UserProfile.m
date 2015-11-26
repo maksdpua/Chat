@@ -11,11 +11,12 @@
 @implementation UserProfile
 
 - (NSDictionary *)dictionaryInstructionManager {
-    return @{@"user_id" : @"userID", @"username" : @"userName", @"lastname" : @"userLastName", @"avatar" : @"userAvatar", @"friend": @"isFriend"};
+    return @{@"user_id" : @"userID", @"username" : @"userName", @"lastname" : @"userLastName", @"avatar" : @"userAvatar", @"friend": @"isFriend", @"email": @"userEmail", @"birthday": @"userBirthday", @"gender" : @"isMale", @"phone" : @"userPhone", @"university" : @"userUnivercity", @"favourite" : @"userFavourite", @"hometown" : @"userHometown"};
 }
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
     self = [super loadClassWithDictionary:[dictionary valueForKey:@"user_info"] InstructionDictionary:[self dictionaryInstructionManager]];
+    [self printDescription];
     return self;
 }
 

@@ -13,8 +13,15 @@
 @property (nonatomic, readonly) NSString *userID;
 @property (nonatomic, readonly) NSString *userName;
 @property (nonatomic, readonly) NSString *userLastName;
+@property (nonatomic, readonly) NSString *userPhone;
 @property (nonatomic, readonly) NSString *userAvatar;
 @property (nonatomic, readonly) NSString *isFriend;
+@property (nonatomic, readonly) NSString *userEmail;
+@property (nonatomic, readonly) NSString *userBirthday;
+@property (nonatomic, readonly) NSString *userHometown;
+@property (nonatomic, readonly) NSString *userFavourite;
+@property (nonatomic, readonly) NSString *userUnivercity;
+@property (nonatomic, readonly) NSNumber *isMale;
 
 //- (instancetype)initClassWithDictionary:(NSDictionary *)dictionary;
 

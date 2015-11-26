@@ -57,5 +57,15 @@
     }
 }
 
+- (BOOL)checkForSymbolsInString:(NSString *)string {
+    NSString *checkString = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    if ([checkString length]>0) {
+        return YES;
+    }else{
+        return NO;
+    }
+}
+
 
 @end

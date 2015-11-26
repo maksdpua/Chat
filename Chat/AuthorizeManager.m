@@ -44,10 +44,12 @@
 //}
 
 + (NSString *)userID {
+    NSLog(@"UserID: %@",[[NSUserDefaults standardUserDefaults]stringForKey:userIDKey]);
     return [[NSUserDefaults standardUserDefaults]stringForKey:userIDKey];
 }
 
 + (NSString *)sessionHash {
+    NSLog(@"User Session Hash: %@",[[NSUserDefaults standardUserDefaults]stringForKey:sessionHashKey]);
     return [[NSUserDefaults standardUserDefaults]stringForKey:sessionHashKey];
 }
 

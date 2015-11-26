@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SendMessageForm">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oaC-oj-fQC">
+                    <rect key="frame" x="40" y="176" width="240" height="128"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="0.89541777482269502" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="ksT-a6-7fn"/>
+                    </connections>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kM1-L1-12M">
+                    <rect key="frame" x="40" y="312" width="46" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.90892239330000002" green="1" blue="0.92045767909999998" alpha="0.80111369680851074" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Kht-wC-JvW"/>
+                        <constraint firstAttribute="width" constant="46" id="heS-rR-8RF"/>
+                    </constraints>
+                    <state key="normal" title="Send"/>
+                    <connections>
+                        <action selector="sendButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="En5-WN-7Wc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqB-Ia-BLN">
+                    <rect key="frame" x="216" y="312" width="63" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.90892239330000002" green="1" blue="0.92045767909999998" alpha="0.79964539007092195" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="edk-KD-rQU"/>
+                        <constraint firstAttribute="width" constant="63" id="t1a-O1-KzD"/>
+                    </constraints>
+                    <state key="normal" title="Cancel"/>
+                    <connections>
+                        <action selector="cancelButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="0zX-lV-CcQ"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jbx-iP-tga">
+                    <rect key="frame" x="40" y="98" width="70" height="70"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="q8q-er-Fi1"/>
+                        <constraint firstAttribute="width" constant="70" id="tw0-UN-ogd"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDq-9W-YNk">
+                    <rect key="frame" x="118" y="98" width="161" height="70"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.99856761116856785" blue="0.78577491695541568" alpha="0.79964539007092195" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="IDN-Dy-GKr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.79698581560283688" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="oaC-oj-fQC" firstAttribute="top" secondItem="jbx-iP-tga" secondAttribute="bottom" constant="8" id="0ql-LV-GJF"/>
+                <constraint firstItem="oaC-oj-fQC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="4Jw-i4-3It"/>
+                <constraint firstAttribute="bottom" secondItem="kM1-L1-12M" secondAttribute="bottom" constant="138" id="Jwz-zs-IPx"/>
+                <constraint firstItem="jbx-iP-tga" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="32" id="Npd-So-XjL"/>
+                <constraint firstItem="kM1-L1-12M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="Qf5-ll-6a0"/>
+                <constraint firstItem="PDq-9W-YNk" firstAttribute="leading" secondItem="jbx-iP-tga" secondAttribute="trailing" constant="8" id="Xo8-dm-ccJ"/>
+                <constraint firstItem="PDq-9W-YNk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="90" id="Xzj-Qo-VFj"/>
+                <constraint firstAttribute="trailingMargin" secondItem="PDq-9W-YNk" secondAttribute="trailing" constant="33" id="aKt-lc-wOT"/>
+                <constraint firstAttribute="trailing" secondItem="oaC-oj-fQC" secondAttribute="trailing" constant="40" id="eQz-hD-pic"/>
+                <constraint firstItem="kM1-L1-12M" firstAttribute="top" secondItem="oaC-oj-fQC" secondAttribute="bottom" constant="8" id="otL-al-8Z5"/>
+                <constraint firstItem="jbx-iP-tga" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="topMargin" constant="90" id="tzQ-zd-OOC"/>
+                <constraint firstItem="TqB-Ia-BLN" firstAttribute="top" secondItem="oaC-oj-fQC" secondAttribute="bottom" constant="8" id="xYg-Qn-uz7"/>
+                <constraint firstAttribute="trailing" secondItem="TqB-Ia-BLN" secondAttribute="trailing" constant="41" id="z1n-mw-uSF"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cancelButton" destination="TqB-Ia-BLN" id="0ph-3t-RfJ"/>
+                <outlet property="imageViewConstraint" destination="tzQ-zd-OOC" id="974-w5-CXR"/>
+                <outlet property="messageTextView" destination="oaC-oj-fQC" id="0ad-zm-bzO"/>
+                <outlet property="sendButton" destination="kM1-L1-12M" id="8dr-Dg-ly5"/>
+                <outlet property="sendButtonConstraint" destination="Jwz-zs-IPx" id="9yn-nq-Ccp"/>
+                <outlet property="userAvatar" destination="jbx-iP-tga" id="5QQ-XP-04V"/>
+                <outlet property="userNameLabel" destination="PDq-9W-YNk" id="kWu-85-WGR"/>
+                <outlet property="userNameLabelConstraint" destination="Xzj-Qo-VFj" id="8tm-UP-kW0"/>
+            </connections>
+        </view>
+    </objects>
+</document>

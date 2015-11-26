@@ -12,6 +12,7 @@
 #import "APIRequestManager.h"
 #import "SearchFriendCell.h"
 #import "UserProfileVC.h"
+#import "ConstantsOfAPI.h"
 
 @interface FriendsVC()<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 

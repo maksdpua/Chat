@@ -24,6 +24,7 @@
 - (instancetype)initOnView:(UIView *)view {
     self = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil]firstObject];
     if (self) {
+        self.frame = view.frame;
         self.arrayOfStatusID = @[@8,@9,@10,@11,@12,@13,@14];
         
         self.statuses = @[@"Single", @"In a relationship", @"Engaged", @"Married", @"In love", @"It's complicated", @"Activelly searching"];

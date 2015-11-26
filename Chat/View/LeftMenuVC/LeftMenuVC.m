@@ -29,8 +29,8 @@
     [super viewDidLoad];
     self.leftMenuItems = [[NSMutableArray alloc]init];
     arrayVCid = [[NSMutableArray alloc]init];
-    [self.leftMenuItems addObjectsFromArray:@[@"Profile", @"Search friend",@"Friends"]];
-    [arrayVCid addObjectsFromArray:@[@"MyInfoVC", @"FriendsVC", @"UserFLVC"]];
+    [self.leftMenuItems addObjectsFromArray:@[@"Profile", @"Search friend",@"Friends", @"Dialogs"]];
+    [arrayVCid addObjectsFromArray:@[@"MyInfoVC", @"FriendsVC", @"UserFLVC", kDialogsListVC]];
 }
 
 - (void)checkForRequestToFriends {
