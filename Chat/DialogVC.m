@@ -6,17 +6,19 @@
 //  Copyright © 2015 Maks. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DialogVC.h"
 #import <SRWebSocket.h>
 #import "ChatCell.h"
 #import "Constants.h"
 #import "MessageObject.h"
-#import "ChatDataSource.h"
+#import "APIRequestManager.h"
+#import "ConstantsOfAPI.h"
+#import "Messages.h"
 
 static int constantForConstraint = 8;
 
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDelegate, UITextFieldDelegate,DataSourceDelegate>
+@interface DialogVC ()<UITableViewDelegate, UITableViewDelegate, UITextFieldDelegate>
 {
     SRWebSocket *socketChat;
 }
@@ -24,19 +26,15 @@ static int constantForConstraint = 8;
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextField *textField;
 @property IBOutlet NSLayoutConstraint *textFieldConstraint;
-@property (nonatomic, strong) ChatDataSource *dataSource;
+@property (nonatomic, strong) Messages *allMessages;
 
 @end
 
-@implementation ViewController
+@implementation DialogVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = [[ChatDataSource alloc]initWithDelegate:self];
-//    self.arrayOfMessages = [[NSMutableArray alloc]init];
-//    socketChat = [[SRWebSocket alloc]initWithURL:[NSURL URLWithString:urlChat]];
-//    socketChat.delegate = self;
-//    [socketChat open];
+    [self getMessages];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardWillShow:)
@@ -52,6 +50,16 @@ static int constantForConstraint = 8;
 - (void)dealloc {
     socketChat.delegate = nil;
     [socketChat close];
+}
+
+- (void)getMessages {
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=10&offset=0", kURLServer, self.userData.userID] classMapping:[Messages class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
+        self.allMessages = (Messages *)responseObject;
+        [self.tableView reloadData];
+        NSLog(@"%@", responseObject);
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"%@", error);
+    }];
 }
 
 #pragma mark - Actions
@@ -126,13 +134,14 @@ static int constantForConstraint = 8;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataSource countOfModels];
+    return self.allMessages.array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    MessageObject *message = [self.dataSource modelAtIndex:indexPath.row];
+    User *message = [self.allMessages.array objectAtIndex:indexPath.row];
+    [message printDescription];
     cell.labelCell.text = message.messageText ;
     
     return cell;
@@ -141,13 +150,13 @@ static int constantForConstraint = 8;
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     [cell loadWithFrame:tableView.frame];
-    return [cell heightForRowFromMessageObject:[self.dataSource modelAtIndex:indexPath.row]].height+16+1;
+    return [cell heightForRowFromMessageObject:[self.allMessages.array objectAtIndex:indexPath.row]].height+16+1;
     
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     [cell loadWithFrame:tableView.frame];
-    [cell loadWithMessageObject:[self.dataSource modelAtIndex:indexPath.row]];
+    [cell loadWithMessageObject:[self.allMessages.array objectAtIndex:indexPath.row]];
     
 }
 

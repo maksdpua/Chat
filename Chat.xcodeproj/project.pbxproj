@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */; };
 		2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D229ED41BF50A5000D8A307 /* APIRequestManager.m */; };
 		2D4322BA1BE8BEC200E9B2EE /* MyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */; };
 		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
@@ -25,6 +24,7 @@
 		2DA3AD5F1C07204F00FEDA2B /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3AD5E1C07204F00FEDA2B /* DialogCell.m */; };
 		2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5D8CE1BF9F0A9008BD41E /* AllFoundedUsers.m */; };
 		2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */; };
+		2DB7049F1C07A46600054B8D /* Messages.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB7049E1C07A46600054B8D /* Messages.m */; };
 		2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC21BEA93810014B34F /* AlertFactory.m */; };
 		2DB72FC71BEAB4F20014B34F /* MyProfileEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB72FC61BEAB4F20014B34F /* MyProfileEditVC.m */; };
 		2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC114D81BE42C3B00EC5854 /* ChatValidator.m */; };
@@ -32,7 +32,7 @@
 		2DCA1DD21BE7DE3000E74877 /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA1DD11BE7DE3000E74877 /* HTTPManager.m */; };
 		2DEC77191BCA62CE00C5F8E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77181BCA62CE00C5F8E6 /* main.m */; };
 		2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */; };
-		2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */; };
+		2DEC771F1BCA62CE00C5F8E6 /* DialogVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC771E1BCA62CE00C5F8E6 /* DialogVC.m */; };
 		2DEC77241BCA62CE00C5F8E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */; };
 		2DEC77271BCA62CE00C5F8E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEC77251BCA62CE00C5F8E6 /* LaunchScreen.storyboard */; };
 		2DEC77321BCA62CE00C5F8E6 /* ChatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DEC77311BCA62CE00C5F8E6 /* ChatTests.m */; };
@@ -74,8 +74,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2D1B4CB81BCAA37300B68666 /* ChatDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatDataSource.h; path = DataSource/ChatDataSource.h; sourceTree = "<group>"; };
-		2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatDataSource.m; path = DataSource/ChatDataSource.m; sourceTree = "<group>"; };
 		2D229ED31BF50A5000D8A307 /* APIRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIRequestManager.h; path = ChatLoader/APIRequestManager/APIRequestManager.h; sourceTree = "<group>"; };
 		2D229ED41BF50A5000D8A307 /* APIRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIRequestManager.m; path = ChatLoader/APIRequestManager/APIRequestManager.m; sourceTree = "<group>"; };
 		2D4322B81BE8BEC200E9B2EE /* MyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInfoVC.h; path = View/UserInfoVC/MyInfoVC.h; sourceTree = "<group>"; };
@@ -105,6 +103,8 @@
 		2DB5D8CE1BF9F0A9008BD41E /* AllFoundedUsers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AllFoundedUsers.m; path = Model/FoundedUser/AllFoundedUsers.m; sourceTree = "<group>"; };
 		2DB5D8D21BFA01D1008BD41E /* SearchFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchFriendCell.h; path = Chat/View/Cell/SearchFriendCell/SearchFriendCell.h; sourceTree = "<group>"; };
 		2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchFriendCell.m; path = Chat/View/Cell/SearchFriendCell/SearchFriendCell.m; sourceTree = "<group>"; };
+		2DB7049D1C07A46600054B8D /* Messages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Messages.h; path = Model/Messages/Messages.h; sourceTree = "<group>"; };
+		2DB7049E1C07A46600054B8D /* Messages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Messages.m; path = Model/Messages/Messages.m; sourceTree = "<group>"; };
 		2DB72FC11BEA93810014B34F /* AlertFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlertFactory.h; path = AlertFactory/AlertFactory.h; sourceTree = "<group>"; };
 		2DB72FC21BEA93810014B34F /* AlertFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlertFactory.m; path = AlertFactory/AlertFactory.m; sourceTree = "<group>"; };
 		2DB72FC51BEAB4F20014B34F /* MyProfileEditVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyProfileEditVC.h; path = Chat/UserProfileEditVC/MyProfileEditVC.h; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		2DEC77181BCA62CE00C5F8E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2DEC771A1BCA62CE00C5F8E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2DEC771D1BCA62CE00C5F8E6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2DEC771D1BCA62CE00C5F8E6 /* DialogVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DialogVC.h; sourceTree = "<group>"; };
+		2DEC771E1BCA62CE00C5F8E6 /* DialogVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DialogVC.m; sourceTree = "<group>"; };
 		2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DEC77261BCA62CE00C5F8E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DEC77281BCA62CE00C5F8E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -195,15 +195,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D1B4CB71BCAA33900B68666 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				2D1B4CB81BCAA37300B68666 /* ChatDataSource.h */,
-				2D1B4CB91BCAA37300B68666 /* ChatDataSource.m */,
-			);
-			name = DataSource;
-			sourceTree = "<group>";
-		};
 		2D1B4CBB1BCAA69400B68666 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,8 +272,8 @@
 		2D7A95001BCA6CFC001BC204 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				2DEC771D1BCA62CE00C5F8E6 /* ViewController.h */,
-				2DEC771E1BCA62CE00C5F8E6 /* ViewController.m */,
+				2DEC771D1BCA62CE00C5F8E6 /* DialogVC.h */,
+				2DEC771E1BCA62CE00C5F8E6 /* DialogVC.m */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -350,6 +341,15 @@
 				2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */,
 			);
 			name = SearchFriendCell;
+			sourceTree = "<group>";
+		};
+		2DB7049B1C07A43500054B8D /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				2DB7049D1C07A46600054B8D /* Messages.h */,
+				2DB7049E1C07A46600054B8D /* Messages.m */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		2DB72FC01BEA93180014B34F /* AlertFactory */ = {
@@ -467,7 +467,6 @@
 				2DC114D61BE42C1800EC5854 /* Validator */,
 				FCB53C261BDB69DA0035B38B /* MessageObject */,
 				2D1B4CBB1BCAA69400B68666 /* Cells */,
-				2D1B4CB71BCAA33900B68666 /* DataSource */,
 				2DEC771A1BCA62CE00C5F8E6 /* AppDelegate.h */,
 				2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */,
 				2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */,
@@ -591,6 +590,7 @@
 		FCA045F41BF746E200A9ECD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2DB7049B1C07A43500054B8D /* Messages */,
 				2D45856B1C05145600BBC0DB /* Dialogs */,
 				2DF667B41BFD01EE00A90451 /* User */,
 				2DF667AF1BFCFF9000A90451 /* Friends */,
@@ -869,15 +869,15 @@
 				2D8426DC1C05B0ED00AD5E98 /* SendMessageForm.m in Sources */,
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,
-				2DEC771F1BCA62CE00C5F8E6 /* ViewController.m in Sources */,
+				2DEC771F1BCA62CE00C5F8E6 /* DialogVC.m in Sources */,
 				2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */,
 				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,
 				2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */,
 				2DA3AD5F1C07204F00FEDA2B /* DialogCell.m in Sources */,
-				2D1B4CBA1BCAA37300B68666 /* ChatDataSource.m in Sources */,
 				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
 				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
+				2DB7049F1C07A46600054B8D /* Messages.m in Sources */,
 				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,

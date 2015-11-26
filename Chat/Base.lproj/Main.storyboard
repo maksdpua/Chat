@@ -281,34 +281,54 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DialogCell" rowHeight="80" id="Qxg-9q-IiB" customClass="DialogCell">
-                                <rect key="frame" x="0.0" y="28" width="320" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DialogCell" rowHeight="70" id="Qxg-9q-IiB" customClass="DialogCell">
+                                <rect key="frame" x="0.0" y="28" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qxg-9q-IiB" id="KJr-qi-L9u">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-Cu-Y7Z">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-Cu-Y7Z">
                                             <rect key="frame" x="8" y="8" width="53" height="53"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="53" id="tZr-ef-RbZ"/>
+                                                <constraint firstAttribute="height" constant="53" id="uPk-Uj-dA4"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ci-Lh-jDg">
-                                            <rect key="frame" x="69" y="8" width="243" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-Xv-fAB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yK-Xv-fAB">
                                             <rect key="frame" x="69" y="33" width="243" height="28"/>
                                             <animations/>
                                             <color key="backgroundColor" red="1" green="0.97426182730046851" blue="0.77913256352616733" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="WKh-eK-IeJ"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ci-Lh-jDg">
+                                            <rect key="frame" x="69" y="8" width="243" height="21"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="bgT-py-rfZ"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="9ci-Lh-jDg" secondAttribute="trailing" constant="8" id="HyI-u3-ctZ"/>
+                                        <constraint firstItem="3yK-Xv-fAB" firstAttribute="leading" secondItem="cnS-Cu-Y7Z" secondAttribute="trailing" constant="8" id="UL9-Gd-cDJ"/>
+                                        <constraint firstItem="cnS-Cu-Y7Z" firstAttribute="leading" secondItem="KJr-qi-L9u" secondAttribute="leading" constant="8" id="Vpj-kB-dF4"/>
+                                        <constraint firstItem="9ci-Lh-jDg" firstAttribute="leading" secondItem="cnS-Cu-Y7Z" secondAttribute="trailing" constant="8" id="WSJ-nq-wNr"/>
+                                        <constraint firstItem="3yK-Xv-fAB" firstAttribute="trailing" secondItem="KJr-qi-L9u" secondAttribute="trailingMargin" id="d6G-vo-P6G"/>
+                                        <constraint firstItem="cnS-Cu-Y7Z" firstAttribute="top" secondItem="KJr-qi-L9u" secondAttribute="top" constant="8" id="iMH-Dc-iaG"/>
+                                        <constraint firstItem="3yK-Xv-fAB" firstAttribute="top" secondItem="9ci-Lh-jDg" secondAttribute="bottom" constant="4" id="moy-Bs-XJv"/>
+                                        <constraint firstItem="9ci-Lh-jDg" firstAttribute="top" secondItem="KJr-qi-L9u" secondAttribute="top" constant="8" id="wjB-sa-tY3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
@@ -655,10 +675,10 @@
             </objects>
             <point key="canvasLocation" x="564" y="1181"/>
         </scene>
-        <!--View Controller-->
+        <!--DialogVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DialogVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="DialogVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

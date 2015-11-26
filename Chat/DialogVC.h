@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
-@interface ViewController : UIViewController
+@interface DialogVC : UIViewController
 
+@property (nonatomic, strong) User *userData;
 
 @end
 

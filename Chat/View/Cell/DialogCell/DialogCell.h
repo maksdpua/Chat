@@ -13,4 +13,6 @@
 
 - (void)setupWithModel:(User *)model;
 
+- (CGFloat)loadWithHeight;
+
 @end

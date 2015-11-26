@@ -8,6 +8,7 @@
 
 #import "ChatCell.h"
 #import "Constants.h"
+#import "AuthorizeManager.h"
 
 @implementation ChatCell
 {
@@ -18,7 +19,7 @@
     labelTextWidth = rect.size.width - leftX * 2;
 }
 
-- (void)initWithMessage:(MessageObject *)message {
+- (void)initWithMessage:(User *)message {
     self.labelCell.text = message.messageText;
 }
 
@@ -30,13 +31,13 @@
     return size;
 }
 
-- (void)cellFromMessage:(MessageObject *)messageObject {
+- (void)cellFromMessage:(User *)messageObject {
     
 }
 
-- (void)loadWithMessageObject:(MessageObject *)messageObject {
+- (void)loadWithMessageObject:(User *)messageObject {
     self.labelCell.text = messageObject.messageText;
-    BOOL user = messageObject.userID.integerValue == user_id.integerValue ? YES : NO;
+//    BOOL user = messageObject.userID.integerValue == user_id.integerValue ? YES : NO;
     CGSize size = [self heightForRowFromMessageObject:messageObject];
     NSInteger width = lround(size.width + 0.5);
     [self setNeedsUpdateConstraints];
@@ -47,14 +48,14 @@
         self.labelCell.textAlignment = NSTextAlignmentCenter;
     }
     
-    if (user) {
+    if (messageObject.userID==[AuthorizeManager userID]) {
+        self.leftConstaint.constant = leftX;
+        self.rightConstaint.constant = labelTextWidth + leftX - width;
+        self.labelCell.backgroundColor = [UIColor yellowColor];
+    } else {
         self.leftConstaint.constant = labelTextWidth + leftX - width;
         self.rightConstaint.constant = leftX;
         self.labelCell.backgroundColor = [UIColor greenColor];
-    } else {
-        self.leftConstaint.constant = leftX;
-        self.rightConstaint.constant = labelTextWidth + leftX - width;
-        self.labelCell.backgroundColor = [UIColor lightGrayColor];
     }
     [self layoutIfNeeded];
 }

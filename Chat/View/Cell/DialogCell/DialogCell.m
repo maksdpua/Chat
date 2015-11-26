@@ -34,6 +34,10 @@
     [self.dialogImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.avatar]] placeholderImage:[UIImage placeholderImage]];
 }
 
+- (CGFloat)loadWithHeight {
+    return self.dialogImage.frame.size.height+10;
+}
+
 
 
 @end

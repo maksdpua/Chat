@@ -26,7 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.allFriends = @{}.mutableCopy;
-    
     [self checkForNewFriends];
     [self getFriendList];
 }

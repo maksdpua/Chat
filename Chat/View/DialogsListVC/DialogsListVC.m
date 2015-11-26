@@ -11,6 +11,8 @@
 #import "ConstantsOfAPI.h"
 #import "Dialogs.h"
 #import "DialogCell.h"
+#import "User.h"
+#import "DialogVC.h"
 
 @interface DialogsListVC()<UITableViewDelegate, UITableViewDataSource>
 
@@ -48,9 +50,17 @@
     return cell;
 }
 
-//- (CGFloat)estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return UITableViewAutomaticDimension;
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DialogCell *cell = [tableView dequeueReusableCellWithIdentifier:kDialogCell];
+    return [cell loadWithHeight];;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    DialogVC *dialogVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DialogVC"];
+    dialogVC.userData = [self.allDialogs.array objectAtIndex:indexPath.row];
+    [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[dialogVC] animated:YES];
+}
 
 
 
