@@ -14,7 +14,7 @@
 - (void)setupWithModel:(User *)model {
     
     self.nameLabel.text=model.userName;
-    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.avatar] ] placeholderImage:[UIImage placeholderImage]];
+    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar] ] placeholderImage:[UIImage placeholderImage]];
 }
 
 

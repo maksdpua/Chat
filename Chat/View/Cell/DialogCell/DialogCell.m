@@ -31,7 +31,7 @@
 - (void)setupWithModel:(User *)model {
     self.dialogLabel.text = model.messageText;
     self.dialogUserNameLabel.text = model.userName;
-    [self.dialogImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.avatar]] placeholderImage:[UIImage placeholderImage]];
+    [self.dialogImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];
 }
 
 - (CGFloat)loadWithHeight {

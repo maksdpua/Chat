@@ -48,7 +48,7 @@
         self.labelCell.textAlignment = NSTextAlignmentCenter;
     }
     
-    if (messageObject.userID==[AuthorizeManager userID]) {
+    if ([messageObject.userID isEqualToString:[AuthorizeManager userID]]) {
         self.leftConstaint.constant = leftX;
         self.rightConstaint.constant = labelTextWidth + leftX - width;
         self.labelCell.backgroundColor = [UIColor yellowColor];

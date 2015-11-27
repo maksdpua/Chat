@@ -11,7 +11,7 @@
 @implementation User
 
 - (NSDictionary *)dictionaryInstructionManager {
-    return @{@"user_id" : @"userID", @"user_name" : @"userName", @"user_lastname" : @"userLastName", @"user_thumbnail_avatar" : @"avatar", @"user_online" : @"online", @"friend": @"isFriend",@"dialog_id": @"dialogID", @"message_id": @"messageID", @"sender_id": @"senderID", @"recipient_id": @"recipientID", @"message_text": @"messageText", @"message_photo": @"messagePhoto", @"did_read": @"didRead"};
+    return @{@"user_id" : @"userID", @"user_name" : @"userName", @"user_lastname" : @"userLastName", @"user_thumbnail_avatar" : @"userThumbnailAvatar", @"user_avatar" : @"userAvatar", @"user_online" : @"online", @"friend": @"isFriend",@"dialog_id": @"dialogID", @"message_id": @"messageID", @"sender_id": @"senderID", @"recipient_id": @"recipientID", @"message_text": @"messageText", @"message_photo": @"messagePhoto", @"did_read": @"didRead"};
 }
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {

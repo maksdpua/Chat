@@ -20,10 +20,10 @@
             }
             if ([[obj class] isSubclassOfClass:[NSNumber class]]) {
                 [self setValue:[NSString stringWithFormat:@"%@", obj] forKey:propertyName];
-            } else if([[obj class] isSubclassOfClass:[NSString class]]) {
+            } else  {
                 [self setValue:obj forKey:propertyName];
             }
-            
+//            if([[obj class] isSubclassOfClass:[NSString class]])
         }
     }];
     return self;

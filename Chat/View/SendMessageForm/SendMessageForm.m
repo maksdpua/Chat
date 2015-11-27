@@ -55,7 +55,7 @@ static int kCornerRadiusOfElementsMessageForm = 5;
         [self.sendButton setEnabled:NO];
         self.user_id = user.userID;
         self.userNameLabel.text = user.userName;
-        [self.userAvatar setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:user.avatar]] placeholderImage:[UIImage placeholderImage]];
+        [self.userAvatar setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:user.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];
         [view addSubview:self];
         [self showWithDuration:0.25 withAlpha:1];
     }

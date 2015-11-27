@@ -13,9 +13,11 @@
 @property (nonatomic, readonly) NSString *userID;
 @property (nonatomic, readonly) NSString *userName;
 @property (nonatomic, readonly) NSString *userLastName;
-@property (nonatomic, readonly) NSString *avatar;
+@property (nonatomic, readonly) NSString *thumb;
 @property (nonatomic, readonly) NSString *online;
 @property (nonatomic, readonly) NSString *isFriend;
+@property (nonatomic, readonly) NSString *userThumbnailAvatar;
+@property (nonatomic, readonly) NSString *userAvatar;
 
 @property (nonatomic,readonly) NSString *dialogID;
 @property (nonatomic,readonly) NSString *messageID;

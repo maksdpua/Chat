@@ -229,6 +229,7 @@
 				2D4585691C050AC600BBC0DB /* DialogsListVC.m */,
 			);
 			name = DialogsListVC;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		2D45856B1C05145600BBC0DB /* Dialogs */ = {
@@ -253,6 +254,7 @@
 		2D7A94FF1BCA6CF0001BC204 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2D4585671C050A4F00BBC0DB /* DialogsListVC */,
 				FC19E3051C007917001B3351 /* UserFriendListVC */,
 				2D98D1D51BFBBFC500B8F207 /* UserProfileVC */,
 				2DB72FC41BEA9E650014B34F /* MyProfileEditVC */,
@@ -384,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				2D8426D71C05AB9000AD5E98 /* SendMessageForm */,
-				2D4585671C050A4F00BBC0DB /* DialogsListVC */,
 				2DB5D8D01BFA016A008BD41E /* Cell */,
 				2D6C82C11BEBEB7700304EFA /* FamilyStatusPicker */,
 				FCECFA911BE4B7F000B7B714 /* ChatDatePicker */,
