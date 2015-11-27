@@ -18,6 +18,10 @@
     [self.avatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];
 }
 
+- (CGFloat)loadWithHeight {
+    return self.avatarImage.frame.size.height+10;
+}
+
 
 
 @end

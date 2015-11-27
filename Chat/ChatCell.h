@@ -18,6 +18,8 @@ static NSInteger leftX = 8;
 @property IBOutlet NSLayoutConstraint *leftConstaint;
 @property IBOutlet NSLayoutConstraint *rightConstaint;
 
+
+
 - (void)loadWithFrame:(CGRect)rect;
 
 - (void)initWithMessage:(User *)message;

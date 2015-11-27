@@ -15,15 +15,14 @@
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *propertyName = [instruction valueForKey:key];
         if (propertyName) {
-            if ([[obj class] isSubclassOfClass:[NSNull class]]) {
-                [self setValue:nil forKey:propertyName];
+            if ([obj class] == [NSNull class]) {
+                obj = @"";
             }
             if ([[obj class] isSubclassOfClass:[NSNumber class]]) {
                 [self setValue:[NSString stringWithFormat:@"%@", obj] forKey:propertyName];
             } else  {
                 [self setValue:obj forKey:propertyName];
             }
-//            if([[obj class] isSubclassOfClass:[NSString class]])
         }
     }];
     return self;

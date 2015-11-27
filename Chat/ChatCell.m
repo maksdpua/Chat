@@ -36,6 +36,7 @@
 }
 
 - (void)loadWithMessageObject:(User *)messageObject {
+    self.labelCell.layer.cornerRadius = 5;
     self.labelCell.text = messageObject.messageText;
 //    BOOL user = messageObject.userID.integerValue == user_id.integerValue ? YES : NO;
     CGSize size = [self heightForRowFromMessageObject:messageObject];
@@ -51,7 +52,7 @@
     if ([messageObject.userID isEqualToString:[AuthorizeManager userID]]) {
         self.leftConstaint.constant = leftX;
         self.rightConstaint.constant = labelTextWidth + leftX - width;
-        self.labelCell.backgroundColor = [UIColor yellowColor];
+        self.labelCell.backgroundColor = [UIColor blueColor];
     } else {
         self.leftConstaint.constant = labelTextWidth + leftX - width;
         self.rightConstaint.constant = leftX;

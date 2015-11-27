@@ -95,13 +95,28 @@
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return [self.allFriends allKeys][section];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    Friends *friends = [self.allFriends valueForKey:kUserCell];
+    Friends *request = [self.allFriends valueForKey:kUserRequestCell];
+    if (section==0 && friends.array.count>0) {
+        return @"Friends";
+    } else if (section==1 && request.array.count>0){
+        return @"Request For Friends";
+    } else {
+        return @"";
+    }
 }
 
-- (CGFloat)estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UserCell *cell = [[UserCell alloc]init];
+    if (indexPath.section==0) {
+            cell = [tableView dequeueReusableCellWithIdentifier:kUserCell];
+    } else if (indexPath.section==1) {
+            cell = [tableView dequeueReusableCellWithIdentifier:kUserRequestCell];
+    }
+    return [cell loadWithHeight];
 }
 
 
