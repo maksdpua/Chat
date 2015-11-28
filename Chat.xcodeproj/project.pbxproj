@@ -45,6 +45,7 @@
 		FC19E30C1C00A018001B3351 /* UIButton+indexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = FC19E30B1C00A018001B3351 /* UIButton+indexPath.m */; };
 		FC57E4F81BF7609B00F77A72 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC57E4F71BF7609B00F77A72 /* User.m */; };
 		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
+		FCB02F861C0994BC006AB707 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB02F851C0994BC006AB707 /* SocketManager.m */; };
 		FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C241BDB5F3A0035B38B /* ChatCell.m */; };
 		FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C281BDB6A0D0035B38B /* MessageObject.m */; };
 		FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */; };
@@ -149,6 +150,8 @@
 		FC57E4F71BF7609B00F77A72 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/FoundedUser/User.m; sourceTree = "<group>"; };
 		FCA1E0D61BE4AB5C00D6F934 /* RegistrationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegistrationVC.h; path = Chat/View/RegistrationVC/RegistrationVC.h; sourceTree = "<group>"; };
 		FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationVC.m; path = Chat/View/RegistrationVC/RegistrationVC.m; sourceTree = "<group>"; };
+		FCB02F841C0994BC006AB707 /* SocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketManager.h; path = SocketManager/SocketManager.h; sourceTree = "<group>"; };
+		FCB02F851C0994BC006AB707 /* SocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketManager.m; path = SocketManager/SocketManager.m; sourceTree = "<group>"; };
 		FCB53C231BDB5F3A0035B38B /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		FCB53C241BDB5F3A0035B38B /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		FCB53C271BDB6A0D0035B38B /* MessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageObject.h; sourceTree = "<group>"; };
@@ -398,6 +401,7 @@
 		2DC114DD1BE42F9000EC5854 /* ChatLoader */ = {
 			isa = PBXGroup;
 			children = (
+				FCB02F831C0993FE006AB707 /* SocketManager */,
 				2D7CF0851BF685AD00C48015 /* AuthorizeManager */,
 				2D229ED21BF509AB00D8A307 /* APIRequestManager */,
 				2DCA1DCC1BE7DC2C00E74877 /* HTTPManager */,
@@ -617,6 +621,15 @@
 			children = (
 			);
 			name = UserInfo;
+			sourceTree = "<group>";
+		};
+		FCB02F831C0993FE006AB707 /* SocketManager */ = {
+			isa = PBXGroup;
+			children = (
+				FCB02F841C0994BC006AB707 /* SocketManager.h */,
+				FCB02F851C0994BC006AB707 /* SocketManager.m */,
+			);
+			name = SocketManager;
 			sourceTree = "<group>";
 		};
 		FCB53C261BDB69DA0035B38B /* MessageObject */ = {
@@ -867,6 +880,7 @@
 				FC19E30C1C00A018001B3351 /* UIButton+indexPath.m in Sources */,
 				2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */,
 				2DF667AE1BFCDA9200A90451 /* UserProfile.m in Sources */,
+				FCB02F861C0994BC006AB707 /* SocketManager.m in Sources */,
 				2D8426DC1C05B0ED00AD5E98 /* SendMessageForm.m in Sources */,
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,

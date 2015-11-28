@@ -14,10 +14,7 @@
 - (instancetype)loadClassWithDictionary:(NSDictionary *)dictionary InstructionDictionary:(NSDictionary *)instruction {
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         NSString *propertyName = [instruction valueForKey:key];
-        if (propertyName) {
-            if ([obj class] == [NSNull class]) {
-                obj = @"";
-            }
+        if (propertyName && ![[obj class] isSubclassOfClass:[NSNull class]]) {
             if ([[obj class] isSubclassOfClass:[NSNumber class]]) {
                 [self setValue:[NSString stringWithFormat:@"%@", obj] forKey:propertyName];
             } else  {

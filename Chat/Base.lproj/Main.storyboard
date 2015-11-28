@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SiJ-Qu-Jp8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SiJ-Qu-Jp8">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -701,35 +701,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-K9-EPN">
-                                <rect key="frame" x="270" y="442" width="50" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdx-a2-hj0" userLabel="InputTextView">
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-K9-EPN">
+                                        <rect key="frame" x="270" y="6" width="50" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="SEND"/>
+                                        <connections>
+                                            <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qD-mn-oj5"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kgu-ln-b6M">
+                                        <rect key="frame" x="0.0" y="7" width="262" height="30"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.97426182729999999" blue="0.77913256350000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="6ch-3s-0l0"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="PBt-AR-9ld"/>
-                                    <constraint firstAttribute="width" constant="50" id="fVE-9C-0SJ"/>
-                                </constraints>
-                                <state key="normal" title="SEND"/>
-                                <connections>
-                                    <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qD-mn-oj5"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kgu-ln-b6M">
-                                <rect key="frame" x="0.0" y="442" width="262" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.97426182729999999" blue="0.77913256350000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RZu-eu-5bP"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6ch-3s-0l0"/>
-                                </connections>
-                            </textView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yny-Vu-8Fk">
                                 <rect key="frame" x="0.0" y="20" width="320" height="414"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="414" id="BNG-yn-u3d"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="customCell" id="5jQ-vj-0LF" customClass="ChatCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -772,22 +775,23 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Kgu-ln-b6M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4od-NY-Cir"/>
-                            <constraint firstItem="Yny-Vu-8Fk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9Eo-aI-yax"/>
-                            <constraint firstItem="Kgu-ln-b6M" firstAttribute="top" secondItem="Yny-Vu-8Fk" secondAttribute="bottom" constant="8" id="Dt3-Sk-UL8"/>
-                            <constraint firstAttribute="trailing" secondItem="Yny-Vu-8Fk" secondAttribute="trailing" id="FCp-Mq-a4J"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kgu-ln-b6M" secondAttribute="bottom" constant="8" id="Mah-k9-LGa"/>
-                            <constraint firstItem="Yny-Vu-8Fk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Qgy-cQ-nwl"/>
-                            <constraint firstAttribute="trailing" secondItem="JDV-K9-EPN" secondAttribute="trailing" id="iQa-ly-9FF"/>
-                            <constraint firstItem="JDV-K9-EPN" firstAttribute="leading" secondItem="Kgu-ln-b6M" secondAttribute="trailing" constant="8" id="toc-Cq-bth"/>
-                            <constraint firstItem="JDV-K9-EPN" firstAttribute="top" secondItem="Yny-Vu-8Fk" secondAttribute="bottom" constant="8" id="wfi-Y7-kpQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Yny-Vu-8Fk" secondAttribute="trailing" id="2yh-yf-EHq"/>
+                            <constraint firstAttribute="trailing" secondItem="Mdx-a2-hj0" secondAttribute="trailing" id="6hh-V8-be9"/>
+                            <constraint firstItem="Yny-Vu-8Fk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8rs-vV-yeE"/>
+                            <constraint firstItem="Mdx-a2-hj0" firstAttribute="trailing" secondItem="Yny-Vu-8Fk" secondAttribute="trailing" id="EfW-if-72S"/>
+                            <constraint firstItem="Yny-Vu-8Fk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="MUQ-7W-UD8"/>
+                            <constraint firstItem="Mdx-a2-hj0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OO6-sf-CXV"/>
+                            <constraint firstItem="Yny-Vu-8Fk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TSM-kk-qd8"/>
+                            <constraint firstItem="Mdx-a2-hj0" firstAttribute="top" secondItem="Yny-Vu-8Fk" secondAttribute="bottom" constant="2" id="cum-oq-EPe"/>
+                            <constraint firstItem="Mdx-a2-hj0" firstAttribute="top" secondItem="Yny-Vu-8Fk" secondAttribute="bottom" constant="2" id="hdI-9F-Cmr"/>
+                            <constraint firstItem="Mdx-a2-hj0" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="iki-vA-dw3"/>
+                            <constraint firstItem="Mdx-a2-hj0" firstAttribute="leading" secondItem="Yny-Vu-8Fk" secondAttribute="leading" id="puy-ie-pMl"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="sendButton" destination="JDV-K9-EPN" id="Int-Kl-kmk"/>
                         <outlet property="tableView" destination="Yny-Vu-8Fk" id="uk6-M0-358"/>
-                        <outlet property="textFieldConstraint" destination="Mah-k9-LGa" id="hsW-9g-0pn"/>
                         <outlet property="textView" destination="Kgu-ln-b6M" id="hAc-Ce-xz8"/>
                     </connections>
                 </viewController>

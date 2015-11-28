@@ -16,9 +16,13 @@ static int kCornerRadius = 10;
 @implementation UserCell
 
 
+- (void)awakeFromNib {
+    self.avatarImage.layer.masksToBounds = YES;
+    self.avatarImage.layer.cornerRadius = kCornerRadius;
+}
 
 - (void)setupWithModel:(User *)model {
-    self.avatarImage.layer.cornerRadius = kCornerRadius;
+
     self.nameLabel.text=model.userName;
     [self.avatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];
 }

@@ -68,7 +68,7 @@ static int constantForConstraint = 8;
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    [json printDescription];
+    
     User *userMessage = [[User alloc]initClassWithDictionary:json];
     
     if ([userMessage.userID isEqualToString:self.userData.userID]) {
@@ -184,7 +184,6 @@ static int constantForConstraint = 8;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    
     if([text isEqualToString:@"\n"]) {
         [textView resignFirstResponder];
         return NO;
