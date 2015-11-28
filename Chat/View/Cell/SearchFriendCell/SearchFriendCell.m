@@ -9,12 +9,18 @@
 #import "SearchFriendCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+static int kCornerRadius = 10;
+
 @implementation SearchFriendCell
 
 - (void)setupWithModel:(User *)model {
-    
+    self.avatarImage.layer.cornerRadius = kCornerRadius;
     self.nameLabel.text=model.userName;
     [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar] ] placeholderImage:[UIImage placeholderImage]];
+}
+
+- (CGFloat)loadWithHeight {
+    return self.avatarImage.frame.size.height+10;
 }
 
 

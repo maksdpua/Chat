@@ -46,6 +46,11 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SearchFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:kSearchFriendCell];
+    return [cell loadWithHeight];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UserProfileVC *userInfoVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserProfileVC"];
     userInfoVC.userData = [self.foundedUsers.array objectAtIndex:indexPath.row];
