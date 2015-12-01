@@ -15,18 +15,21 @@ static NSInteger leftX = 8;
 @interface ChatCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *labelCell;
+@property (nonatomic, weak) IBOutlet UIImageView *cellAvatarImage;
 @property IBOutlet NSLayoutConstraint *leftConstaint;
 @property IBOutlet NSLayoutConstraint *rightConstaint;
+@property (nonatomic, weak) IBOutlet UIView *cellView;
 
 
+- (void)setupWithModel:(MessageObject *)model;
 
 - (void)loadWithFrame:(CGRect)rect;
 
 - (void)initWithMessage:(User *)message;
 
-- (CGSize)heightForRowFromMessageObject:(User *)messageObject;
+- (CGSize)heightForRowFromMessageObject:(MessageObject *)messageObject;
 
-- (void)cellFromMessage:(User *)messageObject;
+- (void)cellFromMessage:(MessageObject *)messageObject;
 
 - (void)loadWithMessageObject:(User*)messageObject;
 

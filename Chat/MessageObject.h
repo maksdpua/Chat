@@ -10,10 +10,15 @@
 
 @interface MessageObject : NSObject
 
-@property (nonatomic, strong) NSString *userID;
-@property (nonatomic, strong) NSString *recipientID;
-@property (nonatomic, strong) NSString *messageText;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *lastName;
+@property (nonatomic, readonly) NSString *userID;
+@property (nonatomic, readonly) NSString *userName;
+@property (nonatomic, readonly) NSString *userLastName;
+
+@property (nonatomic, readonly) NSString *userAvatar;
+
+@property (nonatomic,readonly) NSString *recipientID;
+@property (nonatomic,readonly) NSString *messageText;
+@property (nonatomic,readonly) NSString *messagePhoto;
+@property (nonatomic, readonly) NSString *recipientNewMessages;
 
 @end

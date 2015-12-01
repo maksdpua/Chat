@@ -15,18 +15,17 @@
 #import "ConstantsOfAPI.h"
 #import "Messages.h"
 #import "AuthorizeManager.h"
+#import "SocketManager.h"
+#import "MessageObject.h"
 
-static int constantForConstraint = 8;
 
 
-@interface DialogVC ()<UITableViewDelegate, UITableViewDelegate, UITextViewDelegate, SRWebSocketDelegate>
-{
-    SRWebSocket *socketChat;
-}
+@interface DialogVC ()<UITableViewDelegate, UITableViewDelegate, UITextViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextView *textView;
 @property IBOutlet NSLayoutConstraint *textFieldConstraint;
+@property IBOutlet NSLayoutConstraint *textViewHeightCosntraint;
 @property (nonatomic, strong)NSMutableArray *messagesArray;
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
 
@@ -38,11 +37,10 @@ static int constantForConstraint = 8;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textView.layer.cornerRadius = 5;
+//    self.messagesArray = [[NSMutableArray alloc]init];
     [self getMessages];
     [self.sendButton setEnabled:NO];
-    socketChat = [[SRWebSocket alloc] initWithURL:[NSURL URLWithString:urlChat]];
-    socketChat.delegate = self;
-    [socketChat open];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardWillShow:)
@@ -53,35 +51,27 @@ static int constantForConstraint = 8;
                                              selector:@selector (keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector (keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector (didRecieveMessage:)
+                                                 name:kMessage
+                                               object:nil];
 }
 
 - (void)dealloc {
-    socketChat.delegate = nil;
-    [socketChat close];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    
-    User *userMessage = [[User alloc]initClassWithDictionary:json];
-    
-    if ([userMessage.userID isEqualToString:self.userData.userID]) {
-        [self.messagesArray addObject:userMessage];
-    }
-    if ([userMessage.userID isEqualToString: [AuthorizeManager userID]]) {
-        [self.messagesArray addObject:userMessage];
-    }
+- (void)didRecieveMessage:(NSNotification *)notification {
+    MessageObject *messageObject = [[MessageObject alloc]initClassWithDictionary:notification.object];
+    [self.messagesArray addObject:messageObject];
     NSInteger index = self.messagesArray.count - 1;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    [self.tableView reloadData];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//    if (self.messagesArray.count>1) {
+//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+//    }
+    [self scrollToTheLastRowWithAnimation:YES];
 }
 
 - (void)getMessages {
@@ -89,11 +79,20 @@ static int constantForConstraint = 8;
         allMessages = (Messages *)responseObject;
         [self reverseAllmessages];
         [self.tableView reloadData];
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+//        if (self.messagesArray.count>1) {
+//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+//        }
+        [self scrollToTheLastRowWithAnimation:NO];
         NSLog(@"%@", responseObject);
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
         NSLog(@"%@", error);
     }];
+}
+
+- (void)scrollToTheLastRowWithAnimation:(BOOL)animation {
+    if (self.messagesArray.count>1) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
+    }
 }
 
 - (void)reverseAllmessages {
@@ -117,57 +116,31 @@ static int constantForConstraint = 8;
 }
 
 
-#pragma mark - SRWebSocket Delegate Methods
-
-
-//- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-//    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-//    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//    
-//    if (json) {
-//        NSLog(@"%@", json);
-//        MessageObject *object = [[MessageObject alloc]init];
-//        object.userID = [json valueForKey:kUserID];
-//        object.recipientID = [json valueForKey:kRecipient_id];
-//        object.name = [json valueForKey:kName];
-//        object.lastName = [json valueForKey:kLastName];
-//        object.messageText = [json valueForKey:kMessageText];
-//        [self.arrayOfMessages addObject:object];
-//        [self.tableView reloadData];
-//        
-//        
-//        
-//        
-//        //анимированное появление новых ячеек
-////        NSInteger index = self.arrayOfMessages.count - 1;
-////        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-////        [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    }
-//}
-
 #pragma mark - Keyboard notifications Methods
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     NSDictionary *keyboardInfo = [notification userInfo];
     NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    self.textFieldConstraint.constant = keyboardFrameBeginRect.size.height;
-    [self.view layoutIfNeeded];
+    [self.view setNeedsDisplay];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.textFieldConstraint.constant = keyboardFrameBeginRect.size.height;
+        [self.view layoutIfNeeded];
+        
+        if (self.messagesArray.count) {
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0] - 1 inSection:0];
+            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+        }
+    }];
+
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification {
-    self.textFieldConstraint.constant = constantForConstraint;
+    self.textFieldConstraint.constant = self.view.frame.origin.y;
     [self.view layoutIfNeeded];
+    [self scrollToTheLastRowWithAnimation:YES];
 }
-
-- (void)keyboardDidShow:(NSNotification*)notification {
-    NSInteger index = self.messagesArray.count - 1;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-//    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    //    [self.tableView reloadData];
-    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-}
-
 
 #pragma mark - UITextView Delegate Methods
 
@@ -181,6 +154,11 @@ static int constantForConstraint = 8;
     } else {
         [self.sendButton setEnabled:NO];
     }
+    CGFloat fixedWidth = self.textView.frame.size.width;
+    CGSize newSize = [self.textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = self.textView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    self.textViewHeightCosntraint.constant = newFrame.size.height;
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -203,25 +181,41 @@ static int constantForConstraint = 8;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    User *message = [self.messagesArray objectAtIndex:indexPath.row];
-    [message printDescription];
-    cell.labelCell.text = message.messageText;
+    ChatCell *cell = [[ChatCell alloc]init];
+    MessageObject *message = [self.messagesArray objectAtIndex:indexPath.row];
+    if ([message.userID isEqualToString:[AuthorizeManager userID]]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
+    } else if ([message.userID isEqualToString:self.userData.userID]){
+        cell = [tableView dequeueReusableCellWithIdentifier:kSpeakerDialogCell];
+    } else {
+        NSLog(@"Wrong UserID %@",self.userData.userID);
+    }
+    [cell setupWithModel:message];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    [cell loadWithFrame:tableView.frame];
+//    return [cell heightForRowFromMessageObject:[self.messagesArray objectAtIndex:indexPath.row]].height+16+1;
+    ChatCell *cell = [[ChatCell alloc]init];
+    MessageObject *message = [self.messagesArray objectAtIndex:indexPath.row];
+    if ([message.userID isEqualToString:[AuthorizeManager userID]]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
+    } else if ([message.userID isEqualToString:self.userData.userID]){
+        cell = [tableView dequeueReusableCellWithIdentifier:kSpeakerDialogCell];
+    } else {
+        NSLog(@"Wrong UserID %@",self.userData.userID);
+    }
     [cell loadWithFrame:tableView.frame];
-    return [cell heightForRowFromMessageObject:[self.messagesArray objectAtIndex:indexPath.row]].height+16+1;
-    
+//    return [cell heightForRowFromMessageObject:message].height+20;
+    return ([cell heightForRowFromMessageObject:message].height+16+1 < cell.cellAvatarImage.frame.size.height+8) ? cell.cellAvatarImage.frame.size.height+8 : [cell heightForRowFromMessageObject:message].height+16+1;
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [cell loadWithFrame:tableView.frame];
-    [cell loadWithMessageObject:[self.messagesArray objectAtIndex:indexPath.row]];
-    
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    [cell loadWithFrame:tableView.frame];
+//    [cell loadWithMessageObject:[self.messagesArray objectAtIndex:indexPath.row]];
+//}
 
 
 

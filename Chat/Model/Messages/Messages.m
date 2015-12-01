@@ -8,6 +8,7 @@
 
 #import "Messages.h"
 #import "User.h"
+#import "MessageObject.h"
 
 @interface Messages()
 
@@ -20,7 +21,7 @@
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
     self.array = [NSMutableArray new];
     for (NSDictionary *userDictionary in [dictionary valueForKey:@"messages"]) {
-        User *user = [[User alloc]initClassWithDictionary:userDictionary];
+        MessageObject *user = [[MessageObject alloc]initClassWithDictionary:userDictionary];
         [self.array addObject:user];
     }
     return self;

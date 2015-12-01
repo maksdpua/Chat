@@ -198,13 +198,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D1B4CBB1BCAA69400B68666 /* Cells */ = {
+		2D1B4CBB1BCAA69400B68666 /* ChatCell */ = {
 			isa = PBXGroup;
 			children = (
 				FCB53C231BDB5F3A0035B38B /* ChatCell.h */,
 				FCB53C241BDB5F3A0035B38B /* ChatCell.m */,
 			);
-			name = Cells;
+			name = ChatCell;
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		2D229ED21BF509AB00D8A307 /* APIRequestManager */ = {
@@ -268,19 +269,19 @@
 				2D4322B71BE8BE7D00E9B2EE /* MyInfoVC */,
 				FCECFA8D1BE4B1C300B7B714 /* MainVC */,
 				FCA1E0D41BE4AAFE00D6F934 /* RegistrationVC */,
-				2D7A95001BCA6CFC001BC204 /* VC */,
+				2D7A95001BCA6CFC001BC204 /* DialogVC */,
 			);
 			name = ViewController;
 			path = Chat;
 			sourceTree = "<group>";
 		};
-		2D7A95001BCA6CFC001BC204 /* VC */ = {
+		2D7A95001BCA6CFC001BC204 /* DialogVC */ = {
 			isa = PBXGroup;
 			children = (
 				2DEC771D1BCA62CE00C5F8E6 /* DialogVC.h */,
 				2DEC771E1BCA62CE00C5F8E6 /* DialogVC.m */,
 			);
-			name = VC;
+			name = DialogVC;
 			sourceTree = "<group>";
 		};
 		2D7CF0851BF685AD00C48015 /* AuthorizeManager */ = {
@@ -332,6 +333,7 @@
 		2DB5D8D01BFA016A008BD41E /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				2D1B4CBB1BCAA69400B68666 /* ChatCell */,
 				2DA3AD5C1C07200400FEDA2B /* DialogCell */,
 				2DF667B91BFD09E600A90451 /* UserCell */,
 				2DB5D8D11BFA0170008BD41E /* SearchFriendCell */,
@@ -471,7 +473,6 @@
 				2DC114DB1BE42E1100EC5854 /* View */,
 				2DC114D61BE42C1800EC5854 /* Validator */,
 				FCB53C261BDB69DA0035B38B /* MessageObject */,
-				2D1B4CBB1BCAA69400B68666 /* Cells */,
 				2DEC771A1BCA62CE00C5F8E6 /* AppDelegate.h */,
 				2DEC771B1BCA62CE00C5F8E6 /* AppDelegate.m */,
 				2DEC77231BCA62CE00C5F8E6 /* Assets.xcassets */,

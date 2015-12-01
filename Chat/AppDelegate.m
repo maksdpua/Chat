@@ -10,6 +10,7 @@
 #import "HTTPManager.h"
 #import "AFNetworking.h"
 #import "UIKit+AFNetworking.h"
+#import "SocketManager.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
+    [SocketManager sharedSocket];
     return YES;
 }
 

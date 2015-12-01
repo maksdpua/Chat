@@ -25,6 +25,8 @@ static NSString *const name = @"Maks";
 static NSString *const lastName = @"Shvec";
 
 static NSString *const CellIdentifier = @"customCell";
+static NSString *const kUserDialogCell = @"UserDialogCell";
+static NSString *const kSpeakerDialogCell = @"SpekearDialogCell";
 
 static NSString *const kSearchFriendCell = @"SearchFriendCell";
 static NSString *const kUserCell = @"UserCell";
@@ -35,6 +37,16 @@ static NSString *const kDialogCell = @"DialogCell";
 
 static NSString *const kMyProfileEditVC = @"MyProfileEditVC";
 static NSString *const kDialogsListVC = @"DialogsListVC";
+
+static NSString *const kSocketDidRecieveMessage = @"socketDidRecieveMessage";
+
+static NSString *const kAddFriend = @"add_friend";
+static NSString *const kAcceptFriend = @"accept_friend";
+static NSString *const kMessage = @"message";
+
+
+
+
 
 
 
