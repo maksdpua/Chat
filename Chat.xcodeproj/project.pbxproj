@@ -21,6 +21,7 @@
 		2D8426D91C05ABFF00AD5E98 /* SendMessageForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8426D81C05ABFF00AD5E98 /* SendMessageForm.xib */; };
 		2D8426DC1C05B0ED00AD5E98 /* SendMessageForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8426DB1C05B0ED00AD5E98 /* SendMessageForm.m */; };
 		2D98D1D81BFBC05F00B8F207 /* UserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98D1D71BFBC05E00B8F207 /* UserProfileVC.m */; };
+		2D9C3BBE1C0E31BB0001DC72 /* MessageElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9C3BBD1C0E31BB0001DC72 /* MessageElement.m */; };
 		2DA3AD5F1C07204F00FEDA2B /* DialogCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA3AD5E1C07204F00FEDA2B /* DialogCell.m */; };
 		2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5D8CE1BF9F0A9008BD41E /* AllFoundedUsers.m */; };
 		2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB5D8D31BFA01D1008BD41E /* SearchFriendCell.m */; };
@@ -98,6 +99,8 @@
 		2D8426DB1C05B0ED00AD5E98 /* SendMessageForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendMessageForm.m; path = Chat/View/SendMessageForm/SendMessageForm.m; sourceTree = "<group>"; };
 		2D98D1D61BFBC05E00B8F207 /* UserProfileVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserProfileVC.h; path = UserProfileVC/UserProfileVC.h; sourceTree = "<group>"; };
 		2D98D1D71BFBC05E00B8F207 /* UserProfileVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserProfileVC.m; path = UserProfileVC/UserProfileVC.m; sourceTree = "<group>"; };
+		2D9C3BBC1C0E31BB0001DC72 /* MessageElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageElement.h; path = Model/MessageElement/MessageElement.h; sourceTree = "<group>"; };
+		2D9C3BBD1C0E31BB0001DC72 /* MessageElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageElement.m; path = Model/MessageElement/MessageElement.m; sourceTree = "<group>"; };
 		2DA3AD5D1C07204F00FEDA2B /* DialogCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogCell.h; path = Chat/View/Cell/DialogCell/DialogCell.h; sourceTree = "<group>"; };
 		2DA3AD5E1C07204F00FEDA2B /* DialogCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogCell.m; path = Chat/View/Cell/DialogCell/DialogCell.m; sourceTree = "<group>"; };
 		2DB5D8CD1BF9F0A9008BD41E /* AllFoundedUsers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AllFoundedUsers.h; path = Model/FoundedUser/AllFoundedUsers.h; sourceTree = "<group>"; };
@@ -319,6 +322,15 @@
 				2D98D1D71BFBC05E00B8F207 /* UserProfileVC.m */,
 			);
 			name = UserProfileVC;
+			sourceTree = "<group>";
+		};
+		2D9C3BBB1C0E314F0001DC72 /* MessageElement */ = {
+			isa = PBXGroup;
+			children = (
+				2D9C3BBC1C0E31BB0001DC72 /* MessageElement.h */,
+				2D9C3BBD1C0E31BB0001DC72 /* MessageElement.m */,
+			);
+			name = MessageElement;
 			sourceTree = "<group>";
 		};
 		2DA3AD5C1C07200400FEDA2B /* DialogCell */ = {
@@ -596,6 +608,7 @@
 		FCA045F41BF746E200A9ECD0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2D9C3BBB1C0E314F0001DC72 /* MessageElement */,
 				2DB7049B1C07A43500054B8D /* Messages */,
 				2D45856B1C05145600BBC0DB /* Dialogs */,
 				2DF667B41BFD01EE00A90451 /* User */,
@@ -886,6 +899,7 @@
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,
 				2DEC771F1BCA62CE00C5F8E6 /* DialogVC.m in Sources */,
+				2D9C3BBE1C0E31BB0001DC72 /* MessageElement.m in Sources */,
 				2DB72FC31BEA93810014B34F /* AlertFactory.m in Sources */,
 				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,

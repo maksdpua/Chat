@@ -38,7 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.layer.cornerRadius = 5;
-//    self.messagesArray = [[NSMutableArray alloc]init];
     [self getMessages];
     [self.sendButton setEnabled:NO];
     
@@ -68,9 +67,6 @@
     NSInteger index = self.messagesArray.count - 1;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    if (self.messagesArray.count>1) {
-//        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-//    }
     [self scrollToTheLastRowWithAnimation:YES];
 }
 
@@ -79,9 +75,6 @@
         allMessages = (Messages *)responseObject;
         [self reverseAllmessages];
         [self.tableView reloadData];
-//        if (self.messagesArray.count>1) {
-//            [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-//        }
         [self scrollToTheLastRowWithAnimation:NO];
         NSLog(@"%@", responseObject);
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -113,6 +106,7 @@
         NSLog(@"%@", error);
     }];
     self.textView.text = @"";
+    [self updateTextViewHeightConstraint];
 }
 
 
@@ -127,7 +121,6 @@
     [UIView animateWithDuration:0.25 animations:^{
         self.textFieldConstraint.constant = keyboardFrameBeginRect.size.height;
         [self.view layoutIfNeeded];
-        
         if (self.messagesArray.count) {
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0] - 1 inSection:0];
             [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
@@ -154,11 +147,24 @@
     } else {
         [self.sendButton setEnabled:NO];
     }
-    CGFloat fixedWidth = self.textView.frame.size.width;
-    CGSize newSize = [self.textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-    CGRect newFrame = self.textView.frame;
-    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-    self.textViewHeightCosntraint.constant = newFrame.size.height;
+    if (self.textView.frame.size.height*3>=self.textViewHeightCosntraint.constant) {
+        [self updateTextViewHeightConstraint];
+    }
+    
+}
+
+- (void)updateTextViewHeightConstraint {
+    [self.view setNeedsDisplay];
+    [UIView animateWithDuration:0.25 animations:^{
+        CGFloat fixedWidth = self.textView.frame.size.width;
+        CGSize newSize = [self.textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+        CGRect newFrame = self.textView.frame;
+        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+        self.textViewHeightCosntraint.constant = newFrame.size.height;
+        [self.view layoutIfNeeded];
+        [self scrollToTheLastRowWithAnimation:NO];
+    }];
+    
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
@@ -208,7 +214,6 @@
         NSLog(@"Wrong UserID %@",self.userData.userID);
     }
     [cell loadWithFrame:tableView.frame];
-//    return [cell heightForRowFromMessageObject:message].height+20;
     return ([cell heightForRowFromMessageObject:message].height+16+1 < cell.cellAvatarImage.frame.size.height+8) ? cell.cellAvatarImage.frame.size.height+8 : [cell heightForRowFromMessageObject:message].height+16+1;
 }
 

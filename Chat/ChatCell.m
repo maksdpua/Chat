@@ -9,6 +9,7 @@
 #import "ChatCell.h"
 #import "Constants.h"
 #import "AuthorizeManager.h"
+#import "MessageElement.h"
 
 @implementation ChatCell
 {
