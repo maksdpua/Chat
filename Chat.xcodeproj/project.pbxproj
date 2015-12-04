@@ -18,6 +18,7 @@
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
 		2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */; };
 		2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */; };
+		2D8053F91C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8053F81C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m */; };
 		2D8426D91C05ABFF00AD5E98 /* SendMessageForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8426D81C05ABFF00AD5E98 /* SendMessageForm.xib */; };
 		2D8426DC1C05B0ED00AD5E98 /* SendMessageForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8426DB1C05B0ED00AD5E98 /* SendMessageForm.m */; };
 		2D98D1D81BFBC05F00B8F207 /* UserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98D1D71BFBC05E00B8F207 /* UserProfileVC.m */; };
@@ -94,6 +95,8 @@
 		2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeManager.m; sourceTree = "<group>"; };
 		2D7CF08B1BF6967A00C48015 /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Extension.h"; path = "NSObject+Extension/NSObject+Extension.h"; sourceTree = "<group>"; };
 		2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Extension.m"; path = "NSObject+Extension/NSObject+Extension.m"; sourceTree = "<group>"; };
+		2D8053F71C10D42B00D9B4D7 /* DismissKeyboardTapGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DismissKeyboardTapGesture.h; path = Tap/DismissKeyboardTapGesture.h; sourceTree = "<group>"; };
+		2D8053F81C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DismissKeyboardTapGesture.m; path = Tap/DismissKeyboardTapGesture.m; sourceTree = "<group>"; };
 		2D8426D81C05ABFF00AD5E98 /* SendMessageForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SendMessageForm.xib; path = Chat/View/SendMessageForm/SendMessageForm.xib; sourceTree = "<group>"; };
 		2D8426DA1C05B0ED00AD5E98 /* SendMessageForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendMessageForm.h; path = Chat/View/SendMessageForm/SendMessageForm.h; sourceTree = "<group>"; };
 		2D8426DB1C05B0ED00AD5E98 /* SendMessageForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendMessageForm.m; path = Chat/View/SendMessageForm/SendMessageForm.m; sourceTree = "<group>"; };
@@ -305,6 +308,15 @@
 			name = "NSObject+Extension";
 			sourceTree = "<group>";
 		};
+		2D8053F51C10D3E100D9B4D7 /* Tap */ = {
+			isa = PBXGroup;
+			children = (
+				2D8053F71C10D42B00D9B4D7 /* DismissKeyboardTapGesture.h */,
+				2D8053F81C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m */,
+			);
+			name = Tap;
+			sourceTree = "<group>";
+		};
 		2D8426D71C05AB9000AD5E98 /* SendMessageForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +490,7 @@
 		2DEC77161BCA62CE00C5F8E6 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				2D8053F51C10D3E100D9B4D7 /* Tap */,
 				FCA045F41BF746E200A9ECD0 /* Model */,
 				2DC146861BEB6FC4002188F7 /* Category */,
 				2DB72FC01BEA93180014B34F /* AlertFactory */,
@@ -908,6 +921,7 @@
 				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
 				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
 				2DB7049F1C07A46600054B8D /* Messages.m in Sources */,
+				2D8053F91C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m in Sources */,
 				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,

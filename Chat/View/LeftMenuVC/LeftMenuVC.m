@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.leftMenuItems = [[NSMutableArray alloc]init];
     arrayVCid = [[NSMutableArray alloc]init];
-    [self.leftMenuItems addObjectsFromArray:@[@"Profile", @"Search friend",@"Friends", @"Dialogs"]];
+    [self.leftMenuItems addObjectsFromArray:@[@"Profile", @"Search friend",@"Friends", @"Dialogs", @"Logout"]];
     [arrayVCid addObjectsFromArray:@[@"MyInfoVC", @"FriendsVC", @"UserFLVC", kDialogsListVC]];
 }
 
@@ -73,14 +73,20 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row==3) {
+    if ([[self.leftMenuItems objectAtIndex:indexPath.row] isEqualToString:@"Logout"]) {
+        [self requestToLogout];
+        [AuthorizeManager removeUserIdAndSessionHashData];
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.slideMenuController hideMenu:YES];
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        id vc = [self.storyboard instantiateViewControllerWithIdentifier:[arrayVCid objectAtIndex:indexPath.row]];
         
+        [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[vc] animated:YES];
+        [self.slideMenuController hideMenu:YES];
     }
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    id vc = [self.storyboard instantiateViewControllerWithIdentifier:[arrayVCid objectAtIndex:indexPath.row]];
     
-    [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[vc] animated:YES];
-    [self.slideMenuController hideMenu:YES];
 }
 
 - (void)requestToLogout {

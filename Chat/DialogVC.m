@@ -17,8 +17,9 @@
 #import "AuthorizeManager.h"
 #import "SocketManager.h"
 #import "MessageObject.h"
+#import "DismissKeyboardTapGesture.h"
 
-
+static NSUInteger kCornerRadius = 5;
 
 @interface DialogVC ()<UITableViewDelegate, UITableViewDelegate, UITextViewDelegate>
 
@@ -28,18 +29,20 @@
 @property IBOutlet NSLayoutConstraint *textViewHeightCosntraint;
 @property (nonatomic, strong)NSMutableArray *messagesArray;
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
+@property (nonatomic, weak) IBOutlet UIView *messageView;
 
 @end
 
 @implementation DialogVC {
     Messages *allMessages;
+    CGFloat startHeightOfTextView;
+//    DismissKeyboardTapGesture *_dismissKeyboard;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.textView.layer.cornerRadius = 5;
+    [self settingsForVC];
     [self getMessages];
-    [self.sendButton setEnabled:NO];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardWillShow:)
@@ -52,6 +55,10 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardFrameWillChange:)
+                                                 name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (didRecieveMessage:)
                                                  name:kMessage
                                                object:nil];
@@ -59,6 +66,12 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)settingsForVC {
+    self.textView.layer.cornerRadius = kCornerRadius;
+    startHeightOfTextView = self.textView.frame.size.height;
+    [self.sendButton setEnabled:NO];
 }
 
 - (void)didRecieveMessage:(NSNotification *)notification {
@@ -109,6 +122,18 @@
     [self updateTextViewHeightConstraint];
 }
 
+#pragma mark - Touches
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSSet *allTouches = [event allTouches];
+    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
+    CGPoint touchLocation = [touch locationInView:self.view];
+    
+    if (allTouches.count == 1 && touch.view == self.messageView) {
+        
+    }
+}
 
 #pragma mark - Keyboard notifications Methods
 
@@ -126,13 +151,33 @@
             [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
         }
     }];
-
 }
 
 - (void)keyboardWillHide:(NSNotification*)notification {
     self.textFieldConstraint.constant = self.view.frame.origin.y;
     [self.view layoutIfNeeded];
     [self scrollToTheLastRowWithAnimation:YES];
+}
+
+- (void)keyboardFrameWillChange:(NSNotification *)notification
+{
+    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+//    CGRect newFrame = self.view.frame;
+//    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];
+//    CGRect keyboardFrameBegin = [self.view convertRect:keyboardBeginFrame toView:nil];
+//    
+//    newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y);
+//    self.view.frame = newFrame;
+    
+    [UIView commitAnimations];
 }
 
 #pragma mark - UITextView Delegate Methods
@@ -147,10 +192,7 @@
     } else {
         [self.sendButton setEnabled:NO];
     }
-    if (self.textView.frame.size.height*3>=self.textViewHeightCosntraint.constant) {
-        [self updateTextViewHeightConstraint];
-    }
-    
+    [self updateTextViewHeightConstraint];
 }
 
 - (void)updateTextViewHeightConstraint {

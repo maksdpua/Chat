@@ -716,7 +716,7 @@
                                             <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qD-mn-oj5"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kgu-ln-b6M">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kgu-ln-b6M">
                                         <rect key="frame" x="8" y="4" width="260" height="35"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -908,6 +908,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="messageView" destination="Kgu-ln-b6M" id="C4N-IK-KZ6"/>
                         <outlet property="sendButton" destination="JDV-K9-EPN" id="Int-Kl-kmk"/>
                         <outlet property="tableView" destination="Yny-Vu-8Fk" id="uk6-M0-358"/>
                         <outlet property="textFieldConstraint" destination="EOD-V4-PNo" id="ZDN-nm-8ZK"/>
