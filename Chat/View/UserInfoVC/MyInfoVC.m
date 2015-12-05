@@ -50,20 +50,5 @@
     [self.navigationController pushViewController:editVC animated:YES];
 }
 
-- (IBAction)logoutAction:(id)sender {
-    [self requestToLogout];
-    [AuthorizeManager removeUserIdAndSessionHashData];
-
-}
-
-- (void)requestToLogout {
-    [[APIRequestManager sharedInstance] PUTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogout] classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
-    } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",error);
-    }];
-    
-}
-
 
 @end
