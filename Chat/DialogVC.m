@@ -124,16 +124,16 @@ static NSUInteger kCornerRadius = 5;
 
 #pragma mark - Touches
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    NSSet *allTouches = [event allTouches];
-    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-    CGPoint touchLocation = [touch locationInView:self.view];
-    
-    if (allTouches.count == 1 && touch.view == self.messageView) {
-        
-    }
-}
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    NSSet *allTouches = [event allTouches];
+//    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
+//    CGPoint touchLocation = [touch locationInView:self.view];
+//    
+//    if (allTouches.count == 1 && touch.view == self.messageView) {
+//        
+//    }
+//}
 
 #pragma mark - Keyboard notifications Methods
 
@@ -161,14 +161,14 @@ static NSUInteger kCornerRadius = 5;
 
 - (void)keyboardFrameWillChange:(NSNotification *)notification
 {
-    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
-    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
+//    CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+//    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+//    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
+//    
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:animationDuration];
+//    [UIView setAnimationCurve:animationCurve];
     
 //    CGRect newFrame = self.view.frame;
 //    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];

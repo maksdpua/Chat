@@ -8,106 +8,66 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>APLSlideMenu.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+		</dict>
+		<key>MagicalRecord.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Chat.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05E81102680E7E8D83120E7C2D78DC19</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1986A213CA544E7C165E9EAAD812F71E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1E076287A2A5529E6C395B9CAA3F7C83</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3208B4DE3FEE92DD29914E914ABC9EDB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>410B25DF16EA5C5B3E2698F74F9625FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5352D432641F0656C90741034E32F31E</key>
+		<key>A7084DE676C2D1987D74459A4B7D39BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7281F4361A677BCD9AA44CD6BECD0E11</key>
+		<key>A92588E52E96905F48D7B3F80242B1F0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>903466498A2B2A2A121926F64441D294</key>
+		<key>D54AB3ECEB9A8FBA15D4F73CBE326692</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>94F7F189F3302603E3064AD0A6552133</key>
+		<key>D62BA84E765C71F077E8A8C33342E13E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C615E03271C60A896D24D008B05F792</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B386FC131E8341D3E01E522B0065ADBA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D08F6B2A093FD49509D33B07ACDB5029</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FDBDD7862AB7E965344A998910889EAE</key>
+		<key>E22EAEC3474B743AA5140F2979671098</key>
 		<dict>
 			<key>primary</key>
 			<true/>

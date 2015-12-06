@@ -12,6 +12,7 @@ pod 'SocketRocket'
 pod 'MBProgressHUD'
 pod 'SDWebImage'
 pod 'APLSlideMenu'
+pod 'MagicalRecord'
 
 end
 

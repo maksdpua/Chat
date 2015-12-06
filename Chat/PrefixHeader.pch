@@ -23,5 +23,6 @@
 #import "NSObject+Extension.h"
 #import "Constants.h"
 #import "UIButton+indexPath.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 #endif /* PrefixHeader_pch */

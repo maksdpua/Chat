@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D229ED41BF50A5000D8A307 /* APIRequestManager.m */; };
+		2D29BAAB1C14858F00355B39 /* ChatCD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D29BAA91C14858F00355B39 /* ChatCD.xcdatamodeld */; };
 		2D4322BA1BE8BEC200E9B2EE /* MyInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */; };
 		2D4322BD1BE8FD7D00E9B2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D4322BB1BE8FD7D00E9B2EE /* Main.storyboard */; };
 		2D45856A1C050AC600BBC0DB /* DialogsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4585691C050AC600BBC0DB /* DialogsListVC.m */; };
@@ -18,7 +19,6 @@
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
 		2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */; };
 		2D7CF08D1BF6967A00C48015 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */; };
-		2D8053F91C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8053F81C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m */; };
 		2D8426D91C05ABFF00AD5E98 /* SendMessageForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8426D81C05ABFF00AD5E98 /* SendMessageForm.xib */; };
 		2D8426DC1C05B0ED00AD5E98 /* SendMessageForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8426DB1C05B0ED00AD5E98 /* SendMessageForm.m */; };
 		2D98D1D81BFBC05F00B8F207 /* UserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D98D1D71BFBC05E00B8F207 /* UserProfileVC.m */; };
@@ -79,6 +79,7 @@
 /* Begin PBXFileReference section */
 		2D229ED31BF50A5000D8A307 /* APIRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIRequestManager.h; path = ChatLoader/APIRequestManager/APIRequestManager.h; sourceTree = "<group>"; };
 		2D229ED41BF50A5000D8A307 /* APIRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIRequestManager.m; path = ChatLoader/APIRequestManager/APIRequestManager.m; sourceTree = "<group>"; };
+		2D29BAAA1C14858F00355B39 /* ChatCD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChatCD.xcdatamodel; sourceTree = "<group>"; };
 		2D4322B81BE8BEC200E9B2EE /* MyInfoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyInfoVC.h; path = View/UserInfoVC/MyInfoVC.h; sourceTree = "<group>"; };
 		2D4322B91BE8BEC200E9B2EE /* MyInfoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyInfoVC.m; path = View/UserInfoVC/MyInfoVC.m; sourceTree = "<group>"; };
 		2D4322BC1BE8FD7D00E9B2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,8 +96,6 @@
 		2D7CF0881BF68E4300C48015 /* AuthorizeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthorizeManager.m; sourceTree = "<group>"; };
 		2D7CF08B1BF6967A00C48015 /* NSObject+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Extension.h"; path = "NSObject+Extension/NSObject+Extension.h"; sourceTree = "<group>"; };
 		2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+Extension.m"; path = "NSObject+Extension/NSObject+Extension.m"; sourceTree = "<group>"; };
-		2D8053F71C10D42B00D9B4D7 /* DismissKeyboardTapGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DismissKeyboardTapGesture.h; path = Tap/DismissKeyboardTapGesture.h; sourceTree = "<group>"; };
-		2D8053F81C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DismissKeyboardTapGesture.m; path = Tap/DismissKeyboardTapGesture.m; sourceTree = "<group>"; };
 		2D8426D81C05ABFF00AD5E98 /* SendMessageForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SendMessageForm.xib; path = Chat/View/SendMessageForm/SendMessageForm.xib; sourceTree = "<group>"; };
 		2D8426DA1C05B0ED00AD5E98 /* SendMessageForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SendMessageForm.h; path = Chat/View/SendMessageForm/SendMessageForm.h; sourceTree = "<group>"; };
 		2D8426DB1C05B0ED00AD5E98 /* SendMessageForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SendMessageForm.m; path = Chat/View/SendMessageForm/SendMessageForm.m; sourceTree = "<group>"; };
@@ -223,6 +222,14 @@
 			name = APIRequestManager;
 			sourceTree = "<group>";
 		};
+		2D29BAA81C14856100355B39 /* CoreDataChat */ = {
+			isa = PBXGroup;
+			children = (
+				2D29BAA91C14858F00355B39 /* ChatCD.xcdatamodeld */,
+			);
+			name = CoreDataChat;
+			sourceTree = "<group>";
+		};
 		2D4322B71BE8BE7D00E9B2EE /* MyInfoVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,15 +313,6 @@
 				2D7CF08C1BF6967A00C48015 /* NSObject+Extension.m */,
 			);
 			name = "NSObject+Extension";
-			sourceTree = "<group>";
-		};
-		2D8053F51C10D3E100D9B4D7 /* Tap */ = {
-			isa = PBXGroup;
-			children = (
-				2D8053F71C10D42B00D9B4D7 /* DismissKeyboardTapGesture.h */,
-				2D8053F81C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m */,
-			);
-			name = Tap;
 			sourceTree = "<group>";
 		};
 		2D8426D71C05AB9000AD5E98 /* SendMessageForm */ = {
@@ -490,7 +488,7 @@
 		2DEC77161BCA62CE00C5F8E6 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
-				2D8053F51C10D3E100D9B4D7 /* Tap */,
+				2D29BAA81C14856100355B39 /* CoreDataChat */,
 				FCA045F41BF746E200A9ECD0 /* Model */,
 				2DC146861BEB6FC4002188F7 /* Category */,
 				2DB72FC01BEA93180014B34F /* AlertFactory */,
@@ -739,6 +737,7 @@
 				2DEC77111BCA62CE00C5F8E6 /* Frameworks */,
 				2DEC77121BCA62CE00C5F8E6 /* Resources */,
 				F96F61B5416B851096872476 /* Copy Pods Resources */,
+				89133587B1BA719C74EDECA5 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -863,6 +862,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		89133587B1BA719C74EDECA5 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chat/Pods-Chat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		89A4E53D2B667363E99DE9DC /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -921,12 +935,12 @@
 				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
 				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
 				2DB7049F1C07A46600054B8D /* Messages.m in Sources */,
-				2D8053F91C10D42B00D9B4D7 /* DismissKeyboardTapGesture.m in Sources */,
 				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
 				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,
 				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
+				2D29BAAB1C14858F00355B39 /* ChatCD.xcdatamodeld in Sources */,
 				FCB9EB841BF757CB0025920A /* MainNavigation.m in Sources */,
 				FC19E3081C007968001B3351 /* UserFriendListVC.m in Sources */,
 				2D4322BA1BE8BEC200E9B2EE /* MyInfoVC.m in Sources */,
@@ -1191,6 +1205,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D29BAA91C14858F00355B39 /* ChatCD.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D29BAAA1C14858F00355B39 /* ChatCD.xcdatamodel */,
+			);
+			currentVersion = 2D29BAAA1C14858F00355B39 /* ChatCD.xcdatamodel */;
+			name = ChatCD.xcdatamodeld;
+			path = ChatCoreData/ChatCD.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2DEC770C1BCA62CE00C5F8E6 /* Project object */;
 }
