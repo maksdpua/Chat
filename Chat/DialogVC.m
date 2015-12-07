@@ -17,7 +17,6 @@
 #import "AuthorizeManager.h"
 #import "SocketManager.h"
 #import "MessageObject.h"
-#import "DismissKeyboardTapGesture.h"
 
 static NSUInteger kCornerRadius = 5;
 

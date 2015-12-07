@@ -48,6 +48,12 @@
 		FC57E4F81BF7609B00F77A72 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = FC57E4F71BF7609B00F77A72 /* User.m */; };
 		FCA1E0D81BE4AB5C00D6F934 /* RegistrationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */; };
 		FCB02F861C0994BC006AB707 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB02F851C0994BC006AB707 /* SocketManager.m */; };
+		FCB2C2431C14F69800FD92FB /* DialogsEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C2341C14F69800FD92FB /* DialogsEntity+CoreDataProperties.m */; };
+		FCB2C2441C14F69800FD92FB /* DialogsEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C2361C14F69800FD92FB /* DialogsEntity.m */; };
+		FCB2C2631C14FF7400FD92FB /* DialogEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C25C1C14FF7400FD92FB /* DialogEntity+CoreDataProperties.m */; };
+		FCB2C2641C14FF7400FD92FB /* DialogEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C25E1C14FF7400FD92FB /* DialogEntity.m */; };
+		FCB2C2651C14FF7400FD92FB /* MessageEntity+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C2601C14FF7400FD92FB /* MessageEntity+CoreDataProperties.m */; };
+		FCB2C2661C14FF7400FD92FB /* MessageEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB2C2621C14FF7400FD92FB /* MessageEntity.m */; };
 		FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C241BDB5F3A0035B38B /* ChatCell.m */; };
 		FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB53C281BDB6A0D0035B38B /* MessageObject.m */; };
 		FCB53C2C1BDBA86B0035B38B /* ChatDatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCB53C2B1BDBA86B0035B38B /* ChatDatePicker.xib */; };
@@ -157,6 +163,18 @@
 		FCA1E0D71BE4AB5C00D6F934 /* RegistrationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegistrationVC.m; path = Chat/View/RegistrationVC/RegistrationVC.m; sourceTree = "<group>"; };
 		FCB02F841C0994BC006AB707 /* SocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SocketManager.h; path = SocketManager/SocketManager.h; sourceTree = "<group>"; };
 		FCB02F851C0994BC006AB707 /* SocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SocketManager.m; path = SocketManager/SocketManager.m; sourceTree = "<group>"; };
+		FCB2C2331C14F69800FD92FB /* DialogsEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DialogsEntity+CoreDataProperties.h"; path = "ChatCoreData/DialogsEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FCB2C2341C14F69800FD92FB /* DialogsEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DialogsEntity+CoreDataProperties.m"; path = "ChatCoreData/DialogsEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FCB2C2351C14F69800FD92FB /* DialogsEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogsEntity.h; path = ChatCoreData/DialogsEntity.h; sourceTree = "<group>"; };
+		FCB2C2361C14F69800FD92FB /* DialogsEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogsEntity.m; path = ChatCoreData/DialogsEntity.m; sourceTree = "<group>"; };
+		FCB2C25B1C14FF7400FD92FB /* DialogEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DialogEntity+CoreDataProperties.h"; path = "ChatCoreData/DialogEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FCB2C25C1C14FF7400FD92FB /* DialogEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DialogEntity+CoreDataProperties.m"; path = "ChatCoreData/DialogEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FCB2C25D1C14FF7400FD92FB /* DialogEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DialogEntity.h; path = ChatCoreData/DialogEntity.h; sourceTree = "<group>"; };
+		FCB2C25E1C14FF7400FD92FB /* DialogEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DialogEntity.m; path = ChatCoreData/DialogEntity.m; sourceTree = "<group>"; };
+		FCB2C25F1C14FF7400FD92FB /* MessageEntity+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessageEntity+CoreDataProperties.h"; path = "ChatCoreData/MessageEntity+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FCB2C2601C14FF7400FD92FB /* MessageEntity+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MessageEntity+CoreDataProperties.m"; path = "ChatCoreData/MessageEntity+CoreDataProperties.m"; sourceTree = "<group>"; };
+		FCB2C2611C14FF7400FD92FB /* MessageEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessageEntity.h; path = ChatCoreData/MessageEntity.h; sourceTree = "<group>"; };
+		FCB2C2621C14FF7400FD92FB /* MessageEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageEntity.m; path = ChatCoreData/MessageEntity.m; sourceTree = "<group>"; };
 		FCB53C231BDB5F3A0035B38B /* ChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
 		FCB53C241BDB5F3A0035B38B /* ChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		FCB53C271BDB6A0D0035B38B /* MessageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageObject.h; sourceTree = "<group>"; };
@@ -225,6 +243,9 @@
 		2D29BAA81C14856100355B39 /* CoreDataChat */ = {
 			isa = PBXGroup;
 			children = (
+				FCB2C2681C14FF9D00FD92FB /* Message */,
+				FCB2C2671C14FF8D00FD92FB /* Dialog */,
+				FCB2C24B1C14F69D00FD92FB /* Dialogs */,
 				2D29BAA91C14858F00355B39 /* ChatCD.xcdatamodeld */,
 			);
 			name = CoreDataChat;
@@ -657,6 +678,39 @@
 			name = SocketManager;
 			sourceTree = "<group>";
 		};
+		FCB2C24B1C14F69D00FD92FB /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2C2331C14F69800FD92FB /* DialogsEntity+CoreDataProperties.h */,
+				FCB2C2341C14F69800FD92FB /* DialogsEntity+CoreDataProperties.m */,
+				FCB2C2351C14F69800FD92FB /* DialogsEntity.h */,
+				FCB2C2361C14F69800FD92FB /* DialogsEntity.m */,
+			);
+			name = Dialogs;
+			sourceTree = "<group>";
+		};
+		FCB2C2671C14FF8D00FD92FB /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2C25B1C14FF7400FD92FB /* DialogEntity+CoreDataProperties.h */,
+				FCB2C25C1C14FF7400FD92FB /* DialogEntity+CoreDataProperties.m */,
+				FCB2C25D1C14FF7400FD92FB /* DialogEntity.h */,
+				FCB2C25E1C14FF7400FD92FB /* DialogEntity.m */,
+			);
+			name = Dialog;
+			sourceTree = "<group>";
+		};
+		FCB2C2681C14FF9D00FD92FB /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				FCB2C25F1C14FF7400FD92FB /* MessageEntity+CoreDataProperties.h */,
+				FCB2C2601C14FF7400FD92FB /* MessageEntity+CoreDataProperties.m */,
+				FCB2C2611C14FF7400FD92FB /* MessageEntity.h */,
+				FCB2C2621C14FF7400FD92FB /* MessageEntity.m */,
+			);
+			name = Message;
+			sourceTree = "<group>";
+		};
 		FCB53C261BDB69DA0035B38B /* MessageObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -922,8 +976,10 @@
 				2DF667BC1BFD0A5700A90451 /* UserCell.m in Sources */,
 				2DF667AE1BFCDA9200A90451 /* UserProfile.m in Sources */,
 				FCB02F861C0994BC006AB707 /* SocketManager.m in Sources */,
+				FCB2C2431C14F69800FD92FB /* DialogsEntity+CoreDataProperties.m in Sources */,
 				2D8426DC1C05B0ED00AD5E98 /* SendMessageForm.m in Sources */,
 				FCB53C291BDB6A0D0035B38B /* MessageObject.m in Sources */,
+				FCB2C2661C14FF7400FD92FB /* MessageEntity.m in Sources */,
 				2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */,
 				2DEC771F1BCA62CE00C5F8E6 /* DialogVC.m in Sources */,
 				2D9C3BBE1C0E31BB0001DC72 /* MessageElement.m in Sources */,
@@ -931,13 +987,16 @@
 				FCECFA901BE4B1E000B7B714 /* MainVC.m in Sources */,
 				2DEC771C1BCA62CE00C5F8E6 /* AppDelegate.m in Sources */,
 				2D229ED51BF50A5000D8A307 /* APIRequestManager.m in Sources */,
+				FCB2C2651C14FF7400FD92FB /* MessageEntity+CoreDataProperties.m in Sources */,
 				2DA3AD5F1C07204F00FEDA2B /* DialogCell.m in Sources */,
 				FCBE68821BEE117100AAA0D6 /* LeftMenuVC.m in Sources */,
 				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
 				2DB7049F1C07A46600054B8D /* Messages.m in Sources */,
+				FCB2C2631C14FF7400FD92FB /* DialogEntity+CoreDataProperties.m in Sources */,
 				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
+				FCB2C2641C14FF7400FD92FB /* DialogEntity.m in Sources */,
 				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,
 				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
 				2D29BAAB1C14858F00355B39 /* ChatCD.xcdatamodeld in Sources */,
@@ -952,6 +1011,7 @@
 				2D45856A1C050AC600BBC0DB /* DialogsListVC.m in Sources */,
 				2DC114D91BE42C3B00EC5854 /* ChatValidator.m in Sources */,
 				2DC1468A1BEB7015002188F7 /* UIImage+Placeholder.m in Sources */,
+				FCB2C2441C14F69800FD92FB /* DialogsEntity.m in Sources */,
 				2DB72FC71BEAB4F20014B34F /* MyProfileEditVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
