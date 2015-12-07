@@ -13,6 +13,7 @@
 #import "DialogCell.h"
 #import "User.h"
 #import "DialogVC.h"
+#import "DialogsEntity.h"
 
 @interface DialogsListVC()<UITableViewDelegate, UITableViewDataSource>
 
@@ -24,7 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getDialogs];
+//    [self getDialogs];
+    [self getDialogsWithCD];
 }
 
 - (void)getDialogs {
@@ -36,11 +38,21 @@
     }];
     NSLog(@"%@", self.allDialogs);
 }
+- (void)getDialogsWithCD {
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@%@%@",kURLServer, kDialogsOffeset, @"0",kDialogsLimit, @"10"] classMapping:[DialogsEntity class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
+        self.allDialogs = (Dialogs *)responseObject;
+        [self.tableView reloadData];
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    NSLog(@"%@", self.allDialogs);
+}
 
 #pragma mark - UITableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.allDialogs.array.count;
+//    return self.allDialogs.array.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

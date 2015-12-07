@@ -13,7 +13,7 @@
 @implementation DialogEntity
 
 - (NSDictionary *)dictionaryInstructionManager {
-    return @{@"user_id" : @"userID", @"user_name" : @"userName", @"user_lastname" : @"userLastName", @"user_thumbnail_avatar" : @"userThumbnailAvatar", @"user_avatar" : @"userAvatar", @"user_online" : @"online", @"friend": @"isFriend", @"message_text": @"messageText", @"message_date": @"messageDate", @"did_read": @"didRead"};
+    return @{@"user_id" : @"userID", @"user_name" : @"userName", @"user_thumbnail_avatar" : @"userThumbnailAvatar", @"user_avatar" : @"userAvatar", @"user_online" : @"online", @"friend": @"isFriend", @"message_text": @"messageText", @"message_date": @"messageDate", @"did_read": @"didRead"};
 }
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {

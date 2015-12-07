@@ -12,11 +12,13 @@
 @implementation DialogsEntity
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
-    DialogsEntity *dialogs = [DialogsEntity MR_createEntity];
-    for (NSDictionary *dialogsDic in [dictionary valueForKey:@"dialogs"]) {
-        DialogEntity *dialog = [[DialogEntity MR_createEntity]initClassWithDictionary:dialogsDic];
-        [dialogs addDialogRSObject:dialog];
-    }
+//    [DialogsEntity MR_findAll];
+//    DialogsEntity *dialogs = [DialogsEntity MR_createEntity];
+//    for (NSDictionary *dialogsDic in [dictionary valueForKey:@"dialogs"]) {
+//        DialogEntity *dialog = [[DialogEntity MR_createEntity]initClassWithDictionary:dialogsDic];
+//        [dialogs addDialogRSObject:dialog];
+//    }
+//    [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
     return self;
 }
 

@@ -179,7 +179,7 @@ typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
     if ([obj respondsToSelector:@selector(initClassWithDictionary:)]) {
         obj = [obj initClassWithDictionary:dictionary];
     }
-    [obj printDescription];
+//    [obj printDescription];
     return obj;
 }
 

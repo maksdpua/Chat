@@ -23,6 +23,7 @@
     [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [SocketManager sharedSocket];
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"ChatCD"];
     return YES;
 }
 
