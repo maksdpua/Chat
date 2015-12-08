@@ -7,6 +7,7 @@
 //
 
 #import "DialogCell.h"
+#import "DialogEntity.h"
 
 @interface DialogCell()
 
@@ -28,7 +29,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setupWithModel:(User *)model {
+- (void)setupWithModel:(DialogEntity *)model {
     self.dialogLabel.text = model.messageText;
     self.dialogUserNameLabel.text = model.userName;
     [self.dialogImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];

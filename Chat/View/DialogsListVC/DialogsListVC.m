@@ -14,10 +14,12 @@
 #import "User.h"
 #import "DialogVC.h"
 #import "DialogsEntity.h"
+#import "DialogEntity.h"
 
 @interface DialogsListVC()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)Dialogs *allDialogs;
+@property (nonatomic, strong)NSArray *dialogsArray;
 
 @end
 
@@ -40,24 +42,24 @@
 }
 - (void)getDialogsWithCD {
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@%@%@",kURLServer, kDialogsOffeset, @"0",kDialogsLimit, @"10"] classMapping:[DialogsEntity class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.allDialogs = (Dialogs *)responseObject;
+        self.dialogsArray = [DialogEntity MR_findAllSortedBy:@"messageDate" ascending:NO];
         [self.tableView reloadData];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);
     }];
-    NSLog(@"%@", self.allDialogs);
 }
 
 #pragma mark - UITableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    return self.allDialogs.array.count;
-    return 1;
+//    return 1;
+    return [self.dialogsArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DialogCell *cell = [tableView dequeueReusableCellWithIdentifier:kDialogCell];
-    [cell setupWithModel:[self.allDialogs.array objectAtIndex:indexPath.row]];
+    [cell setupWithModel:[self.dialogsArray objectAtIndex:indexPath.row]];
     [cell updateConstraintsIfNeeded];
     return cell;
 }
