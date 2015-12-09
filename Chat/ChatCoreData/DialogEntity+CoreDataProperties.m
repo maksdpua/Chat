@@ -19,6 +19,7 @@
 @dynamic userThumbnailAvatar;
 @dynamic userName;
 @dynamic isFriend;
+@dynamic dialogID;
 @dynamic online;
 @dynamic didRead;
 @dynamic messageDate;

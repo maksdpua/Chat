@@ -23,7 +23,7 @@
     self.cellView.layer.cornerRadius = 8;
 }
 
-- (void)setupWithModel:(MessageObject *)model {
+- (void)setupWithModel:(MessageEntity *)model {
     self.labelCell.text = model.messageText;
     [self.cellAvatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userAvatar]] placeholderImage:[UIImage placeholderImage]];
 }
@@ -33,22 +33,22 @@
     labelTextWidth = rect.size.width - 112;
 }
 
-- (void)initWithMessage:(User *)message {
+- (void)initWithMessage:(MessageEntity *)message {
     self.labelCell.text = message.messageText;
 }
 
-- (CGSize)heightForRowFromMessageObject:(MessageObject *)messageObject {
+- (CGSize)heightForRowFromMessageObject:(MessageEntity *)messageObject {
     NSString *text = (messageObject.messageText && messageObject.messageText.length > 0) ? messageObject.messageText : @" ";
     NSDictionary *attributes = @{NSFontAttributeName: self.labelCell.font};
     CGSize size = [text boundingRectWithSize:CGSizeMake(labelTextWidth, FLT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
     return size;
 }
 
-- (void)cellFromMessage:(User *)messageObject {
+- (void)cellFromMessage:(MessageEntity *)messageObject {
     
 }
 
-- (void)loadWithMessageObject:(MessageObject *)messageObject {
+- (void)loadWithMessageObject:(MessageEntity *)messageObject {
     self.labelCell.layer.cornerRadius = 5;
     self.labelCell.text = messageObject.messageText;
 //    BOOL user = messageObject.userID.integerValue == user_id.integerValue ? YES : NO;

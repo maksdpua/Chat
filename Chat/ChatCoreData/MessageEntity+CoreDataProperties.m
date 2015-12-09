@@ -14,13 +14,15 @@
 @implementation MessageEntity (CoreDataProperties)
 
 @dynamic userID;
-@dynamic userThumnailAvatar;
+@dynamic userThumbnailAvatar;
 @dynamic userAvatar;
 @dynamic userName;
 @dynamic didRead;
+@dynamic dialogID;
 @dynamic userLastName;
 @dynamic messageText;
 @dynamic messageDate;
 @dynamic dialogRS;
+@dynamic online;
 
 @end

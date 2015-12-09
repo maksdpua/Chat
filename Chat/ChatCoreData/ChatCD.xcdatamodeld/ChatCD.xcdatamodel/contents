@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15C47a" minimumToolsVersion="Xcode 7.0">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15A284" minimumToolsVersion="Xcode 7.0">
     <entity name="DialogEntity" representedClassName="DialogEntity" syncable="YES">
+        <attribute name="dialogID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="didRead" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFriend" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="messageDate" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,19 +18,21 @@
         <relationship name="dialogRS" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DialogEntity" inverseName="dialogsRS" inverseEntity="DialogEntity" syncable="YES"/>
     </entity>
     <entity name="MessageEntity" representedClassName="MessageEntity" syncable="YES">
+        <attribute name="dialogID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="didRead" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="messageDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="messageText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="online" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userAvatar" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="userThumnailAvatar" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userThumbnailAvatar" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="dialogRS" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DialogEntity" inverseName="messageRS" inverseEntity="DialogEntity" syncable="YES"/>
     </entity>
     <elements>
+        <element name="DialogEntity" positionX="27" positionY="53" width="128" height="225"/>
         <element name="DialogsEntity" positionX="-234" positionY="-51" width="128" height="58"/>
-        <element name="DialogEntity" positionX="27" positionY="53" width="128" height="208"/>
-        <element name="MessageEntity" positionX="387" positionY="306" width="128" height="178"/>
+        <element name="MessageEntity" positionX="387" positionY="306" width="128" height="210"/>
     </elements>
 </model>

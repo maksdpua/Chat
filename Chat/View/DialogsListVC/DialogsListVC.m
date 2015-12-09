@@ -31,15 +31,6 @@
     [self getDialogsWithCD];
 }
 
-- (void)getDialogs {
-    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@%@%@",kURLServer, kDialogsOffeset, @"0",kDialogsLimit, @"10"] classMapping:[Dialogs class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.allDialogs = (Dialogs *)responseObject;
-        [self.tableView reloadData];
-    }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
-    }];
-    NSLog(@"%@", self.allDialogs);
-}
 - (void)getDialogsWithCD {
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@%@%@",kURLServer, kDialogsOffeset, @"0",kDialogsLimit, @"10"] classMapping:[DialogsEntity class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
         self.dialogsArray = [DialogEntity MR_findAllSortedBy:@"messageDate" ascending:NO];
@@ -52,8 +43,6 @@
 #pragma mark - UITableView methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    return self.allDialogs.array.count;
-//    return 1;
     return [self.dialogsArray count];
 }
 
@@ -72,7 +61,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     DialogVC *dialogVC = [self.storyboard instantiateViewControllerWithIdentifier:@"DialogVC"];
-    dialogVC.userData = [self.allDialogs.array objectAtIndex:indexPath.row];
+    dialogVC.userData = [self.dialogsArray objectAtIndex:indexPath.row];
+    NSLog(@"%@", dialogVC.userData.userID);
+    NSLog(@"%@", dialogVC.userData.dialogID);
     [(UINavigationController *)[self.slideMenuController contentViewController] setViewControllers:@[dialogVC] animated:YES];
 }
 

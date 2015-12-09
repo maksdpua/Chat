@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "User.h"
+#import "DialogEntity.h"
 
 @interface DialogVC : UIViewController
 
-@property (nonatomic, strong) User *userData;
+@property (nonatomic, strong) DialogEntity *userData;
 
 @end
 

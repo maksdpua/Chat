@@ -17,6 +17,7 @@
 #import "AuthorizeManager.h"
 #import "SocketManager.h"
 #import "MessageObject.h"
+#import "MessageEntity.h"
 
 static NSUInteger kCornerRadius = 5;
 
@@ -33,15 +34,19 @@ static NSUInteger kCornerRadius = 5;
 @end
 
 @implementation DialogVC {
-    Messages *allMessages;
+    NSArray *allMessages;
     CGFloat startHeightOfTextView;
-//    DismissKeyboardTapGesture *_dismissKeyboard;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.messagesArray = [NSMutableArray new];
     [self settingsForVC];
+    
+    NSLog(@"UserID messages %@", self.userData.userID);
+    NSLog(@"DialogID messages %@", self.userData.dialogID);
     [self getMessages];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (keyboardWillShow:)
@@ -74,8 +79,9 @@ static NSUInteger kCornerRadius = 5;
 }
 
 - (void)didRecieveMessage:(NSNotification *)notification {
-    MessageObject *messageObject = [[MessageObject alloc]initClassWithDictionary:notification.object];
-    [self.messagesArray addObject:messageObject];
+//    MessageEntity *messageObject = [[MessageEntity alloc]initClassWithDictionary:notification.object];
+//    [allMessages addObject:messageObject];
+    [self getMessages];
     NSInteger index = self.messagesArray.count - 1;
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
@@ -83,8 +89,12 @@ static NSUInteger kCornerRadius = 5;
 }
 
 - (void)getMessages {
-    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=20&offset=0", kURLServer, self.userData.userID] classMapping:[Messages class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
-        allMessages = (Messages *)responseObject;
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=20&offset=0", kURLServer, self.userData.userID] classMapping:[MessageEntity class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
+//        allMessages = (Messages *)responseObject;
+        DialogEntity *dialog = [DialogEntity MR_findFirstByAttribute:@"dialogID" withValue:self.userData.dialogID];
+        allMessages =  dialog.messageRS.allObjects;
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:NO];
+            allMessages = [allMessages sortedArrayUsingDescriptors:@[sortDescriptor]];
         [self reverseAllmessages];
         [self.tableView reloadData];
         [self scrollToTheLastRowWithAnimation:NO];
@@ -96,13 +106,13 @@ static NSUInteger kCornerRadius = 5;
 
 - (void)scrollToTheLastRowWithAnimation:(BOOL)animation {
     if (self.messagesArray.count>1) {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:allMessages.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
     }
 }
 
 - (void)reverseAllmessages {
-    self.messagesArray = [NSMutableArray arrayWithCapacity:allMessages.array.count];
-    for (id element in [allMessages.array reverseObjectEnumerator]) {
+//    self.messagesArray = [NSMutableArray arrayWithCapacity:allMessages];
+    for (id element in [allMessages reverseObjectEnumerator]) {
         [self.messagesArray addObject:element];
     }
 }
@@ -229,10 +239,11 @@ static NSUInteger kCornerRadius = 5;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChatCell *cell = [[ChatCell alloc]init];
-    MessageObject *message = [self.messagesArray objectAtIndex:indexPath.row];
-    if ([message.userID isEqualToString:[AuthorizeManager userID]]) {
+    MessageEntity *message = [self.messagesArray objectAtIndex:indexPath.row];
+    NSLog(@"Message ID in cell %@", message.userID);
+    if ([[message userID] isEqualToString:[AuthorizeManager userID]]) {
         cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
-    } else if ([message.userID isEqualToString:self.userData.userID]){
+    } else if ([[message userID] isEqualToString:self.userData.userID]){
         cell = [tableView dequeueReusableCellWithIdentifier:kSpeakerDialogCell];
     } else {
         NSLog(@"Wrong UserID %@",self.userData.userID);
@@ -246,10 +257,10 @@ static NSUInteger kCornerRadius = 5;
 //    [cell loadWithFrame:tableView.frame];
 //    return [cell heightForRowFromMessageObject:[self.messagesArray objectAtIndex:indexPath.row]].height+16+1;
     ChatCell *cell = [[ChatCell alloc]init];
-    MessageObject *message = [self.messagesArray objectAtIndex:indexPath.row];
-    if ([message.userID isEqualToString:[AuthorizeManager userID]]) {
+    MessageEntity *message = [self.messagesArray objectAtIndex:indexPath.row];
+    if ([[message userID] isEqualToString:[AuthorizeManager userID]]) {
         cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
-    } else if ([message.userID isEqualToString:self.userData.userID]){
+    } else if ([[message userID] isEqualToString:self.userData.userID]){
         cell = [tableView dequeueReusableCellWithIdentifier:kSpeakerDialogCell];
     } else {
         NSLog(@"Wrong UserID %@",self.userData.userID);

@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *isFriend;
 @property (nullable, nonatomic, retain) NSString *online;
 @property (nullable, nonatomic, retain) NSString *didRead;
+@property (nullable, nonatomic, retain) NSString *dialogID;
 @property (nullable, nonatomic, retain) NSString *messageDate;
 @property (nullable, nonatomic, retain) NSSet<MessageEntity *> *messageRS;
 @property (nullable, nonatomic, retain) DialogsEntity *dialogsRS;

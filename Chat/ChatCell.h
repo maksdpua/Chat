@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MessageObject.h"
-#import "User.h"
+#import "MessageEntity.h"
 
 static NSInteger leftX = 8;
 
@@ -21,16 +21,16 @@ static NSInteger leftX = 8;
 @property (nonatomic, weak) IBOutlet UIView *cellView;
 
 
-- (void)setupWithModel:(MessageObject *)model;
+- (void)setupWithModel:(MessageEntity *)model;
 
 - (void)loadWithFrame:(CGRect)rect;
 
-- (void)initWithMessage:(User *)message;
+- (void)initWithMessage:(MessageEntity *)message;
 
-- (CGSize)heightForRowFromMessageObject:(MessageObject *)messageObject;
+- (CGSize)heightForRowFromMessageObject:(MessageEntity *)messageObject;
 
 - (void)cellFromMessage:(MessageObject *)messageObject;
 
-- (void)loadWithMessageObject:(User*)messageObject;
+//- (void)loadWithMessageObject:(User*)messageObject;
 
 @end

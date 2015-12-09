@@ -24,17 +24,16 @@
     } else {
         for (NSDictionary *dialogDictionary in [dictionary valueForKey:@"dialogs"]) {
             
-            if (![DialogEntity MR_findFirstByAttribute:@"userID"
-                                             withValue:[NSString stringWithFormat:@"%@",[dialogDictionary valueForKey:@"user_id"]]] || ![DialogEntity MR_findFirstByAttribute:@"messageText" withValue:[dialogDictionary valueForKey:@"message_text"]]) {
-                [[DialogEntity MR_findFirstByAttribute:@"userID"
-                                             withValue:[NSString stringWithFormat:@"%@",[dialogDictionary valueForKey:@"user_id"]]] MR_deleteEntity];
+            if (![DialogEntity MR_findFirstByAttribute:@"dialogID"
+                                             withValue:[NSString stringWithFormat:@"%@",[dialogDictionary valueForKey:@"dialog_id"]]] || ![DialogEntity MR_findFirstByAttribute:@"messageDate" withValue:[NSString stringWithFormat:@"%@",[dialogDictionary valueForKey:@"message_date"]]]) {
+                [[DialogEntity MR_findFirstByAttribute:@"dialogID"
+                                             withValue:[NSString stringWithFormat:@"%@",[dialogDictionary valueForKey:@"dialog_id"]]] MR_deleteEntity];
                 DialogEntity *dialogToCreate = [[DialogEntity MR_createEntity]initClassWithDictionary:dialogDictionary];
                 [[[DialogsEntity MR_findAll] firstObject] addDialogRSObject:dialogToCreate];
             }
         }
     }
-//    [DialogEntity MR_truncateAll];
-//        [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
+    [[NSManagedObjectContext MR_defaultContext]MR_saveToPersistentStoreAndWait];
     return self;
 }
 @end
