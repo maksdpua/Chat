@@ -34,17 +34,13 @@ static NSUInteger kCornerRadius = 5;
 @end
 
 @implementation DialogVC {
-    NSArray *allMessages;
+    
     CGFloat startHeightOfTextView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.messagesArray = [NSMutableArray new];
     [self settingsForVC];
-    
-    NSLog(@"UserID messages %@", self.userData.userID);
-    NSLog(@"DialogID messages %@", self.userData.dialogID);
     [self getMessages];
     
     
@@ -79,40 +75,58 @@ static NSUInteger kCornerRadius = 5;
 }
 
 - (void)didRecieveMessage:(NSNotification *)notification {
-//    MessageEntity *messageObject = [[MessageEntity alloc]initClassWithDictionary:notification.object];
-//    [allMessages addObject:messageObject];
-    [self getMessages];
-    NSInteger index = self.messagesArray.count - 1;
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    [self scrollToTheLastRowWithAnimation:YES];
-}
-
-- (void)getMessages {
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=20&offset=0", kURLServer, self.userData.userID] classMapping:[MessageEntity class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
-//        allMessages = (Messages *)responseObject;
         DialogEntity *dialog = [DialogEntity MR_findFirstByAttribute:@"dialogID" withValue:self.userData.dialogID];
-        allMessages =  dialog.messageRS.allObjects;
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:NO];
-            allMessages = [allMessages sortedArrayUsingDescriptors:@[sortDescriptor]];
-        [self reverseAllmessages];
-        [self.tableView reloadData];
-        [self scrollToTheLastRowWithAnimation:NO];
-        NSLog(@"%@", responseObject);
+        
+        NSArray *sortedArray = [self sortAndAddNewMessagesWithArray:dialog.messageRS.allObjects];
+        
+        [self reverseAllmessagesToMessageArrayWithArray:sortedArray];
+        [self insertNewRowInTableView];
+        [self scrollToTheLastRowWithAnimation:YES];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
         NSLog(@"%@", error);
     }];
 }
 
+- (void)getMessages {
+    [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=20&offset=0", kURLServer, self.userData.userID] classMapping:[MessageEntity class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
+        DialogEntity *dialog = [DialogEntity MR_findFirstByAttribute:@"dialogID" withValue:self.userData.dialogID];
+        NSArray *allMessages =  dialog.messageRS.allObjects;
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:NO];
+        NSArray *array = [allMessages sortedArrayUsingDescriptors:@[sortDescriptor]];
+        [self reverseAllmessagesToMessageArrayWithArray:array];
+        [self.tableView reloadData];
+        [self scrollToTheLastRowWithAnimation:NO];
+    }fail:^(AFHTTPRequestOperation *operation, NSError *error){
+        NSLog(@"%@", error);
+    }];
+}
+
+- (NSArray *)sortAndAddNewMessagesWithArray:(NSArray*)array {
+    
+    NSMutableArray *arrayDialog = [NSMutableArray arrayWithArray:array];
+    [arrayDialog removeObjectsInArray:self.messagesArray];
+    [self.messagesArray addObjectsFromArray:arrayDialog];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:NO];
+    
+    return [self.messagesArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+}
+
+- (void)insertNewRowInTableView {
+    NSInteger index = self.messagesArray.count - 1;
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
 - (void)scrollToTheLastRowWithAnimation:(BOOL)animation {
-    if (self.messagesArray.count>1) {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:allMessages.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
+    if (self.messagesArray.count) {
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
     }
 }
 
-- (void)reverseAllmessages {
-//    self.messagesArray = [NSMutableArray arrayWithCapacity:allMessages];
-    for (id element in [allMessages reverseObjectEnumerator]) {
+- (void)reverseAllmessagesToMessageArrayWithArray:(NSArray *)array {
+    self.messagesArray = [NSMutableArray new];
+    for (id element in [array reverseObjectEnumerator]) {
         [self.messagesArray addObject:element];
     }
 }
@@ -189,6 +203,22 @@ static NSUInteger kCornerRadius = 5;
     [UIView commitAnimations];
 }
 
+#pragma mark - TextViewConstraintUpdateMethod
+
+- (void)updateTextViewHeightConstraint {
+    [self.view setNeedsDisplay];
+    [UIView animateWithDuration:0.25 animations:^{
+        CGFloat fixedWidth = self.textView.frame.size.width;
+        CGSize newSize = [self.textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+        CGRect newFrame = self.textView.frame;
+        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+        self.textViewHeightCosntraint.constant = newFrame.size.height;
+        [self.view layoutIfNeeded];
+        [self scrollToTheLastRowWithAnimation:NO];
+    }];
+    
+}
+
 #pragma mark - UITextView Delegate Methods
 
 - (void)textViewDidEndEditing:(UITextView *)textView {
@@ -204,19 +234,7 @@ static NSUInteger kCornerRadius = 5;
     [self updateTextViewHeightConstraint];
 }
 
-- (void)updateTextViewHeightConstraint {
-    [self.view setNeedsDisplay];
-    [UIView animateWithDuration:0.25 animations:^{
-        CGFloat fixedWidth = self.textView.frame.size.width;
-        CGSize newSize = [self.textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-        CGRect newFrame = self.textView.frame;
-        newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-        self.textViewHeightCosntraint.constant = newFrame.size.height;
-        [self.view layoutIfNeeded];
-        [self scrollToTheLastRowWithAnimation:NO];
-    }];
-    
-}
+
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     if([text isEqualToString:@"\n"]) {
@@ -240,7 +258,6 @@ static NSUInteger kCornerRadius = 5;
 {
     ChatCell *cell = [[ChatCell alloc]init];
     MessageEntity *message = [self.messagesArray objectAtIndex:indexPath.row];
-    NSLog(@"Message ID in cell %@", message.userID);
     if ([[message userID] isEqualToString:[AuthorizeManager userID]]) {
         cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
     } else if ([[message userID] isEqualToString:self.userData.userID]){
@@ -253,9 +270,7 @@ static NSUInteger kCornerRadius = 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    [cell loadWithFrame:tableView.frame];
-//    return [cell heightForRowFromMessageObject:[self.messagesArray objectAtIndex:indexPath.row]].height+16+1;
+
     ChatCell *cell = [[ChatCell alloc]init];
     MessageEntity *message = [self.messagesArray objectAtIndex:indexPath.row];
     if ([[message userID] isEqualToString:[AuthorizeManager userID]]) {
