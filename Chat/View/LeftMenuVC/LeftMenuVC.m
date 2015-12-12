@@ -77,6 +77,7 @@
     if ([[self.leftMenuItems objectAtIndex:indexPath.row] isEqualToString:@"Logout"]) {
         [self requestToLogout];
         [AuthorizeManager removeUserIdAndSessionHashData];
+        [DialogsEntity MR_truncateAll];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self.navigationController popToRootViewControllerAnimated:YES];
         [self.slideMenuController hideMenu:YES];
@@ -93,7 +94,7 @@
 - (void)requestToLogout {
     [[APIRequestManager sharedInstance] PUTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogout] classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
-        [DialogsEntity MR_truncateAll];
+        
     } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];

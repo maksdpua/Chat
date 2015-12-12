@@ -33,7 +33,11 @@
 
 - (void)getDialogsWithCD {
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@%@%@",kURLServer, kDialogsOffeset, @"0",kDialogsLimit, @"10"] classMapping:[DialogsEntity class] requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        self.dialogsArray = [DialogEntity MR_findAllSortedBy:@"messageDate" ascending:NO];
+//        self.dialogsArray = [DialogEntity MR_findAllSortedBy:@"messageDate" ascending:NO];
+        
+        DialogsEntity *dE = [DialogsEntity MR_findFirst];
+        self.dialogsArray = [dE.dialogRS allObjects];
+        
         [self.tableView reloadData];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@", error);

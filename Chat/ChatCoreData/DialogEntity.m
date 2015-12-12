@@ -17,7 +17,16 @@
 }
 
 - (instancetype)initClassWithDictionary:(NSDictionary *)dictionary {
+    NSString *dialogidString = [NSString stringWithFormat:@"%@", [dictionary valueForKey:@"dialog_id"]];
+    
+    id obj = [DialogEntity MR_findFirstByAttribute:@"dialogID" withValue:dialogidString];
+    if (obj) {
+        self = obj;
+    } else {
+        self = [DialogEntity MR_createEntity];
+    }
     self = [super loadClassWithDictionary:dictionary InstructionDictionary:[self dictionaryInstructionManager]];
+    
     return self;
 }
 

@@ -94,9 +94,10 @@ static NSUInteger kCornerRadius = 5;
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=20&offset=0", kURLServer, self.userData.userID] classMapping:[MessageEntity class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
         DialogEntity *dialog = [DialogEntity MR_findFirstByAttribute:@"dialogID" withValue:self.userData.dialogID];
         NSArray *allMessages =  dialog.messageRS.allObjects;
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:NO];
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:YES];
         NSArray *array = [allMessages sortedArrayUsingDescriptors:@[sortDescriptor]];
-        [self reverseAllmessagesToMessageArrayWithArray:array];
+        self.messagesArray = [NSMutableArray arrayWithArray:array];
+//        [self reverseAllmessagesToMessageArrayWithArray:array];
         [self.tableView reloadData];
         [self scrollToTheLastRowWithAnimation:NO];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -122,7 +123,8 @@ static NSUInteger kCornerRadius = 5;
 
 - (void)scrollToTheLastRowWithAnimation:(BOOL)animation {
     if (self.messagesArray.count) {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.messagesArray.count-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
+        NSInteger countCells = [self.tableView numberOfRowsInSection:0];
+        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:countCells - 1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:animation];
     }
 }
 
@@ -167,14 +169,13 @@ static NSUInteger kCornerRadius = 5;
     NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
     
-
+    
     [self.view setNeedsDisplay];
     [UIView animateWithDuration:[self keyboardAnimationDurationForNotification:notification] animations:^{
         self.textFieldConstraint.constant = keyboardFrameBeginRect.size.height;
         [self.view layoutIfNeeded];
         [self scrollToTheLastRowWithAnimation:NO];
-    }completion:^(BOOL finished){
-        
+    } completion:^(BOOL finished){
     }];
 
 }

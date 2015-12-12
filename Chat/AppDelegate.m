@@ -24,6 +24,7 @@
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [SocketManager sharedSocket];
     [MagicalRecord setupCoreDataStackWithStoreNamed:@"ChatCD"];
+    NSLog(@"%@", [NSPersistentStore MR_defaultLocalStoreUrl]);
     return YES;
 }
 
