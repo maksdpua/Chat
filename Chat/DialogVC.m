@@ -58,6 +58,7 @@ static NSUInteger kCornerRadius = 5;
                                              selector:@selector(keyboardFrameWillChange:)
                                                  name:UIKeyboardWillChangeFrameNotification object:nil];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (didRecieveMessage:)
                                                  name:kMessage
@@ -71,6 +72,7 @@ static NSUInteger kCornerRadius = 5;
 - (void)settingsForVC {
     self.textView.layer.cornerRadius = kCornerRadius;
     startHeightOfTextView = self.textView.frame.size.height;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
     [self.sendButton setEnabled:NO];
 }
 
@@ -162,25 +164,33 @@ static NSUInteger kCornerRadius = 5;
 
 - (void)keyboardWillShow:(NSNotification*)notification {
     NSDictionary *keyboardInfo = [notification userInfo];
-    NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey];
+    NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    [self.view setNeedsDisplay];
     
-    [UIView animateWithDuration:0.25 animations:^{
+
+    [self.view setNeedsDisplay];
+    [UIView animateWithDuration:[self keyboardAnimationDurationForNotification:notification] animations:^{
         self.textFieldConstraint.constant = keyboardFrameBeginRect.size.height;
         [self.view layoutIfNeeded];
-        if (self.messagesArray.count) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tableView numberOfRowsInSection:0] - 1 inSection:0];
-            [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
-        }
+        [self scrollToTheLastRowWithAnimation:NO];
+    }completion:^(BOOL finished){
+        
     }];
+
 }
 
+
 - (void)keyboardWillHide:(NSNotification*)notification {
+    
+    
+    
+    [self.view setNeedsDisplay];
     self.textFieldConstraint.constant = self.view.frame.origin.y;
     [self.view layoutIfNeeded];
-    [self scrollToTheLastRowWithAnimation:YES];
+    [self scrollToTheLastRowWithAnimation:NO];
+ 
 }
+
 
 - (void)keyboardFrameWillChange:(NSNotification *)notification
 {
@@ -188,19 +198,26 @@ static NSUInteger kCornerRadius = 5;
 //    CGRect keyboardBeginFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
 //    UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
 //    NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
-//    
+//
 //    [UIView beginAnimations:nil context:nil];
 //    [UIView setAnimationDuration:animationDuration];
 //    [UIView setAnimationCurve:animationCurve];
-    
+//    
 //    CGRect newFrame = self.view.frame;
 //    CGRect keyboardFrameEnd = [self.view convertRect:keyboardEndFrame toView:nil];
 //    CGRect keyboardFrameBegin = [self.view convertRect:keyboardBeginFrame toView:nil];
 //    
 //    newFrame.origin.y -= (keyboardFrameBegin.origin.y - keyboardFrameEnd.origin.y);
-//    self.view.frame = newFrame;
+////    self.view.frame = newFrame;
+//    self.textFieldConstraint.constant = newFrame.size.height;
+//    
+//    [UIView commitAnimations];
+
+}
+
+- (NSTimeInterval)keyboardAnimationDurationForNotification: (NSNotification*)notification {
     
-    [UIView commitAnimations];
+    return [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
 }
 
 #pragma mark - TextViewConstraintUpdateMethod

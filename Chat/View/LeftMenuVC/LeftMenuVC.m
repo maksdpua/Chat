@@ -12,6 +12,7 @@
 #import "APIRequestManager.h"
 #import "ConstantsOfAPI.h"
 #import "AuthorizeManager.h"
+#import "DialogsEntity.h"
 
 @interface LeftMenuVC()<UITableViewDataSource, UITableViewDelegate>
 
@@ -92,6 +93,7 @@
 - (void)requestToLogout {
     [[APIRequestManager sharedInstance] PUTConnectionWithURLString:[NSString stringWithFormat:@"%@%@", kURLServer, kLogout] classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",responseObject);
+        [DialogsEntity MR_truncateAll];
     } fail:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"%@",error);
     }];

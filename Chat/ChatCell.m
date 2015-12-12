@@ -25,11 +25,10 @@
 
 - (void)setupWithModel:(MessageEntity *)model {
     self.labelCell.text = model.messageText;
-    [self.cellAvatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userAvatar]] placeholderImage:[UIImage placeholderImage]];
+    [self.cellAvatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];
 }
 
 - (void)loadWithFrame:(CGRect)rect {
-//    labelTextWidth = rect.size.width - leftX * 2;
     labelTextWidth = rect.size.width - 112;
 }
 
