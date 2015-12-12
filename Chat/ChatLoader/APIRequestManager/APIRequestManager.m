@@ -127,17 +127,16 @@ typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
 }
 
 - (void)connectionStartPOSTresponseWithData:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
-
+    
     responseBlock compl = response;
     failBlock fail = failure;
     
     [self.managerRequest POST:_urlString parameters:_parameters
     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-//        dispatch_async(dispatch_get_main_queue(), ^(void){
-            if (_dataWithImage) {
-                [formData appendPartWithFileData:_dataWithImage name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
-            }
-//        });
+        
+        if (_dataWithImage) {
+            [formData appendPartWithFileData:_dataWithImage name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
+        }
     }
                       success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
                           dispatch_async(dispatch_get_main_queue(), ^(void){
