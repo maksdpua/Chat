@@ -248,18 +248,6 @@ static NSString *kPhotoAdded = @"photoAdded";
     
         
     }
-    
-//    CGPoint fingerLocation = [scrollView.panGestureRecognizer locationInView:scrollView];
-//    CGPoint absoluteFingerLocation = [scrollView convertPoint:fingerLocation toView:self.view];
-//    
-//    if (scrollHidesKeyboard && scrollView.panGestureRecognizer.state == UIGestureRecognizerStateChanged && absoluteFingerLocation.y >= (self.view.frame.size.height - keyboardHeight- self.messageView.frame.size.height)) {
-//        
-//        [UIView animateWithDuration:.05 animations:^{
-//            //This is an autolayout constraint that needs to be set to the distance between the top of the keyboard and the bottom of the screen (with a buffer of 3)
-//            self.textFieldConstraint.constant = [[UIScreen mainScreen] bounds].size.height - absoluteFingerLocation.y - 3;
-//            [self.view layoutIfNeeded];
-//        }];
-//    }
 }
 
 
