@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15C47a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SiJ-Qu-Jp8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="SiJ-Qu-Jp8">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -687,7 +687,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aww-7E-jnG" userLabel="MessageView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aww-7E-jnG" userLabel="MessageViewField">
                                 <rect key="frame" x="0.0" y="437" width="320" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDV-K9-EPN">
@@ -702,8 +702,21 @@
                                             <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7qD-mn-oj5"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hf4-72-vco">
+                                        <rect key="frame" x="8" y="4" width="35" height="33"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="Dyv-bJ-g4M"/>
+                                            <constraint firstAttribute="width" constant="35" id="ctl-jJ-qEs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <state key="normal" title="+"/>
+                                        <connections>
+                                            <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ge0-BB-OfF"/>
+                                        </connections>
+                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kgu-ln-b6M">
-                                        <rect key="frame" x="8" y="4" width="260" height="35"/>
+                                        <rect key="frame" x="51" y="4" width="218" height="35"/>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -719,12 +732,14 @@
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="0.97426182729999999" blue="0.77913256350000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="JDV-K9-EPN" firstAttribute="leading" secondItem="Kgu-ln-b6M" secondAttribute="trailing" constant="2" id="Bft-ag-tLO"/>
+                                    <constraint firstItem="JDV-K9-EPN" firstAttribute="leading" secondItem="Kgu-ln-b6M" secondAttribute="trailing" constant="1" id="Bft-ag-tLO"/>
                                     <constraint firstAttribute="trailing" secondItem="JDV-K9-EPN" secondAttribute="trailing" id="EFr-M9-3iS"/>
                                     <constraint firstAttribute="bottom" secondItem="Kgu-ln-b6M" secondAttribute="bottom" constant="4" id="FBA-bl-JOj"/>
+                                    <constraint firstAttribute="bottom" secondItem="hf4-72-vco" secondAttribute="bottom" constant="6" id="Inn-mh-Nyd"/>
                                     <constraint firstItem="Kgu-ln-b6M" firstAttribute="top" secondItem="aww-7E-jnG" secondAttribute="top" constant="4" id="Lfk-sn-hGY"/>
+                                    <constraint firstItem="hf4-72-vco" firstAttribute="leading" secondItem="aww-7E-jnG" secondAttribute="leading" constant="8" id="evf-VK-UyH"/>
                                     <constraint firstAttribute="bottom" secondItem="JDV-K9-EPN" secondAttribute="bottom" constant="6" id="mwp-S2-dar"/>
-                                    <constraint firstItem="Kgu-ln-b6M" firstAttribute="leading" secondItem="aww-7E-jnG" secondAttribute="leading" constant="8" id="reH-z3-ocz"/>
+                                    <constraint firstItem="Kgu-ln-b6M" firstAttribute="leading" secondItem="hf4-72-vco" secondAttribute="trailing" constant="8" id="zLR-MU-VZt"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yny-Vu-8Fk">
@@ -894,11 +909,12 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="messageView" destination="Kgu-ln-b6M" id="C4N-IK-KZ6"/>
+                        <outlet property="messageView" destination="aww-7E-jnG" id="wdn-6u-U4N"/>
                         <outlet property="sendButton" destination="JDV-K9-EPN" id="Int-Kl-kmk"/>
                         <outlet property="tableView" destination="Yny-Vu-8Fk" id="uk6-M0-358"/>
                         <outlet property="textFieldConstraint" destination="EOD-V4-PNo" id="ZDN-nm-8ZK"/>
                         <outlet property="textView" destination="Kgu-ln-b6M" id="hAc-Ce-xz8"/>
+                        <outlet property="textViewBottomCosntraint" destination="FBA-bl-JOj" id="XCD-2h-EFn"/>
                         <outlet property="textViewHeightCosntraint" destination="W8F-fy-pu6" id="R43-z3-SIZ"/>
                     </connections>
                 </viewController>

@@ -20,16 +20,19 @@
 #import "MessageEntity.h"
 
 static NSUInteger kCornerRadius = 5;
+static NSString *kPhotoAdded = @"photoAdded";
 
-@interface DialogVC ()<UITableViewDelegate, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate>
+@interface DialogVC ()<UITableViewDelegate, UITableViewDelegate, UITextViewDelegate, UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UITextView *textView;
 @property IBOutlet NSLayoutConstraint *textFieldConstraint;
 @property IBOutlet NSLayoutConstraint *textViewHeightCosntraint;
+@property IBOutlet NSLayoutConstraint *textViewBottomCosntraint;
 @property (nonatomic, strong)NSMutableArray *messagesArray;
 @property (nonatomic, weak) IBOutlet UIButton *sendButton;
-@property (nonatomic, weak) IBOutlet UIView *messageView;
+@property (nonatomic, strong) IBOutlet UIView *messageView;
+@property (nonatomic, strong) UIImagePickerController *imagePicker;
 
 @end
 
@@ -38,6 +41,8 @@ static NSUInteger kCornerRadius = 5;
     CGFloat startHeightOfTextView;
     NSNumber *keyboardAnimationDuration;
     BOOL scrollHidesKeyboard;
+    CGFloat keyboardHeight;
+    UIImage *messagaPhoto;
 }
 
 - (void)viewDidLoad {
@@ -59,6 +64,10 @@ static NSUInteger kCornerRadius = 5;
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector (didRecieveMessage:)
                                                  name:kMessage
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector (addPhotoImageInMessageView)
+                                                 name:kPhotoAdded
                                                object:nil];
 }
 
@@ -95,7 +104,7 @@ static NSUInteger kCornerRadius = 5;
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:YES];
         NSArray *array = [allMessages sortedArrayUsingDescriptors:@[sortDescriptor]];
         self.messagesArray = [NSMutableArray arrayWithArray:array];
-//        [self reverseAllmessagesToMessageArrayWithArray:array];
+
         [self.tableView reloadData];
         [self scrollToTheLastRowWithAnimation:NO];
     }fail:^(AFHTTPRequestOperation *operation, NSError *error){
@@ -133,6 +142,26 @@ static NSUInteger kCornerRadius = 5;
     }
 }
 
+- (void)addPhotoImageInMessageView {
+    
+    CGRect frame = CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.y+self.textView.frame.size.height+4, 30, 30);
+    UIImageView *messagePhotoImage = [[UIImageView alloc]initWithFrame:frame];
+    messagePhotoImage.image = messagaPhoto;
+    messagePhotoImage.layer.masksToBounds = YES;
+    messagePhotoImage.layer.cornerRadius = 8;
+    
+    [self.view setNeedsDisplay];
+    [UIView animateWithDuration:5 delay:20 options:UIViewAnimationOptionBeginFromCurrentState animations:^(void){
+        self.textViewBottomCosntraint.constant = self.textViewBottomCosntraint.constant + 35;
+        [self.view layoutIfNeeded];
+        [self.messageView addSubview:messagePhotoImage];
+        [self.messageView bringSubviewToFront:messagePhotoImage];
+        
+    }completion:^(BOOL finished){
+        
+    }];
+}
+
 #pragma mark - Actions
 
 - (IBAction)sendMessage:(id)sender {
@@ -147,18 +176,22 @@ static NSUInteger kCornerRadius = 5;
     [self updateTextViewHeightConstraint];
 }
 
-#pragma mark - Touches
+- (IBAction)addPhoto:(id)sender {
+    self.imagePicker = [[UIImagePickerController alloc]init];
+    self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.imagePicker.delegate = self;
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+    
+}
 
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    NSSet *allTouches = [event allTouches];
-//    UITouch *touch = [[allTouches allObjects] objectAtIndex:0];
-//    CGPoint touchLocation = [touch locationInView:self.view];
-//    
-//    if (allTouches.count == 1 && touch.view == self.messageView) {
-//        
-//    }
-//}
+#pragma mark - UIImagePicker delegate Methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    messagaPhoto = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPhotoAdded object:nil];
+}
 
 #pragma mark - Keyboard notifications Methods
 
@@ -166,7 +199,7 @@ static NSUInteger kCornerRadius = 5;
     NSDictionary *keyboardInfo = [notification userInfo];
     NSValue *keyboardFrameBegin = [keyboardInfo valueForKey:UIKeyboardFrameBeginUserInfoKey];
     CGRect keyboardFrameBeginRect = [keyboardFrameBegin CGRectValue];
-    scrollHidesKeyboard = YES;
+    keyboardHeight = keyboardFrameBeginRect.size.height;
     
     [self.view setNeedsDisplay];
     [UIView animateWithDuration:[self keyboardAnimationDurationForNotification:notification].doubleValue animations:^{
@@ -174,8 +207,8 @@ static NSUInteger kCornerRadius = 5;
         [self.view layoutIfNeeded];
         [self scrollToTheLastRowWithAnimation:NO];
     } completion:^(BOOL finished){
+        scrollHidesKeyboard = YES;
     }];
-
 }
 
 
@@ -187,32 +220,48 @@ static NSUInteger kCornerRadius = 5;
     self.textFieldConstraint.constant = self.view.frame.origin.y;
     [self.view layoutIfNeeded];
     [self scrollToTheLastRowWithAnimation:NO];
- 
 }
-
-
-
 
 - (NSNumber *)keyboardAnimationDurationForNotification: (NSNotification*)notification {
     keyboardAnimationDuration = [NSNumber numberWithDouble:[notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
     return keyboardAnimationDuration;
 }
 
+
 #pragma mark - UIScrollViewDelegate methdods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollHidesKeyboard) {
-        NSLog(@"Content offset %@", NSStringFromCGPoint(scrollView.contentOffset));
-        NSLog(@"Content size %@", NSStringFromCGSize(scrollView.contentSize));
-        //    [self.view setNeedsDisplay];
-        [UIView animateWithDuration:keyboardAnimationDuration.doubleValue animations:^{
-            self.textFieldConstraint.constant = self.view.frame.size.height  - scrollView.contentSize.height - scrollView.contentOffset.y;
+    CGPoint positionInView = [scrollView.panGestureRecognizer locationInView:self.view];
+    NSLog(@"Keyboard+view %f", keyboardHeight + self.messageView.frame.size.height);
+    NSLog(@"Position tap %@", NSStringFromCGPoint(positionInView));
+    NSLog(@"textFieldConstraint %f", self.textFieldConstraint.constant);
+    NSLog(@"Summary %f", self.view.frame.size.height - positionInView.y);
+    if (scrollHidesKeyboard && positionInView.y > self.view.frame.size.height - keyboardHeight - self.messageView.frame.size.height) {
+        [self.view setNeedsDisplay];
+        [UIView animateWithDuration:0 animations:^{
+            [scrollView resignFirstResponder];
+            
+            self.textFieldConstraint.constant = self.view.frame.size.height - positionInView.y - self.messageView.frame.size.height;
             [self.view layoutIfNeeded];
-            //        [self scrollToTheLastRowWithAnimation:NO];
         } completion:^(BOOL finished){
         }];
+    
+        
     }
+    
+//    CGPoint fingerLocation = [scrollView.panGestureRecognizer locationInView:scrollView];
+//    CGPoint absoluteFingerLocation = [scrollView convertPoint:fingerLocation toView:self.view];
+//    
+//    if (scrollHidesKeyboard && scrollView.panGestureRecognizer.state == UIGestureRecognizerStateChanged && absoluteFingerLocation.y >= (self.view.frame.size.height - keyboardHeight- self.messageView.frame.size.height)) {
+//        
+//        [UIView animateWithDuration:.05 animations:^{
+//            //This is an autolayout constraint that needs to be set to the distance between the top of the keyboard and the bottom of the screen (with a buffer of 3)
+//            self.textFieldConstraint.constant = [[UIScreen mainScreen] bounds].size.height - absoluteFingerLocation.y - 3;
+//            [self.view layoutIfNeeded];
+//        }];
+//    }
 }
+
 
 #pragma mark - TextViewConstraintUpdateMethod
 
