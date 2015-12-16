@@ -16,7 +16,7 @@
 
 - (void)POSTConnectionWithURLString:(NSString *)urlString parameters:(NSDictionary *)parameters classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
-- (void)POSTConnectionWithURLStringAndData:(NSString *)urlString parameters:(NSDictionary *)parameters image:(UIImage *)image classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
+- (void)POSTConnectionWithURLStringAndData:(NSString *)urlString parameters:(NSDictionary *)parameters key:(NSString *)key image:(UIImage *)image classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 
 - (void)GETConnectionWithURLString:(NSString *)urlString classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure;
 

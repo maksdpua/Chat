@@ -126,7 +126,7 @@ typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
     }];
 }
 
-- (void)connectionStartPOSTresponseWithData:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (void)connectionStartPOSTresponseWithData:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure key:(NSString *)key{
     
     responseBlock compl = response;
     failBlock fail = failure;
@@ -135,7 +135,7 @@ typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
     constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         if (_dataWithImage) {
-            [formData appendPartWithFileData:_dataWithImage name:@"user_avatar" fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
+            [formData appendPartWithFileData:_dataWithImage name:key fileName:@"testImage.jpeg" mimeType:@"image/jpeg"];
         }
     }
                       success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
@@ -202,7 +202,7 @@ typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
     [self showProgressOnView:view];
 }
 
-- (void)POSTConnectionWithURLStringAndData:(NSString *)urlString parameters:(NSDictionary *)parameters image:(UIImage *)image classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
+- (void)POSTConnectionWithURLStringAndData:(NSString *)urlString parameters:(NSDictionary *)parameters key:(NSString*)key image:(UIImage *)image classMapping:(Class)classMapping requestSerializer:(BOOL)withSerializer showProgressOnView:(UIView *)view response:(void (^)(AFHTTPRequestOperation *operation, id responseObject))response fail:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure {
     
     [self fillManagerURLString:urlString parameters:parameters classMapping:classMapping showProgressOnView:view];
     
@@ -211,7 +211,7 @@ typedef void (^multipartBlock)(id<AFMultipartFormData> formData);
     if (withSerializer) {
         [self requestSerializer];
     }
-    [self connectionStartPOSTresponseWithData:response fail:failure];
+    [self connectionStartPOSTresponseWithData:response fail:failure key:key];
 }
 
 

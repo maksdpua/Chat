@@ -165,15 +165,24 @@ static NSString *kPhotoAdded = @"photoAdded";
 #pragma mark - Actions
 
 - (IBAction)sendMessage:(id)sender {
-
     NSDictionary *parametrs = @{@"message" : self.textView.text};
-    [[APIRequestManager sharedInstance] POSTConnectionWithURLString:[NSString stringWithFormat:@"%@%@%@", kURLServer, kSendmessage, self.userData.userID] parameters:parametrs classMapping:nil requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"Message send %@", responseObject);
-    }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@", error);
-    }];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@", kURLServer, kSendmessage, self.userData.userID];
+    if (!messagaPhoto) {
+        [[APIRequestManager sharedInstance] POSTConnectionWithURLString:urlString parameters:parametrs classMapping:nil requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"Message send %@", responseObject);
+        }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", error);
+        }];
+    } else {
+        [[APIRequestManager sharedInstance] POSTConnectionWithURLStringAndData:urlString parameters:parametrs key:@"message_photo1" image:messagaPhoto classMapping:nil requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
+            NSLog(@"Message send %@", responseObject);
+        }fail:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"%@", error);
+        }];
+    }
     self.textView.text = @"";
     [self updateTextViewHeightConstraint];
+    
 }
 
 - (IBAction)addPhoto:(id)sender {
@@ -191,6 +200,7 @@ static NSString *kPhotoAdded = @"photoAdded";
     messagaPhoto = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     [picker dismissViewControllerAnimated:YES completion:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kPhotoAdded object:nil];
+    [self.sendButton setEnabled:YES];
 }
 
 #pragma mark - Keyboard notifications Methods
@@ -232,10 +242,7 @@ static NSString *kPhotoAdded = @"photoAdded";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGPoint positionInView = [scrollView.panGestureRecognizer locationInView:self.view];
-    NSLog(@"Keyboard+view %f", keyboardHeight + self.messageView.frame.size.height);
-    NSLog(@"Position tap %@", NSStringFromCGPoint(positionInView));
-    NSLog(@"textFieldConstraint %f", self.textFieldConstraint.constant);
-    NSLog(@"Summary %f", self.view.frame.size.height - positionInView.y);
+
     if (scrollHidesKeyboard && positionInView.y > self.view.frame.size.height - keyboardHeight - self.messageView.frame.size.height) {
         [self.view setNeedsDisplay];
         [UIView animateWithDuration:0 animations:^{
@@ -274,7 +281,7 @@ static NSString *kPhotoAdded = @"photoAdded";
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
-    if ([self checkForSymbolsInString:self.textView.text]) {
+    if ([self checkForSymbolsInString:self.textView.text] || messagaPhoto) {
         [self.sendButton setEnabled:YES];
     } else {
         [self.sendButton setEnabled:NO];

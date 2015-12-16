@@ -101,7 +101,7 @@
                                       @"user_school" : @"55",
                                       @"user_hometown" : self.hometownTextField.text};
 
-        [[APIRequestManager sharedInstance]POSTConnectionWithURLStringAndData:[NSString stringWithFormat:@"%@%@",kURLServer, kMyProfile] parameters:userProfile image:self.avatarImage.image classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
+        [[APIRequestManager sharedInstance]POSTConnectionWithURLStringAndData:[NSString stringWithFormat:@"%@%@",kURLServer, kMyProfile] parameters:userProfile key:@"user_avatar" image:self.avatarImage.image classMapping:nil requestSerializer:YES showProgressOnView:self.view response:^(AFHTTPRequestOperation *operation, id responseObject){
             NSLog(@"%@", responseObject);
         }fail:^(AFHTTPRequestOperation *operation, NSError *error){
             NSLog(@"%@", error);
