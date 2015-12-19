@@ -19,6 +19,7 @@ static NSInteger leftX = 8;
 @property IBOutlet NSLayoutConstraint *leftConstaint;
 @property IBOutlet NSLayoutConstraint *rightConstaint;
 @property (nonatomic, weak) IBOutlet UIView *cellView;
+@property (nonatomic, weak) UIImageView *messagePhotoCell;
 
 
 - (void)setupWithModel:(MessageEntity *)model;

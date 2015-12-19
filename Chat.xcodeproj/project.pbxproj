@@ -14,6 +14,8 @@
 		2D45856A1C050AC600BBC0DB /* DialogsListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4585691C050AC600BBC0DB /* DialogsListVC.m */; };
 		2D45856E1C0514A500BBC0DB /* Dialogs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D45856D1C0514A500BBC0DB /* Dialogs.m */; };
 		2D45CE311BECEEED006B9021 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D45CE301BECEEED006B9021 /* testImage.jpg */; };
+		2D6722901C2438F50035C981 /* MessagePhoto+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D67228D1C2438F50035C981 /* MessagePhoto+CoreDataProperties.m */; };
+		2D6722911C2438F50035C981 /* MessagePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D67228F1C2438F50035C981 /* MessagePhoto.m */; };
 		2D6C82C01BEBD52000304EFA /* noUser.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82BF1BEBD52000304EFA /* noUser.jpg */; };
 		2D6C82C41BEBEBC000304EFA /* FamilyStatusPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */; };
 		2D6C82C61BEBEBD900304EFA /* FamilyStatusPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D6C82C51BEBEBD900304EFA /* FamilyStatusPicker.xib */; };
@@ -94,6 +96,10 @@
 		2D45856C1C0514A500BBC0DB /* Dialogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dialogs.h; path = Model/Dialogs/Dialogs.h; sourceTree = "<group>"; };
 		2D45856D1C0514A500BBC0DB /* Dialogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dialogs.m; path = Model/Dialogs/Dialogs.m; sourceTree = "<group>"; };
 		2D45CE301BECEEED006B9021 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
+		2D67228C1C2438F50035C981 /* MessagePhoto+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MessagePhoto+CoreDataProperties.h"; path = "ChatCoreData/MessagePhoto+CoreDataProperties.h"; sourceTree = "<group>"; };
+		2D67228D1C2438F50035C981 /* MessagePhoto+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MessagePhoto+CoreDataProperties.m"; path = "ChatCoreData/MessagePhoto+CoreDataProperties.m"; sourceTree = "<group>"; };
+		2D67228E1C2438F50035C981 /* MessagePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MessagePhoto.h; path = ChatCoreData/MessagePhoto.h; sourceTree = "<group>"; };
+		2D67228F1C2438F50035C981 /* MessagePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessagePhoto.m; path = ChatCoreData/MessagePhoto.m; sourceTree = "<group>"; };
 		2D6C82BF1BEBD52000304EFA /* noUser.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = noUser.jpg; sourceTree = "<group>"; };
 		2D6C82C21BEBEBC000304EFA /* FamilyStatusPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FamilyStatusPicker.h; path = Chat/FamilyStatusPicker/FamilyStatusPicker.h; sourceTree = "<group>"; };
 		2D6C82C31BEBEBC000304EFA /* FamilyStatusPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FamilyStatusPicker.m; path = Chat/FamilyStatusPicker/FamilyStatusPicker.m; sourceTree = "<group>"; };
@@ -243,6 +249,7 @@
 		2D29BAA81C14856100355B39 /* CoreDataChat */ = {
 			isa = PBXGroup;
 			children = (
+				2D6722921C2438FA0035C981 /* MessagePhoto */,
 				FCB2C2681C14FF9D00FD92FB /* Message */,
 				FCB2C2671C14FF8D00FD92FB /* Dialog */,
 				FCB2C24B1C14F69D00FD92FB /* Dialogs */,
@@ -277,6 +284,17 @@
 				2D45856D1C0514A500BBC0DB /* Dialogs.m */,
 			);
 			name = Dialogs;
+			sourceTree = "<group>";
+		};
+		2D6722921C2438FA0035C981 /* MessagePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				2D67228C1C2438F50035C981 /* MessagePhoto+CoreDataProperties.h */,
+				2D67228D1C2438F50035C981 /* MessagePhoto+CoreDataProperties.m */,
+				2D67228E1C2438F50035C981 /* MessagePhoto.h */,
+				2D67228F1C2438F50035C981 /* MessagePhoto.m */,
+			);
+			name = MessagePhoto;
 			sourceTree = "<group>";
 		};
 		2D6C82C11BEBEB7700304EFA /* FamilyStatusPicker */ = {
@@ -993,11 +1011,13 @@
 				2DB5D8CF1BF9F0A9008BD41E /* AllFoundedUsers.m in Sources */,
 				2DB7049F1C07A46600054B8D /* Messages.m in Sources */,
 				FCB2C2631C14FF7400FD92FB /* DialogEntity+CoreDataProperties.m in Sources */,
+				2D6722911C2438F50035C981 /* MessagePhoto.m in Sources */,
 				2DF667B31BFCFFE200A90451 /* Friends.m in Sources */,
 				2DB5D8D41BFA01D1008BD41E /* SearchFriendCell.m in Sources */,
 				2D7CF0891BF68E4300C48015 /* AuthorizeManager.m in Sources */,
 				FCB2C2641C14FF7400FD92FB /* DialogEntity.m in Sources */,
 				FCBE68751BEDE09F00AAA0D6 /* MenuVC.m in Sources */,
+				2D6722901C2438F50035C981 /* MessagePhoto+CoreDataProperties.m in Sources */,
 				FCB53C251BDB5F3A0035B38B /* ChatCell.m in Sources */,
 				2D29BAAB1C14858F00355B39 /* ChatCD.xcdatamodeld in Sources */,
 				FCB9EB841BF757CB0025920A /* MainNavigation.m in Sources */,

@@ -11,6 +11,8 @@
 #import "AuthorizeManager.h"
 #import "MessageElement.h"
 
+static int const kCornerRadius = 8;
+
 @implementation ChatCell
 {
     NSInteger labelTextWidth;
@@ -18,14 +20,20 @@
 
 - (void)awakeFromNib {
     self.cellAvatarImage.layer.masksToBounds = YES;
-    self.cellAvatarImage.layer.cornerRadius = 8;
+    self.cellAvatarImage.layer.cornerRadius = kCornerRadius;
     self.cellView.layer.masksToBounds = YES;
-    self.cellView.layer.cornerRadius = 8;
+    self.cellView.layer.cornerRadius = kCornerRadius;
+    self.messagePhotoCell.layer.masksToBounds = YES;
+    self.messagePhotoCell.layer.cornerRadius = kCornerRadius;
 }
 
 - (void)setupWithModel:(MessageEntity *)model {
     self.labelCell.text = model.messageText;
     [self.cellAvatarImage setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.userThumbnailAvatar]] placeholderImage:[UIImage placeholderImage]];
+//    if ([self checkForSymbolsInString:model.messagePhoto]) {
+//        [self.messagePhotoCell setImageWithURL:[NSURL URLWithString:[self checkForImageAvatarPath:model.messagePhoto]]];
+//    }
+    NSLog(@"Photo %@", [model messagePhotoRS]);
 }
 
 - (void)loadWithFrame:(CGRect)rect {
@@ -40,7 +48,12 @@
     NSString *text = (messageObject.messageText && messageObject.messageText.length > 0) ? messageObject.messageText : @" ";
     NSDictionary *attributes = @{NSFontAttributeName: self.labelCell.font};
     CGSize size = [text boundingRectWithSize:CGSizeMake(labelTextWidth, FLT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
-    return size;
+    if (!self.messagePhotoCell) {
+        return size;
+    } else {
+        
+        return size;
+    }
 }
 
 - (void)cellFromMessage:(MessageEntity *)messageObject {

@@ -26,6 +26,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *messageDate;
 @property (nullable, nonatomic, retain) NSString *online;
 @property (nullable, nonatomic, retain) DialogEntity *dialogRS;
+@property (nullable, nonatomic, retain) NSSet<MessagePhoto *> *messagePhotoRS;
+
+@end
+
+@interface MessageEntity (CoreDataGeneratedAccessors)
+
+- (void)addMessagePhotoRSObject:(MessagePhoto *)value;
+- (void)removeMessagePhotoRSObject:(MessagePhoto *)value;
+- (void)addMessagePhotoRS:(NSSet<MessagePhoto *> *)values;
+- (void)removeMessagePhotoRS:(NSSet<MessagePhoto *> *)values;
 
 @end
 

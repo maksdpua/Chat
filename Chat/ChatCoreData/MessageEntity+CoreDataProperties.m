@@ -24,5 +24,6 @@
 @dynamic messageDate;
 @dynamic dialogRS;
 @dynamic online;
+@dynamic messagePhotoRS;
 
 @end

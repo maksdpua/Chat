@@ -18,6 +18,7 @@
 #import "SocketManager.h"
 #import "MessageObject.h"
 #import "MessageEntity.h"
+#import "MessagePhoto.h"
 
 static NSUInteger kCornerRadius = 5;
 static NSString *kPhotoAdded = @"photoAdded";
@@ -101,6 +102,7 @@ static NSString *kPhotoAdded = @"photoAdded";
     [[APIRequestManager sharedInstance] GETConnectionWithURLString:[NSString stringWithFormat:@"%@messages/%@?limit=20&offset=0", kURLServer, self.userData.userID] classMapping:[MessageEntity class] requestSerializer:YES showProgressOnView:nil response:^(AFHTTPRequestOperation *operation, id responseObject){
         DialogEntity *dialog = [DialogEntity MR_findFirstByAttribute:@"dialogID" withValue:self.userData.dialogID];
         NSArray *allMessages =  dialog.messageRS.allObjects;
+        
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"messageDate" ascending:YES];
         NSArray *array = [allMessages sortedArrayUsingDescriptors:@[sortDescriptor]];
         self.messagesArray = [NSMutableArray arrayWithArray:array];
@@ -326,17 +328,18 @@ static NSString *kPhotoAdded = @"photoAdded";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    ChatCell *cell = [[ChatCell alloc]init];
-    MessageEntity *message = [self.messagesArray objectAtIndex:indexPath.row];
-    if ([[message userID] isEqualToString:[AuthorizeManager userID]]) {
-        cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
-    } else if ([[message userID] isEqualToString:self.userData.userID]){
-        cell = [tableView dequeueReusableCellWithIdentifier:kSpeakerDialogCell];
-    } else {
-        NSLog(@"Wrong UserID %@",self.userData.userID);
-    }
-    [cell loadWithFrame:tableView.frame];
-    return ([cell heightForRowFromMessageObject:message].height+16+1 < cell.cellAvatarImage.frame.size.height+8) ? cell.cellAvatarImage.frame.size.height+8 : [cell heightForRowFromMessageObject:message].height+16+1;
+//    ChatCell *cell = [[ChatCell alloc]init];
+//    MessageEntity *message = [self.messagesArray objectAtIndex:indexPath.row];
+//    if ([[message userID] isEqualToString:[AuthorizeManager userID]]) {
+//        cell = [tableView dequeueReusableCellWithIdentifier:kUserDialogCell];
+//    } else if ([[message userID] isEqualToString:self.userData.userID]){
+//        cell = [tableView dequeueReusableCellWithIdentifier:kSpeakerDialogCell];
+//    } else {
+//        NSLog(@"Wrong UserID %@",self.userData.userID);
+//    }
+//    [cell loadWithFrame:tableView.frame];
+//    return ([cell heightForRowFromMessageObject:message].height+16+1 < cell.cellAvatarImage.frame.size.height+8) ? cell.cellAvatarImage.frame.size.height+8 : [cell heightForRowFromMessageObject:message].height+16+1;
+    return UITableViewAutomaticDimension;
 }
 
 //- (void)tableView:(UITableView *)tableView willDisplayCell:(ChatCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
